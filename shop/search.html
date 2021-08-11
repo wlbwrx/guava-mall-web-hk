@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="【阿噗購物】列表頁-購物，從阿噗開始" />
+		<meta property="og:description"   content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。" />
+		<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+		<title>阿噗購物</title>
+		<meta name="description" content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。!">
+		
+		<!-- 安卓平台 chrome -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg">
+		<!-- ios平台 safari -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+		<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+		<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+
+		<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+		
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+
+		<meta name="google-site-verification" content="a3WEnwgZ_FcabGTmMSO6g50wtWQa_wFAS0PjnZ9rwN0" />
+        <meta name="google-site-verification" content="P2fm2-zmVc_izaSI_NJQCYdguWpqbjTbBQFd_jD0NwI" />
+        
+		<link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/css/mdui.min.css">
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css">
+		<link rel="stylesheet" href="../css/common.css?v=20210125">
+		<style>
+            .top-left-options a.text-icon-options{margin-right: 0!important;color: #363636;}
+            .top-right-options span{padding: 0 4px 0 12px; display: inline-block;}
+
+            .mdui-page-container{margin-top: 9px; background: #fff; padding: 14px 15px 3px;}
+            .mdui-page-container:last-child{margin-bottom: 30px;}
+            .mdui-page-container > span{color: #979797; font-size: 14px; line-height: 14px;}
+            .mdui-page-container > div{padding-top: 12px;display: flex; align-items:flex-start; flex-wrap: wrap;}
+            .mdui-page-container > div > span{padding: 7px 22px; color: #363636;font-size: 14px; line-height: 14px;margin-right: 14px; display: inline-flex;border: 1px solid #DFDEDB;margin-bottom: 15px; border-radius: 4px; align-items: center;}
+            .mdui-page-container > div > span img{ height: 14px; margin-right: 4px;}
+
+            .history_box,.hot_box{display: none;}
+            .delete-icon{width:14px;height:14px;margin:0 10px;float: right;}
+        </style>
+		<script>
+			var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+		</script>
+	</head>
+	<body class="mdui-appbar-with-toolbar" onload="setStart()" onbeforeunload="setEnd()">
+		<div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-toolbar-hide">
+            <div class="mdui-toolbar-title">
+                <div class="top-left-options">
+                    <a class="text-icon-options" href="javascript:void(0)" onclick="tools.goBack();"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png"></a>
+                </div>
+                <div class="top-center-options">
+                    <div class="search_box">
+                        <div class="search_box_bg">
+							<img src="../image/icon/search.png" alt="" srcset="">
+                        </div>
+						<form action="#" onsubmit="return false;">
+                            <input type="search" class="search_input" maxlength="20" placeholder="輸入你想要的···">
+						</form>
+                    </div>
+                </div>
+                <div class="top-right-options">
+                    <span onclick="tools.goBack()">取消</span>
+                </div>
+            </div>
+		</div>
+		
+		<div class="mdui-page-container history_box">
+            <span>歷史搜索</span>
+            <img class="delete-icon" onclick="app.methods.deleteHistory()" src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-del.png">
+            <div class="history_list"></div>
+        </div>
+
+        <div class="mdui-page-container hot_box">
+            <span>大家都在搜</span>
+            <div class="hot_list"></div>
+        </div>
+
+        <div class="associate_box" style="display: none;"></div>
+
+		<!-- <div class="mdui-valign mdui-text-center mdui-page-bottom">
+			<span class="mdui-page-bottom-text">香港芭樂科技有限公司版權所有<a href="../other/index.html">了解我們</a></span>
+		</div> -->
+	</body>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/art-template/lib/template-web.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/templateImport.js?v=20180526"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script src="../js/common.js?v=20200108"></script>
+	<script>
+		commonConfig.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + commonConfig.getGATracking());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag("config",commonConfig.getGATracking());
+		if(commonConfig.getGATracking() != 'UA-117174835-7'){
+			gtag("config",'UA-117174835-7');
+		}
+	</script>
+	<script>
+		!function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+	</script>
+    <script>
+        var app = {
+			data: {
+            },
+			methods: {
+                initHot: function(){
+                    $$.ajax({
+                        url: commonConfig.websitePrefix() + "/search/track/hotword",
+                        success: function(data) {
+                            app.methods.initDom('.hot_box', data.body || [])
+                        }
+                    })
+                },
+                initHistory: function(){
+                    var history = cacheLocalstorage.getCache('search_history') || []
+                    app.methods.initDom('.history_box', history)
+                },
+                initDom: function(dom, data){
+                    if(data.length == 0){
+                        return
+                    }
+                    var html = '';
+                    data.map(function(e){
+                        html += '<span onclick="app.methods.openList(\''+e.keyword.trim()+'\')">' + (e.isHot ? '<img src="../image/star-10.png">' : '')+e.keyword.trim()+'</span>'
+                    })
+                    $$(dom).show().children('div').html(html)
+                },
+                openList: function(key){
+		            window.location.href = "../shop/s_list.html?key=" + escape(key)
+                },
+                deleteHistory: function(){
+                    cacheLocalstorage.setCache('search_history', [])
+                    $$('.history_box').hide()
+                }
+            },
+			init: function() {
+                tools.initScopeInfo();
+                tools.focusSearch();
+                app.methods.initHot()
+                app.methods.initHistory()
+			}
+		};
+		$$(function() {
+			app.init();
+		});
+    </script>
+</html>

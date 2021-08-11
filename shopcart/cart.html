@@ -1,0 +1,2448 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="【阿噗購物】訂單確認-購物，從阿噗開始" />
+	<meta property="og:description"   content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。" />
+	<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+	<title>阿噗購物</title>
+	<meta name="description" content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。!">
+	
+	<!-- 安卓平台 chrome -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg">
+	<!-- ios平台 safari -->
+	<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+	<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+	
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+	<meta name="renderer" content="webkit">
+	<!-- <meta name="nav"> -->
+	<meta http-equiv="Expires" CONTENT="0">
+	<meta http-equiv="Cache-Control" CONTENT="no-cache">
+	<meta http-equiv="Pragma" CONTENT="no-cache">
+    <link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/css/mdui.min.css">
+    <link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/city-picker/css/city-picker.css">
+    <link rel="stylesheet" href="../css/common.css?v=20210125">
+	<style>
+		/* .mdui-appbar .top-left-options.noNav > .left{display: none;}
+		.mdui-appbar .top-left-options.noNav > .text-icon-options{margin-left: 0;}
+		.mdui-appbar .top-left-options:not(.noNav) > .text-icon-options{display: none;}
+		.mdui-appbar .top-left-options:not(.noNav) + div + div .text-icon-options{display: none;} */
+		.mdui-list{
+			padding: 0;
+		}
+		.city-picker-dropdown{min-width: auto;max-width: 79vw;position: relative}
+		.city-picker-span{height: 42px;line-height: 42px;}
+		.city-picker-span > .placeholder{color: #D1D1D1}
+
+        .mdui-address{position:relative;box-sizing:border-box;min-height:75px;background:#FFFCEC url(https://d3o2c7bn83e5x8.cloudfront.net/image/border.jpg) bottom repeat-x;font-size:14px;color:#363636;padding:12px 4%;cursor:pointer}
+		.mdui-address span{display:inline-block;margin-right:12px;line-height:24px;font-weight:700;font-size: 16px}
+		.mdui-address span:last-child{display:block;font-weight:500;font-size: 12px}
+		.mdui-address .mdui-icon{position:absolute;top:23px;right:4%;font-size:24px;margin-right:-10px;color:#979797!important}
+
+		.mdui-cart-products{background:#FFF;}
+		/* .mdui-cart-products .mdui-list-item{padding: 0;margin-top: 15px}
+		.mdui-cart-products .mdui-list-item:hover{background-color:initial}
+		.mdui-cart-products .mdui-list-item .check-icon{width:20px;height:20px;margin-right:10px}
+		.mdui-cart-products .mdui-list-item .exchange-check{width:20px;height:20px;margin-right:10px}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-title{font-size:14px;color:#000;line-height:14px;height:16px;margin-bottom:8px}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-text{font-size:12px;color:#7B7B7B;height: auto;} */
+		.mdui-cart-products .mdui-cart-product-sku-img{width:80px;height:80px;margin-right:10px;vertical-align:middle}
+		.mdui-cart-products .mdui-cart-product-sku-info{padding-top:2px;flex-grow:1;height:78px;position:relative;top:0;float:right}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2{position:absolute;width:100%;bottom:2px}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .mdui-list-item-text-price{font-size:14px;color:#B4272D}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .mdui-list-item-text-price .original-price{font-size:12px;color:#777;text-decoration:line-through}
+		
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .delete-icon{width:14px;height:14px;position:relative;top:2px;margin:0 10px}
+
+		.mdui-cart-products .mdui-list{padding:0}
+		.mdui-cart-products .mdui-list>.mdui-divider-inset{margin:0!important;background-color:rgba(0,0,0,.1)}
+
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags{display: inline-block;border-radius: 8px;height: 16px;padding: 3px 4px;box-sizing: border-box;background: rgba(180, 39, 45, .1);color: #B4272D;margin-right: 3px;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags span{font-size: 12px;display: block;text-align: center;transform: scale(0.8);line-height: 10px;}
+		.mdui-cart-products .mdui-list-item-title .mdui-list-item-promotion-tags-depletion{display: inline-block;border-radius: 8px;height: 16px;padding: 3px 4px;box-sizing: border-box;background: rgba(242, 143, 45, .1);color: #F56207;margin-right: 3px;}
+		.mdui-cart-products .mdui-list-item-title .mdui-list-item-promotion-tags-depletion span{font-size: 12px;display: block;text-align: center;transform: scale(0.8);line-height: 10px;}
+		
+		.mdui-cart-products .mdui-list-item-remark{display: block;width: 100%;color: #BCBCBC;line-height: 10px;margin-top: 8px}
+		.mdui-cart-products .mdui-list-item-remark span{margin-left: -16px;font-size: 12px;display: inline-block;transform: scale(0.8);}
+
+		/* .mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags{display: flex;margin-top: 2px;width: 156px; border-radius: 12px;overflow: hidden;font-size: 0;border: 1px solid #979797}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags span{font-size: 12px;display: block;text-align: center;line-height: 16px}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags span:first-child{background: #979797;color: #FFF;width: 36px;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags span:last-child{color: #979797;background: #fff;flex: 1}
+
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags-1{border: 1px solid #F28F2D;width: 52px;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags-1 span:first-child{width: 52px;background:#fff;color: #F28F2D} */
+
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2.promotion-text{bottom:4px}
+		.mdui-cart-products .mdui-cart-product-sku-info .promotion-num{font-size:12px;color:#7B7B7B}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2.promotion-text .mdui-list-item-text-price{top:0}
+
+		.mdui-cart-products .mdui-cart-products-bottom{padding:0 4%;padding-left:calc(4% + 35px);height:40px;line-height:40px;border-top:1px solid #EDEDED;cursor:pointer}
+		.mdui-cart-products .mdui-cart-products-bottom .promotion-price{color:#B4272D}
+		.mdui-cart-products .mdui-cart-products-bottom .mdui-float-right{color:#B4272D}
+		.mdui-cart-products .mdui-cart-products-bottom .mdui-float-right .mdui-icon{color:#B4272D;margin-top:-2px;margin-right:-10px}
+
+		body.mdui-bottom-nav-fixed .mdui-bottom-nav{height:calc(50px + env(safe-area-inset-bottom));display: block;}
+		.mdui-bottom-nav{padding:0;position:relative;box-sizing:border-box;z-index:1;border-top:1px solid #EDEDED;}
+
+		.mdui-bottom-nav .info{color:#B4272D;font-size:26px;padding-left: 16px;width: 200px;}
+		.mdui-bottom-nav .info span:first-child{font-size:14px;font-weight:400;color: #B4272D}
+		.mdui-bottom-nav .info span:last-child{font-size:12px;font-weight:400;color: #B4272D;}
+		.mdui-bottom-nav #buyNow{height:50px;width:120px;float: right;border-radius:0}
+		.mdui-bottom-nav #buyNow span{display: block;font-size: 16px; height: 16px;line-height: 16px;}
+		.mdui-bottom-nav #buyNow span:first-child{font-size: 12px; height: auto; line-height: 12px;padding-bottom: 3px; }
+
+		.open-comments{color: #B4272D;font-size:14px;margin: 18px 0;display: block;padding: 0 4%}
+		.done-comments button{border: none;background: transparent;color: #B4272D;padding: 0;font-size: 14px}
+
+		.mdui-cart-comments{margin-top:10px;margin-bottom:10px;padding:15px 10px 12px 10px;background:#FFF;font-size: #000;display: none}
+		.mdui-cart-comments > span{display: flex;justify-content: space-between;align-items: center;padding-bottom: 8px;font-size: #000;font-size: 14px}
+		.mdui-cart-comments > span img{width: 18px;}
+		.mdui-cart-comments.noWrite > span img{opacity: 0.3}
+		.mdui-cart-comments .mdui-cart-comments-area{width:100%;height:80px;resize:none;border:none;border-radius:2px;box-sizing:border-box;outline:0;font-size:12px}
+		.mdui-cart-comments .comments-bottom{text-align: right;}
+		.mdui-cart-comments .comments-bottom button{border: none;background: transparent;padding: 7px 11px}
+		.mdui-cart-comments .comments-bottom button:focus{outline: none}
+		.mdui-cart-comments .comments-bottom .cancel{color: #777777}
+		.mdui-cart-comments .comments-bottom .submit{color: #fff;background: #B4272D;border-radius: 4px}
+		.mdui-cart-comments.noWrite .comments-bottom .submit{opacity: 0.3}
+
+		.click-add-address{text-align:center;margin-top:10px}
+		.click-add-address>.mdui-btn{color:#B4272D;font-size:16px;height:28px;line-height:28px;background:0 0;font-weight: 700}
+
+    	/*適配iphone5*/
+		@media (max-width:320px){
+			.mdui-cart-products .mdui-cart-product-sku-img{width:90px;height:90px}
+			.mdui-cart-products .mdui-cart-product-sku-info{width:calc(100% - 135px);height:90px}
+		}
+
+		.mdui-pay-info{margin-top:10px}
+		.mdui-pay-info .mdui-list{padding:10px 4%}
+		.mdui-pay-info .mdui-list .mdui-list-item{box-sizing: border-box;align-items: flex-start;padding: 9px 0;font-size: 14px;min-height: 24px;line-height: 12px;color:#000;display:flex;justify-content:space-between}
+		.mdui-pay-info .mdui-list .mdui-list-item:hover{background:#fff}
+		.mdui-pay-info .mdui-list .mdui-list-item:after{height: auto;}
+		.mdui-pay-info .mdui-list .mdui-list-item:last-child{border-bottom:0}
+		.mdui-pay-info .mdui-list .mdui-list-item span{flex-grow:1}
+		.mdui-pay-info .mdui-list .mdui-list-item > div{font-size: 14px}
+
+		.openSelect{background: #fff;color:#000;padding: 6px 4% 5px;}
+		.openSelect > div{display: flex;align-items: center;justify-content: space-between;padding: 10px 0;border-top: 1px dashed #EDEDED;width: 100%;color: #000;}
+		.openSelect:first-child > div{border-top: 0}
+		.openSelect .typeMes{display: flex;align-items: center;flex: 1;justify-content: flex-end;}
+		.openSelect .typeMes div{color: #777;}
+
+		.selectMarketView .view-bottom-content{height: 100%;padding: 0}
+		.selectMarketView .view-bottom-content .step1{margin: 0 4%;}
+		.selectMarketView .view-bottom-content .step1 ul{padding: 0;margin-top: 20px;display: flex;justify-content: center;align-items: center;list-style: none}
+		.selectMarketView .view-bottom-content .step1 ul li{border:1px solid #BCBCBC;width: 50%;border-radius:8px;padding: 8px;display: flex;justify-content: space-between;align-items: center;}
+		.selectMarketView .view-bottom-content .step1 ul li:nth-child(2n){margin-left: 5px}
+		.selectMarketView .view-bottom-content .step1 ul li:nth-child(2n+1){margin-right: 5px}
+		.selectMarketView .view-bottom-content .step1 ul li i{margin-right: -8px;}
+		.selectMarketView .view-bottom-content .step2{display: none;height: 100%;}
+		.selectMarketView .view-bottom-content .step2 .breadNav{border-bottom: 1px solid #EDEDED;height: 44px;padding: 0 4%;display: flex;align-items: center}
+		.selectMarketView .view-bottom-content .step2 .breadNav .noVal{color: #BCBCBC!important}
+		.selectMarketView .view-bottom-content .step2 .breadNav .level_type{display: flex;align-items: center}
+		.selectMarketView .view-bottom-content .step2 .breadNav img{width: 24px;margin-right: 6px}
+		.selectMarketView .view-bottom-content .step2 .selectAdd{height: calc(100% - 45px);overflow-y: auto;position: relative;width: 100vw;overflow-x: hidden}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul{background: #fff;margin: 0 4% 60px ;list-style: none;padding: 0;position: absolute;width: 92%;box-sizing: border-box}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.level_town,
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.level_market{left: 100vw;}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul li{line-height:40px;color: #000;}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul li.active{color: #B4272D;}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.level_market li{line-height: 14px;padding-top: 20px;}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.level_market li i{display: block;font-style: normal;font-size: 12px;color: #777777;line-height: 12px;padding-top: 8px;}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.show{display: block!important}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul:not(.show){display: none!important}
+		@keyframes showNext{from {left: 100vw;}to {left: 0;}}
+		@keyframes showPrev{from {left: 0;}to {left: 100vw;}}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.showNext{left: 0;animation: 0s showNext ease-in-out;display: block}
+		.selectMarketView .view-bottom-content .step2 .selectAdd ul.showPrev{left: 100vw;animation: 0s showPrev ease-in-out;display: block}
+
+		.selectSuperMarket{display: block}
+		.selectSuperMarket > div:first-child{display: flex;justify-content: space-between;align-items: center;min-height: 48px;}
+		.selectSuperMarket .typeMes{display: flex;justify-content: space-between;align-items: center;}
+		.selectSuperMarket .typeMes > div{color: #BCBCBC;justify-content: flex-end;align-items: center;display: flex;}
+		.selectSuperMarket .marketDetail{padding-right: 10px;padding-right: 15px;text-align: right;font-size: 12px;}
+
+		.inputCouponView .useCoupon{margin-top: 25px;padding: 0 4%;}
+		.inputCouponView .useCoupon > div{display: flex;align-items: center}
+		.inputCouponView .useCoupon > span{font-size: 12px;padding: 8px 0;display: block;}
+		.inputCouponView .useCoupon input{font-size: 14px;flex: 1;border: 1px solid #BCBCBC;border-radius: 4px;height: 44px;padding: 0 12px;box-sizing: border-box}
+		.inputCouponView .useCoupon *:focus{outline: none;}
+		.inputCouponView .useCoupon button{font-size: 14px;margin-left: 12px;border: 0;opacity: 1;color: #FFFFFF;height: 38px;padding: 12px 18px;text-align: center;line-height: 12px;background: #9F8A60;border-radius: 4px;}
+		/* .inputCouponView .useCoupon button.noUse{opacity: 0.5} */
+	
+		.addressView .view-bottom-head{position: relative}
+		.addressView .view-bottom-head button{position: relative;z-index: 1}
+		.addressView .view-bottom-head span{position: absolute;text-align: center;left: 0;right: 0;z-index: 0}
+		.addressView .view-bottom-head .success{border: 1px solid #B4272D;background: #fff;color: #B4272D;font-size: 12px;height: 26px}
+		.addressView .saveAddress{margin-top: 10px;height: 40px;border: none;width: 100%;background: #B4272D;border-radius: 4px;font-size: 16px;color: #FFFFFF;text-align: center;line-height: 16px;}
+		.addressView .mdui-list .mdui-list-item{padding:0;color:#363636}
+		.addressView .mdui-list .mdui-list-item label{font-size: 14px}
+		.addressView .mdui-list .mdui-list-tip{font-size: 11px;color: #ED1B2E;}
+		.addressView .mdui-list .mdui-list-tip.new{
+			padding: 7px 15px;
+			border-radius: 5px;
+			background: rgba(237, 27, 46, 0.1);
+		}
+		.addressView .mdui-list .mdui-list-item:hover{background-color:initial}
+		.addressView .address-home .mdui-list .mdui-list-item label{width:60px;min-width:60px}
+		.addressView .address-market .mdui-list .mdui-list-item label{width:100px;min-width:100px}
+		.addressView .mdui-list .mdui-list-item input{text-align: right;flex: 1;outline:0;background:#FFF;height:40px;border:none;font-size:14px;font-family:PingFangSC-Light,helvetica,'Heiti SC',"Hiragino Sans GB","Microsoft Yahei",sans-serif}
+		.addressView .address-home .mdui-list .mdui-list-item input{text-align: left}
+		.mdui-list-address{font-size: 14px}
+
+		input::-webkit-input-placeholder{color:#D1D1D1}
+		input::-moz-placeholder{color:#D1D1D1}
+		input:-moz-placeholder{color:#D1D1D1}
+		input:-ms-input-placeholder{color:#D1D1D1}
+
+		.addressView .mdui-list-address .mdui-select{font-size: 12px;color: #363636;width:100px;}
+		
+		#card-errors{margin-top: 10px;color: #B4272D;}
+		
+		/* 选择付款方式-当前页 */
+		/* .openPayType ul{padding: 0;list-style: none;margin: 0}
+		.openPayType ul li{cursor: pointer;padding: 10px 0;display: flex;align-items: center;font-size: 14px;color: #000;}
+		.openPayType ul li.tip-stripe{padding: 0 0 10px 30px;font-size: 12px;color: #777;margin-top: -5px}
+		.openPayType ul li .typeCon{display: flex;justify-content: flex-start;font-size: 14px;width: 100%;}
+		.openPayType ul li .typeCon p{margin: 0 10px 0 0;display: inline;line-height: 20px;text-wrap:none;}
+		.openPayType ul li .check-icon{height: 20px;margin-right: 10px}
+		.openPayType ul li img:not(.check-icon){height: 16px;margin-right: 6px} */
+		/* 选择付款方式-弹框 */
+		.selectPayType .view-bottom-footer{padding: 0 4%}
+		.selectPayType .view-bottom-footer .successToNext{height: 38px;margin-top: -3px}
+		.selectPayType .successToNext:focus{outline: none}
+		.selectPayType  .view-bottom-content ul{padding: 0;list-style: none;margin: 0}
+		.selectPayType   .view-bottom-content ul li{cursor: pointer;padding: 14px 0;display: flex;align-items: center;font-size: 14px;color: #000;}
+		.selectPayType   .view-bottom-content ul li.tips{font-size:12px;color:#777;line-height:12px;padding: 0;margin-top: -7px;padding-left: 30px;padding-bottom: 14px}
+		.selectPayType   .view-bottom-content ul li .typeCon{display: flex;justify-content: center;font-size: 14px;}
+		.selectPayType   .view-bottom-content ul li .typeCon span{margin: 0 10px 0 0;display: inline;line-height: 20px;word-break: keep-all;}
+		.selectPayType   .view-bottom-content ul li .check-icon{height: 20px;margin-right: 10px}
+		.selectPayType   .view-bottom-content ul li img:not(.check-icon){height: 16px;margin-right: 6px}
+
+		.mdui-dialog.mdui-noemail-dialog{z-index: 10000;}
+		.mdui-dialog.mdui-noemail-dialog .mdui-dialog-actions{padding:0}
+		.mdui-dialog.mdui-noemail-dialog .mdui-dialog-actions .mdui-btn{background:#B4272D;color:#FFF;text-align:center}
+		.mdui-dialog.mdui-noemail-dialog > .mdui-dialog-title{font-size:14px;color:#363636;padding:20px 15px 10px 15px;font-weight:bold}
+		.mdui-dialog.mdui-noemail-dialog > .mdui-dialog-title + .mdui-dialog-content{font-size:14px;color:#181818;padding:0 15px 10px 15px}
+		.mdui-dialog.mdui-noemail-dialog > .mdui-dialog-title + .mdui-dialog-content > p > span{display:block;margin-left:50px;font-size:13px}
+		.mdui-dialog{width:85%}
+		@media (min-width: 600px){
+			.mdui-dialog{width:60%}
+			.mdui-dialog.mdui-noemail-dialog > .mdui-dialog-title + .mdui-dialog-content > p > span{display:inline-block;margin-left:20px}
+		}
+		.scrape-together-reminder{text-align: center;color: #B4272D;position: fixed; right: 0; bottom: 50px; left: 0;max-width: 750px; margin: 0px auto; background: #F7E9EA; height: 30px; line-height: 30px; padding: 0px 4%; box-sizing: border-box;z-index: 1; cursor: pointer;font-size: 12px;box-shadow: inset 0 0 0 0 #DFDEDB;}
+		.scrape-together-reminder img {width: 15px;height: 15px;vertical-align: middle;margin-top: -5px;}
+		.scrape-together-reminder i{font-weight: 700;font-style: normal}
+		body.mdui-bottom-nav-fixed{padding-bottom: 96px}
+		input{-webkit-user-select: text;}
+
+		div.card{margin: 10px 2.1% 0;border-radius: 6px;overflow: hidden}
+		/*管理室代收*/
+		.mana-block {padding: 15px 4%;display: flex;justify-content: space-between;}
+		.mana-prompt {margin-top: 8px;font-size: 12px;color: #777777;}
+		.mana-room-right {display: flex;}
+		.mana-radio {width: 70px;height: 30px;background: #BCBCBC;border-radius: 50px;color: #fff;font-size: 12px;display: flex;display: -webkit-flex;text-align: center;line-height: 30px;position: relative;margin: auto;}
+		.mana-radio:before {content:'';position:absolute;width:28px;height:28px;background:#fff;border-radius:50%;top: 1px;left: 2px;box-shadow: 2px 0px 10px #999;transition: 0.3s all;}
+		.mana-radio span {position:absolute;right:10px;top:0;}
+		.mana-radio.add:before {left:40px;box-shadow:-1px 0px 10px #999;}
+		.mana-radio.add span {left:10px;right:inherit;}
+		.mana-radio.add {background:#25d96b;}
+		/*商品清单*/
+		.product-detail {padding: 10px;display: flex;}
+
+		.StripeElement {box-sizing: border-box;height: 40px;padding: 10px 12px;border: 1px solid transparent;border-radius: 4px;background-color: white;box-shadow: 0 1px 3px 0 #e6ebf1;-webkit-transition: box-shadow 150ms ease;transition: box-shadow 150ms ease;}
+		.StripeElement--focus {box-shadow: 0 1px 3px 0 #cfd7df;}
+		.StripeElement--invalid {border-color: #fa755a;}
+		.StripeElement--webkit-autofill {background-color: #fefde5 !important;}
+
+		#tip-info{position: fixed;top: 52%;text-align: center;font-size: 14px;color: #fff;z-index: 10001;left: 0;right: 0}
+
+		/* 購物車 */
+		.mdui-cart-products-container{margin-top: -1px;}
+		.mdui-cart-products{background: #FFFFFF;border-radius: 6px;}
+		.mdui-cart-products .mdui-list-item{padding: 0;font-size: 0;flex-wrap: wrap;margin-bottom: 24px; border: 0;}
+		.mdui-cart-products .mdui-list-item:last-child{margin-bottom: 0;}
+		.mdui-cart-products .mdui-list-item:after{height: 0}
+		.mdui-cart-products .mdui-list-item.gift-item{padding-bottom: 6px}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-remark{display: block;width: 100%;color: #BCBCBC;line-height: 10px;margin-top: 8px}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-remark span{font-size: 12px;display: block;transform: scale(0.8);}
+		.mdui-cart-products .mdui-list-item .swiper-wrapper .swiper-slide{display: flex;align-items: center;}
+		.mdui-cart-products .mdui-list-item:hover{background-color: initial;}
+		.mdui-cart-products .mdui-list-item .check-icon,
+		.mdui-cart-products .mdui-list-item .exchange-check{width: 20px; height: 20px; margin-right: 15px;}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-title{font-size: 14px; color: #000;height: 18px}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-title .mdui-list-item-promotion-tags-depletion{display: inline-block;border-radius: 8px;height: 16px;padding: 3px 4px;box-sizing: border-box;background: rgba(242, 143, 45, .1);color: #F56207;margin-right: 3px;}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-title .mdui-list-item-promotion-tags-depletion span{font-size: 12px;display: block;text-align: center;transform: scale(0.8);line-height: 10px;}
+		.mdui-cart-products .mdui-list-item .mdui-list-item-text{font-size: 12px; color: #7B7B7B;height: 12px;margin-top: 8px}
+		.mdui-cart-products .mdui-cart-product-sku-img{width: 80px; height: 80px; margin-right: 5px;vertical-align: middle;border-radius: 6px !important;}
+		.mdui-cart-products .mdui-cart-product-sku-info{width: calc(100% - 130px); height: 80px;position: relative; top: 0px;float: right;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2{position: absolute; width: 100%; bottom: 0px;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .mdui-list-item-text-price{font-size: 14px; color: #B4272D;position: absolute;bottom: 0;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .mdui-list-item-text-price .original-price{font-size: 12px; color: #7B7B7B;text-decoration: line-through;padding-left: 2px}
+			/* iPhone6 */
+		@media(max-width: 375px) {
+			.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .mdui-list-item-text-price .original-price {
+				font-size: 14px;
+				color: #7B7B7B;
+				text-decoration: line-through;
+				padding-left: 0px;
+				display: block;
+			}
+		}
+		
+		.mdui-cart-products .delete-icon{width: 22px; height: 22px; position: relative; top: 2px; margin-right: 18px;}
+		.mdui-cart-products .mdui-list{padding: 0px !important;}
+		.mdui-cart-products .mdui-list > .mdui-divider-inset{height: 8px; margin: 0px !important; background: #F4F4F4;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags{display: inline-block;border-radius: 8px;height: 16px;padding: 3px 4px;box-sizing: border-box;background: rgba(180, 39, 45, .1);color: #B4272D;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-promotion-tags span{font-size: 12px;display: block;text-align: center;transform: scale(0.8);line-height: 10px;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2.promotion-text{bottom: 4px;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2.promotion-text .promotion-num{font-size: 12px ;color: #7B7B7B;}
+		.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2.promotion-text .mdui-list-item-text-price{top: 0px;}
+		.mdui-cart-products .mdui-cart-products-bottom{margin: 0 0 0 4%;padding-right: 4%; margin-left: calc(4% + 35px); height: 40px; line-height: 40px; border-top: 1px solid #EDEDED; cursor: pointer;}
+		.mdui-cart-products .mdui-cart-products-bottom .mdui-float-right{color: #B4272D;}
+		.mdui-cart-products .mdui-cart-products-bottom .mdui-float-right .mdui-icon{color: #B4272D; margin-top: -2px;margin-right: -10px;}
+		.mdui-cart-products .swiper-container{width: 100%;}
+		.mdui-cart-products .swiper-slide.menu{font-size: 14px;min-width: 80px; width: 20% ; max-width: 100px;background: #dd524d; color: #FFF; height: 80px; display: flex; justify-content: center; align-items: center;margin-left: 4px;}
+		
+		/* .mini-cart{z-index: 5099;}
+		.mini-cart .view-bottom-head{border-bottom: 1px solid #EDEDED;}
+		.mini-cart .view-bottom-head span{color: #F28F2D; font-size: 14px}
+		.mini-cart .view-bottom-head button{display: inline-flex; align-items: center;}
+
+		.mini-cart .view-bottom-footer{display: flex; align-items: center; padding: 0;box-shadow:0px -1px 0px 0px rgba(237,237,237,1);}
+		.mini-cart .info{flex: 1;padding: 0 16px; height: 50px;display: flex;flex-direction: column;justify-content: center;}
+		.mini-cart .info div:first-child{font-size: 12px; line-height: 12px; color: #B4272D;}
+		.mini-cart .info div:last-child{font-size: 10px; line-height: 10px; color: #7B7B7B;padding-top: 4px;}
+		.mini-cart .info div span{font-size: 22px; line-height: 22px;}
+		
+		.mini-cart #buyNow{height: 50px; width: 36%; border-radius: 0px;line-height: 50px; border: 0;}
+		.mini-cart #buyNow.no-active{background-color: #EF9A9A !important;}
+		.mini-cart #buyNow:active{opacity: 1;} */
+		.empty-carts{text-align: center;height: 260px; background: #FFF; box-sizing: border-box; padding-top: 48px;}
+    	.empty-carts .cart-img-empty{display: block; margin: 0px auto;width: 24%; max-width: 100px;}
+    	.empty-carts .cart-tip-empty{display: block;color: #7B7B7B; padding: 16px 0px;}
+    	.empty-carts .cart-empty-to-buy{border: 1px solid #B4272D;border-radius: 2px;color: #B4272D;line-height: 14px; width: 110px; height: 30px; line-height: 30px; background: #FFF;}
+    	.empty-carts .mdui-page-bottom{background: #FFF;position: absolute; bottom: 0px;width: 100%;max-width: 750px;}
+    	
+		.delete-confirm{width: 84%;}
+		.delete-confirm .mdui-dialog-content .mdui-cart-product-sku-img{width: 80px; height: 80px; margin-right: 10px;}
+		.delete-confirm .mdui-dialog-content .mdui-cart-product-sku-info{width: calc(100% - 90px); height: 90px;position: relative; top: 0px;float: right;}
+		.delete-confirm .mdui-dialog-content .mdui-cart-product-sku-info .mdui-list-item-title{font-size: 14px; color: #363636; margin-top: 12px;}
+		.delete-confirm .mdui-dialog-content .mdui-cart-product-sku-info .mdui-list-item-text{font-size: 12px; color: #7B7B7B; margin-top: 12px;}
+		.delete-confirm .mdui-dialog-title{text-align: center;}
+		.delete-confirm .mdui-dialog-actions{padding: 0px; display: flex;}
+		.delete-confirm .mdui-dialog-actions .mdui-btn{margin: 0px; padding: 0px; width: 50%;background: #FAFAFA; height: 48px; line-height: 48px; border-top: 1px solid #EDEDED;color: #7B7B7B;font-size: 16px;}
+		.delete-confirm .mdui-dialog-actions .mdui-btn:first-child{border-right:1px solid #EDEDED;color: #B4272D;}
+
+		.mdui-numbox{display: inline-block;position: relative;width: 100px;height: 28px;border: 1px solid #EDEDED;border-radius: 2px;color:#363636;}
+		.mdui-numbox .mdui-numbox-btn i{top:50%;left: 50%;margin-left: -8px;margin-top: -8px;position: absolute;}
+		.mdui-numbox .mdui-numbox-btn{width:28px;height:28px;border:none;background:#FFF;outline:none;position:absolute;top:0;cursor: pointer;}
+		.mdui-numbox .mdui-numbox-btn .mdui-icon{font-size: 16px; color: #363636;}
+		.mdui-numbox .mdui-numbox-input{font-size: 14px;width:100%;height:100%;margin:0;overflow:hidden;text-align:center;text-overflow:ellipsis;word-break:normal;border:none;outline:none;padding:0;text-align:center;}
+		.mdui-numbox .mdui-numbox-btn-minus{left:0;border-right:1px solid #EDEDED}
+		.mdui-numbox .mdui-numbox-btn-plus{right:0;border-left:1px solid #EDEDED}
+		
+		@media (min-width: 600px){
+			.mdui-dialog{width:60%}
+			.mdui-dialog.mdui-noemail-dialog > .mdui-dialog-title + .mdui-dialog-content > p > span{display:inline-block;margin-left:20px}
+		}
+		
+		/*適配iphone5*/
+		@media (max-width: 320px){
+			.mdui-cart-products .mdui-cart-product-sku-img{width: 64px; height: 64px;}
+			.mdui-numbox{width: 85px;}
+			.mdui-cart-products .mdui-cart-product-sku-info{width: calc(100% - 109px); height: 64px;}
+			.mdui-cart-products .mdui-cart-product-sku-info .mdui-list-item-text2 .delete-icon{margin: 0px 4px;}
+			.mdui-cart-products .swiper-slide.menu{height: 64px;}
+			.mdui-card-aggregation > .mdui-card-product-content .mdui-card-product{width: 110px;}
+			.mdui-card-aggregation > .mdui-card-content{height: 190px;}
+			.mdui-card-aggregation .mdui-card-product-content .mdui-card-product{width: 100px;}
+		}
+		
+		@media (min-width: 750px){
+			.delete-confirm{width: 60%;}
+			.mdui-card-aggregation .mdui-card-product-content .mdui-card-product{width: 180px;}
+			.mdui-card-aggregation > .mdui-card-content{height: auto;}
+		}
+		.mdui-cart-promotion-container{background: #FFFCEE;padding: 8px 2% 8px 4%;display: none;}
+		.mdui-cart-promotion-container a{color: #F28F2D;font-size: 14px;text-decoration: none;display: flex;justify-content: space-between;align-items: center;}
+
+		.mdui-overlay{background: transparent;}
+		.mdui-overlay::after{content: '';width: 160px; height: 70px; top: 30%; left: 50%; margin-left: -80px; margin-top: 80px;border-radius: 10px; position: fixed;background:rgba(0,0,0,.7)}
+		#returnBack{
+			position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.4);left:0;top:0;display:none;z-index:10000;
+		}
+		#returnBack #returnBackIn{
+			position:absolute;
+			width:78%;padding:20px 6%;
+			background:#fff;
+			height:150px;
+			top:50%;margin-top:-75px;
+			left:5%;
+			border-radius:10px;
+		}
+		.backHeader{
+			font-size:18px;text-align: center;color:#222;font-weight:400;
+		}
+		.backArticle{
+			color:#222;font-size:14px;text-align: center;margin:20px 0;line-height: 20px;
+		}
+		.backButton{
+			display:flex;display:-webkit-flex;
+		}
+		.backButton button{
+			flex:1;
+			background:#ED1B2E;border:1px solid #ED1B2E;
+			color:#fff;border-radius:100px;height:35px;font-size:16px;
+		}
+		.backButton button:first-child{
+			background:none;
+			color:#ED1B2E;margin-right:15px;
+		}
+		.seedtail-new{
+			margin: 0;display: block;padding-left: 16px;font-size: 12px;color: #777777;margin-top: 3px;
+		}
+	</style>
+	<script>
+		var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+	</script>
+</head>
+<body class="mdui-bottom-nav-fixed mdui-appbar-with-toolbar mdui-loaded" onload="setStart()" onbeforeunload="setEnd()" id="shopcart-cart">
+	<a id="order_success" href="../shopcart/success.html" style="display: none;"></a>
+	<div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+		<div class="mdui-toolbar-title">
+			<div class="top-left-options">
+				<a class="text-icon-options" href="javascript:void(0)" onclick="app.methods.returnBack()"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png"></a>
+				<!-- <a href="../shop/index.html" class="mdui-btn mdui-btn-icon toHome text-icon-options"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-homepage.png" /></a> -->
+			</div>
+			<div class="mdui-center mdui-valign point-progress point-progress-min">
+				<ul>
+					<li class="active"><i>1</i></li>
+					<li></li>
+					<li><i>2</i></li>
+				</ul>
+				<ul>
+					<li class="active"><i>確認訂單信息</i></li>
+					<li><i>訂購完成</i></li>
+				</ul>
+			</div>
+			<div class="top-right-options">
+				<a class="text-icon-options" href="javascript:void(0)" class="" style="opacity: 0;"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png"></a>
+			</div>
+		</div>
+	</div>
+	<div id="no-list">
+		<div style="padding: 14px 10px 0 10px;font-weight: 800;color: #222222; font-size: 16px;">
+			收件人地址
+		</div>
+			
+		<div class="addressView card" style="background-color: #fff;">
+			<div style="padding: 10px 4%;">
+				<div class="view-bottom-content address-home">
+					<ul class="mdui-list">
+						<li class="mdui-list-item" style="min-height: 30px;height: 37px;">
+							<label>姓名</label>
+							<input type="text" name="username" placeholder="請填寫收件人姓名" />
+						</li>
+						<!-- <li class="mdui-divider mdui-m-y-0"></li> -->
+						<!-- <li class="mdui-list-tip">註：應香港海關要求，顧客須填寫真實姓名，以便您的商品順利過關</li> -->
+						<li class="mdui-list-tip">註：為保證訂單順利到達，請您填寫完整姓名</li>
+						<li class="mdui-divider mdui-m-y-0" style="margin-top:11px !important;"></li>
+						<li class="mdui-list-item">
+							<label>電話</label>
+							<input type="tel" name="phone" placeholder="請填寫聯系電話"/>
+						</li>
+						<li class="mdui-divider mdui-m-y-0"></li>
+						<li class="mdui-list-item">
+							<label>地址</label>
+							<div class="mdui-list-address">
+								<div style="position: relative;">
+									<input readonly type="text" data-toggle="city-picker" placeholder="請選擇地址" data-level="district" >
+								</div>
+							</div>
+						</li>
+						<li class="mdui-list-item">
+							<label></label>
+							<input type="text" style="width: 100%;" name="adressDetails" placeholder="街道、樓牌號等"/>
+						</li>
+						<li class="mdui-list-tip new">️<span>⚠️</span>不支持智能櫃和便利店自提，請填寫上門地址</li>
+					</ul>
+					<!-- <button class="success saveAddress" >確定</button> -->
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="mdui-color-white mdui-pannel mdui-pay-info card">
+			<div class="mana-block">
+				<div>
+					<div>商品需要管理室代收嗎？</div>
+					<div class="mana-prompt">如需管理室代收，請打開右側開關。</div>
+				</div>
+				<div class="mana-room-right">
+					<div class="mana-radio">
+						<span>不要</span>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	
+		<div style="padding: 16px 10px 0 10px;font-weight: 800;color: #222222; font-size: 16px;">
+			付款方式
+		</div>
+		<div class="mdui-color-white mdui-pannel mdui-pay-info card" style="padding: 10px 4%;">
+			<div class="selectPayType">
+					<div class="view-bottom-content havfooter">
+						<ul>
+							<li>
+								<img class="check-icon select"  id="cash-on-delivery" src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon_check.png" data-type='cash' width="20px">
+								<div class="typeCon ">
+									<span class="typeCon-text">貨到付款</span>
+								</div>
+							</li>
+							<li>
+								<img class="check-icon" id="credit-card" src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon_no_check.png" data-type='stripe' width="20px">
+								<div class="typeCon">
+									<span class="card-text">信用卡</span>
+									<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/visa.png" width="20px" height="16px">
+									<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/MasterCard.png" width="20px" height="16px">
+									<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/American-Express.png" width="20px" height="16px">
+									<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/discover.png" width="20px" height="16px">
+								</div>
+							</li>
+							<li class="tips" style="color:#F28F2D">使用信用卡付款，隨機立減，最高可減HK$99</li>
+						</ul>
+					</div>
+					<!-- <div class="view-bottom-footer">
+						<button class="sure successToNext">確定</button>
+					</div> -->
+			</div>
+		</div>
+
+		<div style="padding: 16px 10px 0 10px;font-weight: 800;color: #222222; font-size: 16px;">
+			商品清單
+		</div>
+		<div class="mdui-color-white mdui-pannel mdui-pay-info card">
+			<div class="mdui-cart-products-container" style="padding: 0 4%;">
+
+			</div>
+			<div id="product-detail" class="product-detail">
+				<div  style="overflow-x: scroll;white-space: nowrap;flex: 1;"> 
+					<div id="cart-products-width">
+					</div>
+				</div>
+				<div style="width: 76px;text-align: center;margin: auto;">
+					<span stlye="font-size:12px" id="all-product"></span>	<i class="mdui-icon material-icons" style="width: 10px;color:#777777">keyboard_arrow_right</i></span></a></span>
+				</div>
+			</div>
+		</div>
+
+		<div style="padding: 16px 10px 0 10px;font-weight: 800;color: #222222; font-size: 16px;">
+			明細表
+		</div>
+		<div class="mdui-color-white mdui-pannel mdui-pay-info card">
+			<ul class="mdui-list">
+				<li class="mdui-list-item">
+					<span>商品總金額</span>
+					<div class="orderPay">···</div>
+				</li>
+				<li class="mdui-list-item">
+					<span class="label">運費</span>
+					<div class="orderExpressCount">...</div>
+				</li>
+				<div class="detail-list" style="margin-top: 10px;">
+	
+				</div>
+				<div style="color:#777777;font-size: 12px;height: 20px;">差價= 全網低價-8折價</div>
+	
+				<li class="mdui-list-item  typeMesDetail">
+					<span class="label">折價劵優惠</span>
+					<div style="color:#B4272D"></div>
+				</li>
+			</ul>
+		</div>	
+	
+		<div style="padding: 16px 10px 0 10px;font-weight: 800;color: #222222; font-size: 16px;">
+			優惠碼
+		</div>
+		<div class="mdui-color-white mdui-pannel mdui-pay-info card inputCouponView">
+			<div class="useCoupon" style="margin: 0;padding: 0;float: left;"><input id="useCoupon-text" type="text" placeholder="輸入優惠碼號" style="border: 0px;"></div>
+			<div id="useCoupon-btn" style="float: right;border: 1px solid #B4272D; color:#B4272D;padding: 8px 12px;border-radius:6px ;margin-top: 5px;margin-right: 10px;">套用</div>
+			<div id="useCoupon-del" style="float: right;display: none;border: 1px solid #222222; color:#222222;padding: 8px 12px;border-radius:6px ;margin-top: 5px;margin-right: 10px;">刪除</div>
+			<div id="useCoupon-err" style="width: 100%;float: left;"></div>
+		</div>
+
+		<span class="open-comments" style="padding: 0 10px 18px  10px;font-weight: 800;color:#B4272D; font-size: 16px;">添加留言</span>
+		<div style="padding: 16px 10px 0 10px;font-weight: 800;color: #222222; font-size: 16px; display: none;" id="comments-my">
+			我的留言
+		</div>
+		<div class="mdui-cart-comments noWrite write-comments card">
+			<textarea class="mdui-cart-comments-area" placeholder="我想說..." style="font-size: 16px;"></textarea>
+		</div>
+	</div>
+
+	<!-- <div class="scrape-together-reminder">
+		<span><img src="../image/icon/icon-caveat.png" /> 因新春物流停運 1.25日之後的訂單 延遲到2.21日後發貨</i></span>
+	</div> -->
+	<div class="mdui-bottom-nav">
+		<div class="mdui-row mdui-color-white">
+			<div style="width: 200px;float: left;">
+				<div class="info">
+					<span style="font-size: 14px;">合計: </span></span><span style="font-size:14px;">HK$</span>0
+					
+				</div>
+				<div style="width: 200px;padding-left: 16px;color:#7B7B7B;font-size: 12px;" class="seeDetail">
+					點擊此處，查看明細 <img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-top.png" width="11px" alt="">
+				</div>
+				<p class="seedtail-new"></p>
+			</div>
+			
+			<button id="buyNow" class="mdui-btn mdui-btn-block mdui-color-red-900"><span></span><span>結賬</span></button>
+		</div>
+	</div>
+	<!-- 解決安卓在facebook的占位 -->
+	<div id="androidFbDiv" style="position:fixed;bottom:0;left:0;width:100%;height:50px;background:#fff;display:none;"></div>
+	<div class="selectMarketView view-bottom">
+		<div class="view-bottom-box view-bottom-box-sml">
+			<div class="view-bottom-content">
+				<div class="step1">
+					<ul>
+						<li data-type="3">
+							<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon-market-3.jpg" alt="7-11" style="height: 24px;margin-right: 6px">
+							選擇7-11門市
+							<i class="mdui-icon material-icons mdui-text-color-grey-800 array-right">keyboard_arrow_right</i>
+						</li>
+						<!-- <li data-type="2">
+							<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon-market-2.jpg" alt="7-11" style="height: 24px;margin-right: 6px">
+							選擇全家門市
+							<i class="mdui-icon material-icons mdui-text-color-grey-800 array-right">keyboard_arrow_right</i>
+						</li> -->
+					</ul>
+				</div>
+				<div class="step2">
+					<div class="breadNav">
+						<div class="level_type">
+							<img src="">
+							<span></span>
+						</div>
+						<div class="level_city">
+							<i class="mdui-icon material-icons mdui-text-color-grey-500 array-right">keyboard_arrow_right</i>
+							<span></span>
+						</div>
+						<div class="level_town">
+							<i class="mdui-icon material-icons mdui-text-color-grey-500 array-right">keyboard_arrow_right</i>
+							<span></span>
+						</div>
+					</div>
+					<div class="selectAdd">
+						<ul class="level_city show"></ul>
+						<ul class="level_town"></ul>
+						<ul class="level_market"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="selectDetail view-bottom" style="bottom: 50px !important;">
+		<div class="view-bottom-box view-bottom-box-sml" style="height: 250px;top:calc(100% - 250px)">
+			<div class="view-bottom-head">
+				<button class="success" style="opacity: 0;">確認</button>
+				<span>訂單明細表</span>
+				<button class="closeDetail"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-close2.png" class="close-pub"></button>
+			</div>
+			<div class="view-bottom-content" >
+				<div class="mdui-color-white mdui-pannel mdui-pay-info card" style="padding: 0;margin: 0;">
+					<ul class="mdui-list" style="padding: 0;" >
+						<li class="mdui-list-item">
+							<span class="orderProCount">商品合計(0)</span>
+                        </li>
+                        <li class="mdui-list-item">
+							<span >合計總金額</span>
+							<div class="orderPay">···</div>
+						</li>
+						<li class="mdui-list-item orderDiscountDepletion" style="display: none">
+							<span class="label">活動優惠</span>
+							<div ></div>
+						</li>
+						<li class="mdui-list-item" style="margin-top: 5px;">
+							<span class="label">運費</span>
+							<div class="orderExpressCount">...</div>
+						</li>
+                        <div class="detail-list" style="margin-top: 10px;">
+
+						</div>
+						<div style="color:#777777;font-size: 12px;">差價= 全網低價-8折價</div>
+						<li class="mdui-list-item  typeMesDetail">
+							<span class="label">折價劵優惠</span>
+							<div style="color:#B4272D"></div>
+						</li>
+					</ul>
+				</div>	
+			</div>
+		
+		</div>
+	</div>
+
+
+	<div class="orderDetail view-bottom">
+		<div class="view-bottom-box view-bottom-box-big">
+			<div class="view-bottom-head" style="box-shadow:0px 1px 0px 0px rgba(237,237,237,1)">
+				<button class="close"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png" class="close-pub"></button>
+				<span id="product-detail-text" style="font-size: 18px;color: #222222;font-weight: 800;"></span>
+				<button class="success" style="visibility: hidden;"></button>
+			</div>
+			<div class="view-bottom-content order-content" style="padding: 15px 4%;"></div>
+		</div>
+	</div>
+
+	<div class="stripePay view-bottom">
+		<div class="view-bottom-box view-bottom-box-sml">
+			<div class="view-bottom-head">
+				<button class="close" onclick="app.methods.closeCardPay()"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png" class="close-pub"></button>
+				<span>填寫銀行卡信息</span>
+				<button class="success" style="opacity: 0;">確認</button>
+			</div>
+			<div class="view-bottom-content" id="stripePayBox"></div>
+		</div>
+	</div>
+	
+	<div class="mdui-dialog mdui-noemail-dialog" id="example-1">
+		<div class="mdui-dialog-title">可在訂單完成時複製保存訂單編號</div>
+		<div class="mdui-dialog-content">
+			<p>方法1：通過編號，詢問商城在線客服<span>（週一至週五10:00-19:00）</span></p>
+			<p>方法2：可在商城-右上角【訂單查詢】<span>輸入訂單編號查詢</span></p>
+		</div>
+		<div class="mdui-dialog-actions mdui-dialog-actions-stacked">
+			<button class="mdui-btn mdui-ripple" mdui-dialog-close>知道了</button>
+		</div>
+	</div>
+	
+	<div id="tip-info" style="display:none">订单生成中，请耐心等待</div>
+	<!-- 新增返回弹出层 -->
+	<div id="returnBack">
+		<div id="returnBackIn">
+			<div class="backHeader">
+				放棄購買嗎
+			</div>
+			<div class="backArticle">
+				您選購的商品都是熱賣單品 <br> 隨時都有可能售空，確定要放棄購買嗎？
+			</div>
+			<div class="backButton">
+				<button onclick='tools.goBack();'>放棄結算</button>
+				<button onclick='$$("#returnBack").hide()'>再考虑一下</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.js"></script>
+<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/art-template/lib/template-web.js"></script>
+<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/jquery-2.1.0.js"></script>
+<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.js"></script>
+<!-- <script src="https://js.stripe.com/v3/"></script> -->
+<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/city-picker/js/city-picker-hk.data20201113.js"></script>
+<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/city-picker/js/city-picker-hk.js"></script>
+<!-- <script src="https://d3o2c7bn83e5x8.cloudfront.net/js/data.js?v=20190911"></script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="../js/common.js?v=2020110500"></script>
+<script>
+	commonConfig.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + commonConfig.getGATracking());
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag("config",commonConfig.getGATracking());
+	if(commonConfig.getGATracking() != 'UA-117174835-7'){
+		gtag("config",'UA-117174835-7');
+	}
+</script>
+<script>
+  !function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+</script>
+<script id="mdui-tab-container" type="text/html">
+	<div id="productTab" class="mdui-tab">
+		<% for (var i = 0; i < list.length; i++) { %>
+			<% if (list[i].isTopNavigation) { %>
+				<a id="<%=list[i].id%>" _index="<%=i%>"><%=list[i].name%></a>
+			<% } %>
+		<% } %>
+	</div>		
+</script>
+<script id="all-cart-products" type="text/html">
+	<div class="mdui-cart-products">
+		<div class="mdui-list">
+		<% for (var i = 0; i < list.length; i++) { %>
+			<img class="mdui-cart-product-sku-img" src="<%=list[i].productImageUrl%>">
+			<% if(list[i].presents && list[i].presents.length > 0){ %>
+				<% for (var j = 0; j < list[i].presents.length; j++) { %>
+					<img class="mdui-cart-product-sku-img" src="<%= list[i].presents[j].productImageUrl %>">
+				<% } %>
+			<% } %>
+		<% } %>
+		</div>
+	</div>
+	<span>共<%= $imports.productsNum(list) %>件<i class="mdui-icon material-icons mdui-text-color-grey-500 array-right" style="margin-right: -10px;">keyboard_arrow_right</i></span>
+</script>
+
+
+<script id="normal-cart-products" type="text/html">
+	<div class="mdui-cart-products">
+		<ul class="mdui-list">
+			<% for (var i = 0; i < list.length; i++) { %>
+				<% if(!list[i].soldOut){ %>
+					<li class="mdui-list-item" productid="<%=list[i].productId%>" productskuid="<%=list[i].productSkuId%>" discountprice="<%= list[i].discountPrice %>">
+						<a href="javascript:void(0)">
+							<img class="mdui-cart-product-sku-img" src="<%=list[i].productImageUrl%>">
+						</a>
+					
+						<div class="mdui-cart-product-sku-info">
+							<div class="mdui-list-item-title mdui-list-item-one-line">
+								<%=list[i].productTitle%>
+							</div>
+							<div class="mdui-list-item-text mdui-list-item-one-line"><%=list[i].productSkuName%></div>
+							<div class="mdui-list-item-text2">
+								<span class="mdui-float-left mdui-list-item-text-price" style="color:#222222">HK$<%= list[i].price %></span>
+								<div class="mdui-float-right" style="color:#777777;font-size:14px">
+									<span>x</span><span><%= list[i].quantity %></span>
+								</div>
+							</div>
+						</div>
+					</li>
+				<% } %>
+			<% } %>
+		</ul>
+	</div>
+</script>
+
+<script id="cart-products" type="text/html">
+	<div class="mdui-cart-products">
+		<% for (var i = 0; i < list.length; i++) { %>
+			<% if(!list[i].soldOut){ %>
+				<div style="position: relative;display: inline-block;">
+					<img class="mdui-cart-product-sku-img" src="<%=list[i].productImageUrl%>" width="90px">
+					<% if(list[i].quantity > 1){ %>
+						<div style="position:absolute;right:5px;bottom:8px;width:30px;background:rgba(0,0,0,0.5);border-radius:9px 0px 0px 9px;color:#ffffff;padding:1px 3px;text-align:center;">
+							<%= list[i].quantity %>件
+						</div>
+					<% } %>
+				</div>
+			<% } %>
+		<% } %>
+	</div>
+</script>
+
+<script type="text/javascript">
+	var app = {
+		datas : {
+			pinto: tools.getURLParam('pinto'),
+			orderProducts: tools.getURLParam('buyAgin') == 'true' ? buyAginOrder = getCache('orderBuyAgin') : buyAginOrder = getCache('orderProducts'),
+			_price: {},
+			postageFreePrice : 200,
+			address : getCache('dataCacheAddress-address'),
+			dom_home: {
+	            _username: $$('.addressView  input[name="username"]'),
+	            _phone: $$('.addressView  input[name="phone"]'),
+	            _adressDetails: $$('.addressView  input[name="adressDetails"]'),
+	            _email: $$('.addressView  input[name="email"]'),
+			},
+			commentDom:{
+				open: $$('.open-comments'),
+				write: $$('.write-comments'),
+				done: $$('.done-comments'),
+			},
+			marketSelect:{
+				cityindex: null,
+				townindex: null,
+				marketType: null
+			},
+			couponCode:'',
+			payType: '',
+			adlk: cacheCookie.getCache("adlk")
+		},
+		data: {
+			leftTime: 999,
+			cartTime: 999,
+			timeout_interval: null,
+		},
+		methods : {
+			initCart: function(){
+				// console.log(tools.getURLParam('buyAgin'))
+				// if(app.datas.pinto == 'true'){
+				// 	$$('.mdui-bottom-nav .mdui-row').eq(1).hide()
+				// 	$$('.mdui-bottom-nav').css({height: '50px'})
+				// 	// $$('.mdui-bottom-nav').hide()
+				// 	$$('.mdui-toolbar-title .top-left-options').addClass('noNav')
+				// }else{
+				// 	$$('.mdui-bottom-nav .mdui-row').eq(1).show()
+				// 	$$('.mdui-bottom-nav').css({height: '100px'})
+				// 	$$('.mdui-toolbar-title .top-left-options').removeClass('noNav')
+				// }
+			},
+			returnBack: function() {
+				$$('#returnBack').show()
+			},
+			initMessage: function(){
+				app.datas.commentDom.open.off().on('click' , function(e){
+					$$(this).hide();
+					$$('#comments-my').show();
+					app.datas.commentDom.write.show();
+					app.datas.commentDom.write.find('.mdui-cart-comments-area')[0].focus();
+				});
+				app.datas.commentDom.write.find('.cancel').off().on('click' , function(e){
+					$$('.mdui-cart-comments-area').val('');
+					app.datas.commentDom.write.addClass('noWrite');
+					app.datas.commentDom.write.hide();
+					app.datas.commentDom.open.show();
+				});
+				app.datas.commentDom.write.find('span > img').off().on('click' , function(e){
+					app.datas.commentDom.write.find('.mdui-cart-comments-area')[0].focus();
+					$$('.mdui-cart-comments-area').val('');
+					app.datas.commentDom.write.addClass('noWrite');
+				});
+				app.datas.commentDom.write.find('.submit').off().on('click' , function(e){
+					var val = $$('.mdui-cart-comments-area').val();
+					if(val.trim().length == 0){
+						app.datas.commentDom.write.find('.mdui-cart-comments-area')[0].focus();
+						return;
+					}
+					if(val.trim().length > 200){
+						app.datas.commentDom.write.find('.mdui-cart-comments-area')[0].focus();
+						mdui.snackbar({message: '留言已經超出200個字符，請縮減...',position: 'top'});
+						return;
+					}
+					app.datas.commentDom.write.hide();
+					app.datas.commentDom.done.show().find('div').html(val);
+				});
+				app.datas.commentDom.done.find('.edit').off().on('click' , function(e){
+					app.datas.commentDom.done.hide();
+					app.datas.commentDom.write.show();
+				});
+				app.datas.commentDom.write.find('.mdui-cart-comments-area').off().on('keyup',function(){
+					if($$(this).val().trim().length > 0){
+						app.datas.commentDom.write.removeClass('noWrite');
+					}else{
+						app.datas.commentDom.write.addClass('noWrite');
+					}
+				}).on('blur',function(){
+					var scrollT = document.body.scrollTop|| document.documentElement.scrollTop;
+					document.body.scrollTop = document.documentElement.scrollTop = scrollT - 1
+				});
+			},
+			initCouponView: function(){
+				$$('.couponDiscount').off().on('click' , function(e){
+					tipWindow.bottomView.open($$('.inputCouponView'))
+					document.body.scrollTop = document.documentElement.scrollTop = document.body.clientHeight
+					$$('.useCoupon input')[0].focus()
+					gtag('event', 'wantUseCoupon');
+				});
+				$$('#useCoupon-btn').off('click').on('click' , function(e){
+					app.datas.couponCode = $$('.inputCouponView .useCoupon input').val()
+					if(app.datas.couponCode && app.datas.couponCode != ''){
+						newMonitor.addMonitor({
+							'eventAims': 'COUPON',
+							'eventName': 'CLICK',
+							'aimsCategory': 'EVENT',
+						});
+					}else{
+						mdui.snackbar({message: '折價卷號不能為空！',position: 'top'});
+					}
+					app.methods.initPayNum();
+				});
+				$$('#useCoupon-del').off('click').on('click' , function(e){
+					app.datas.couponCode = ""
+					$$('.inputCouponView .useCoupon input').val("") 
+					app.methods.initPayNum();
+				});
+				$$('.inputCouponView .useCoupon input').off('blur').on('blur' , function(){
+					var scrollT = document.body.scrollTop|| document.documentElement.scrollTop;
+					document.body.scrollTop = document.documentElement.scrollTop = scrollT - 1
+				})
+				// $$('.inputCouponView .useCoupon input').off('click').on('change' , function(){
+				// 	if($$(this).val() != ''){
+				// 		checkCoupon.removeClass('noUse')
+				// 	}else{
+				// 		checkCoupon.addClass('noUse')
+				// 	}
+				// })
+			},
+			// 滾動事件
+			scrollFuc: function(){
+				window.onscroll = function (event) {
+					if(tools.getPlatform() == 'Android' && tools.getBrowerForm() == 'FB'){
+						tools.scrollEvent()
+						if(scrollDirection == 'down'){
+							//页面向下滚动要做的事情
+							$$('.mdui-bottom-nav').css({
+								'bottom': '0'
+							})
+							$$('.scrape-together-reminder').css({
+								'bottom': '50px'
+							})
+							$$('#androidFbDiv').hide()
+						}else if(scrollDirection == 'up'){
+							//页面向上滚动要做的事情
+							$$('.mdui-bottom-nav').css({
+								'bottom': '50px'
+							})
+							$$('.scrape-together-reminder').css({
+								'bottom': '100px'
+							})
+							$$('#androidFbDiv').show()
+						}
+					}
+					
+				}
+			},
+			initAddress : function(){
+				// 取消商超取货
+				if(app.datas.address && app.datas.address.addType && app.datas.address.addType != 1){
+					setCache('dataCacheAddress-address', {}, -1)
+					mdui.snackbar({message: "超商取貨暫時停止服務，請填寫宅配地址便於送貨...", position: "top"});
+					app.datas.address = {}
+				}
+				if(app.datas.address && app.datas.address != ''){
+					// 地址合法性校验
+					if (!/^[2|3|5|6|7|8|9][0-9]\d{6}$/.test(app.datas.address.phone)){
+                    	app.methods.initAddressException();
+                    }else if(!app.datas.address.userame || app.datas.address.userame == ''){
+                    	app.methods.initAddressException();
+                    }else if(!app.datas.address.adressDetails || app.datas.address.adressDetails == ''){
+                    	app.methods.initAddressException();
+                    }else if(!app.datas.address.district || app.datas.address.district == ''){
+                    	app.methods.initAddressException();
+                    }else if(!app.datas.address.city || app.datas.address.city == ''){
+                    	app.methods.initAddressException();
+                    }else if(!app.datas.address.province || app.datas.address.province == ''){
+                    	app.methods.initAddressException();
+                    }else{
+						app.methods.initAddressHav();
+                    }
+				}else{
+					app.methods.initAddressException();
+				}
+			},
+			initAddressException : function(){
+				app.datas.address = null;
+				$$('.mdui-address').html('<div class="click-add-address"><button class="mdui-btn">+ 添加宅配地址</button></div>');
+			},
+			initAddressHav : function(){
+				var addVal = app.datas.address.userame + '</span><span>' + app.datas.address.phone + '</span><span>';
+				if(!app.datas.address.addType || app.datas.address.addType == 1){
+					addVal += '[宅配] ' + app.datas.address.adressDetails;
+				}
+				if(app.datas.address.addType && app.datas.address.addType != 1){
+						switch(app.datas.address.addType){
+						case 2: addVal += '[超商] ' + app.datas.address.marketName + '(' + app.datas.address.marketKey + ') ';break;
+						case 3: addVal += '[超商] 7-11' + app.datas.address.marketName + '店(' + app.datas.address.marketKey + ') ';break;
+					}
+				}
+				$$('.mdui-address').html('<i class="mdui-icon material-icons mdui-text-color-grey-500 array-right">keyboard_arrow_right</i><span>' + addVal + ' ('+ app.datas.address.city +' '+app.datas.address.district+')'+'</span>');
+			},
+			initCartProducts : function(){
+				//1.判断来源,是否有收货人, 
+				if(tools.getURLParam('consignee') && tools.getURLParam('consignee') != ''){
+					var address = {
+						userame: tools.getURLParam('consignee'),
+						phone: tools.getURLParam('tel'),
+						adressDetails: tools.getURLParam('detail'),
+						email: tools.getURLParam('email'),
+						province: tools.getURLParam('province'),
+						district: tools.getURLParam('district'),
+						city: tools.getURLParam('city'),
+						sex: tools.getURLParam('sex'),
+						type: 'byCare'
+					};
+					cacheCookie.setCache('affiliate', 'care', 1)
+					cacheCookie.setCache('pixelId', commonConfig.fbPiexId, 1)
+					cacheCookie.setCache('adlk', '', 0);
+					setCache("dataCacheAddress-address", address);
+					window.location.href = '../shop/index.html'
+				}
+				// 2.判断是否有数据需要处理
+				app.methods.initPayNum();
+			},
+			setEmpty: function(){
+				// 处理为空表购物车
+				var emptyHtml = '<div class="empty-carts">'+
+							'	<img class="cart-img-empty" src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon-cart-empty.png">'+
+							'	<span class="cart-tip-empty">您還沒有添加任何商品喲</span>'+
+							'	<a href="'+ (app.datas.pinto == 'true' ? 'javascript:void(history.go(-1))' : '../shop/index.html') +'" class="mdui-btn cart-empty-to-buy">'+ (app.datas.pinto == 'true' ? '繼續購物' : '去逛逛') +'</a>'+
+							'</div>'
+							
+				$$('#no-list').css("display","none")
+				$('.mdui-address').remove()
+				$('.mdui-cart-products-container').remove()
+				$('.mdui-pay-info').remove()
+				$('.open-comments').remove()
+				$('.mdui-cart-comments').remove()
+				$('.mdui-bottom-nav > div').eq(0).remove()
+				$('.mdui-bottom-nav').css({
+					height: '50px'
+					// height: '0px'
+				})
+				// $('.scrape-together-reminder').css({
+				// 	bottom: '0px'
+				// })
+				$('body').append(emptyHtml).css({
+					background: '#fff',
+					'padding-top': '40px',
+				})
+				$('html').css({
+					background: '#fff'
+				})
+				// window.location = '../shop/index.html';
+				$$('.mdui-cart-promotion-container').hide()
+				if(app.datas.pinto == 'true'){
+					$$('.mdui-bottom-nav').hide()
+				}
+				setCache("orderProducts", []);
+				app.datas.orderProducts = []
+				return
+			},
+			initPayNum: function(){
+				//調用後臺API校驗數據合法性,校驗完成後,還需要重新寫入到cookies中去.
+				var data = {
+					orderProducts : app.datas.orderProducts,
+				}
+				if(app.datas.couponCode && app.datas.couponCode != ''){
+					data.couponCode = app.datas.couponCode
+				}
+				if(!app.datas.orderProducts || app.datas.orderProducts.length == 0){
+					app.methods.setEmpty()
+					return
+				}
+			
+				$$.ajax({
+					method: 'POST',
+					url: commonConfig.websitePrefix() + '/api/free-shipping/order/price',
+					contentType : "application/json ; charset=utf-8",
+					data: JSON.stringify(data),
+					beforeSend : function (xhr){
+						tools.loading();
+						// 存滚动位置
+						app.data.scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+					},
+					success: function(e) {
+						if("OK" == e.statusCode){ 
+							if(e.body.products.length == 0){
+								app.methods.setEmpty()
+								return
+							}
+							// console.log(e.body.products)
+							// setCache("orderProducts", e.body.products);
+							
+							app.datas.orderProducts = e.body.products
+							app.datas._price = e.body.price;
+
+
+							var _narmalProducts = {name : 'normalProduct' , list : []};
+							$$.each(app.datas.orderProducts, function(index , orderProduct) {
+								if(!orderProduct.quantity) orderProduct.quantity = 1;
+								if(orderProduct.isSelect){
+									_narmalProducts.list.push(orderProduct);
+								}
+							});
+							
+			
+							// 加载上部标题
+							app.cart.initTopTip();
+							//初始化數字選擇框
+							app.cart.initMduiNumbox();
+							//初始化刪除圖標刪除事件
+							app.cart.initProductDelete();
+							//初始化radio事件
+							app.cart.initProductListItemClick();
+							//處理[立即購買]按鈕事件
+							app.cart.initbuyNowAction();
+							
+							// 计算
+							$$(".mdui-bottom-nav .info").html("<span>應付:</span> <span style='font-size:14px;'>HK$</span><span class='allPrice'>" + (e.body.price.discountTotalPrice) + " </span><span> </span>")
+							
+							var pro_pub_num = 0,
+								discountLimitPub = 0,
+								discountTimePub = 0,
+								discountTotalCouponPrice = e.body.price.discountTotalCouponPrice || 0,
+								discountPub = 0,
+								discountDepletion = 0;
+							e.body.products.map(function(e){
+								// 總件數
+								if(!e.soldOut){
+									e.isSelect && (pro_pub_num += e.quantity)
+									e.presents && (pro_pub_num += e.presents.length)	
+								}
+															
+							});
+							discountPub = e.body.price.originalTotalPrice - e.body.price.discountTotalPrice - discountTimePub - discountLimitPub - discountTotalCouponPrice;
+							discountDepletion = e.body.price.originalTotalPrice - discountPub;
+							$$(".mdui-pay-info .orderProCount").html('共' + pro_pub_num + '件商品')
+							$$(".mdui-pay-info .orderPay").html("HK$" + (e.body.price.discountTotalPrice + (e.body.price.discountTotalCouponPrice?e.body.price.discountTotalCouponPrice:0)))
+							// $$(".mdui-pay-info .orderExpressCount").html('HK$' + e.body.price.freight)
+							$$(".mdui-pay-info .orderExpressCount").html('HK$0')
+							// 底部新增应付总额拆分解释
+							// $$(".seedtail-new").html("訂單總額: HK$"+ (e.body.price.discountTotalPrice + (e.body.price.spreadPrice?e.body.price.spreadPrice:0)) +"+運費: $"+ e.body.price.freight)
+							if(_narmalProducts.list.length == 1 ){
+								$$('.mdui-cart-products-container').html(template('normal-cart-products', _narmalProducts));
+								$$('#product-detail').css("display","none")
+							}else{
+								$$("#all-product").html('共' + pro_pub_num + '件')
+								$$('#cart-products-width').html(template('cart-products', _narmalProducts));
+								$$('.order-content').html(template('normal-cart-products', _narmalProducts));
+								$$("#product-detail").off().on("click",function(){
+									$$("#product-detail-text").html('商品清單(共' + pro_pub_num + '件)')
+									tipWindow.bottomView.open($$('.orderDetail.view-bottom'))
+								})
+							}
+							
+							
+							// 优惠券优惠
+							if(discountTotalCouponPrice > 0){
+								$$('.typeMesDetail').css("display","flex")
+								$$('.typeMesDetail div').html('- HK$' + discountTotalCouponPrice)
+								
+								$$('#useCoupon-btn').css("display","none")
+								$$('#useCoupon-del').css("display","flex")
+								gtag('event', 'clickUseCoupon');
+							}else{
+								$$('.typeMesDetail').css("display","none")
+								$$('#useCoupon-btn').css("display","flex")
+								$$('#useCoupon-del').css("display","none")
+							}
+							var shoppingcartShow = tools.getShopCartProductsShow()
+							$$('.detail-list').css('margin-top',"10px")  
+							if (app.datas._price.discountTotalPrice < 699&&shoppingcartShow) {
+								$$('.detail-list').html('<li class="mdui-list-item"><span class="label">加購總價未滿HK$200，補差價</span><div>+ HK$0</div></li>')
+							} else if (app.datas._price.discountTotalPrice >= 699&&shoppingcartShow) {
+								$$('.detail-list').html('<li class="mdui-list-item"><span class="label">加購總價已滿HK$200，補差價</span><div>+ HK$0</div></li>')
+							}else if(app.datas._price.discountTotalPrice < 699&&!shoppingcartShow){
+								$$('.detail-list').html('<li class="mdui-list-item"><span class="label">加購總價未滿HK$200，補差價</span><div>+ HK$0</div></li>')
+							}else { 
+								$$('.detail-list').html('<li class="mdui-list-item"><span class="label">加購總價已滿HK$200，補差價</span><div>+ HK$0</div></li>')
+							}
+
+							// 出清優惠
+							if(e.body.price.activityDiscountPrice > 0){
+								$$(".mdui-pay-info .orderDiscountDepletion div").html('- HK$' + e.body.price.activityDiscountPrice);
+								$$(".mdui-pay-info .orderDiscountDepletion").show();
+							}else{
+								$$(".mdui-pay-info .orderDiscountDepletion").hide();
+							}
+
+							if(e.body.price.eightDiscountPrice > 0){
+								$$(".mdui-pay-info .orderDiscount div").html('- HK$' + e.body.price.eightDiscountPrice);
+								$$(".mdui-pay-info .orderDiscount").show();
+							}else{
+								$$(".mdui-pay-info .orderDiscount div").html('- HK$' + 0);
+								$$(".mdui-pay-info .orderDiscount").show();
+							}
+							if(app.datas._price.discountTotalPrice>=5000){
+								$$("#cash-on-delivery").attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon_no_check.png').removeClass('select')
+								$$("#credit-card").attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon_check.png').addClass('select')
+								$$('.typeCon-text').html('<span style="font-size:16px;color:#BCBCBC;text-decoration:line-through;">货到付款</span><span style="color:#BCBCBC;font-size:12px">（超過HK$5000不支持貨到付款）</span>')
+							}else if(app.datas._price.discountTotalPrice==0){
+								$$("#cash-on-delivery").attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon_check.png').addClass('select')
+								$$("#credit-card").attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon_no_check.png').removeClass('select')
+								$$('.card-text').html('<span style="font-size:16px;color:#BCBCBC;text-decoration:line-through;">信用卡</span><span style="color:#BCBCBC;font-size:12px"></span>')
+							}else{
+								$$('.typeCon-text').html('<span >貨到付款</span>')
+								$$('.card-text').html('<span >信用卡</span>')
+							}
+
+							if(data.couponCode){
+								if(discountTotalCouponPrice == 0){
+									$$('#useCoupon-err').text('券碼無效！').css('color','#b71c1c');
+									$$('#useCoupon-err').css('padding','10px');
+									$$('.inputCouponView .useCoupon input').val('');
+									app.datas.couponCode = null;
+								}else{
+									$$('#useCoupon-err').text('').css('color','#b71c1c');
+									$$('#useCoupon-err').css('padding','0px');
+								}
+							}
+
+							$$(".seeDetail").off().on("click",function(){
+								tipWindow.bottomView.open($$('.selectDetail'))
+								$$(".seeDetail").css("display","none")
+								$$(".info").css("line-height","50px")
+							})
+							$$(".closeDetail").off().on("click",function(){
+								tipWindow.bottomView.closeDetail($$('.selectDetail'))
+								$$(".seeDetail").css("display","block")
+								$$(".info").css("line-height","1.15")
+							})
+
+							if(app.datas.orderProducts.length==1){
+
+							}else{
+	
+							}
+
+							
+						}else{
+							mdui.snackbar({message: '網路繁忙,請重試...',position: 'top'});
+						}
+					},
+					error: function(err){
+						var errMes = JSON.parse(err.response)
+						if(errMes && errMes.body && errMes.body.message){
+							$$('#useCoupon-err').text(errMes.body.message).css('color','#FF0F00');
+							$$('#useCoupon-err').css('padding','10px');
+						}
+						$$('.inputCouponView .useCoupon input').val('');
+						app.datas.couponCode = null;
+					},
+					complete: function (xhr, textStatus) {
+						tools.hideLoading();
+						// 加载滚动位置
+						if(app.data.scrollTop != null){
+							document.documentElement.scrollTop = app.data.scrollTop
+							document.body.scrollTop = app.data.scrollTop
+						}
+					}
+				});
+			},
+			// 解決安卓低版本facebook瀏覽器會遮住底部的問題
+			androidFbbrower: function(){
+				if(tools.getPlatform() == 'Android' && tools.getBrowerForm() == 'FB'){
+					$$('.mdui-bottom-nav').css({
+						'bottom': '50px'
+					})
+					$$('#androidFbDiv').show()
+				}
+				
+			},
+	        initSelectPayType : function(){
+				$$('.mdui-bottom-nav #buyNow').off().on('click' , function(e){
+                    $('.city-picker-dropdown').hide() // 隐藏地址选择框
+					tipWindow.bottomView.closeDetail($$('.selectDetail'))
+					if(app.methods.initaddressEvent()){
+						$$(".seeDetail").css("display","block")
+						$$(".info").css("line-height","1.15")
+						$$(".successToNext").text("確定支付 $"+$$(".mdui-bottom-nav .allPrice").text())
+						var orderParamOrderProducts = [];
+						app.datas.orderProducts.map(function(e){
+							if(e.isSelect){
+								orderParamOrderProducts.push(e)	
+							}
+						})
+                        if(orderParamOrderProducts && orderParamOrderProducts.length > 0){
+                            if($$('.selectPayType ul li .select').length == 0){
+                                return
+                            }
+                            app.datas.payType = $$('.selectPayType ul li .select').data('type');
+                            $$('.openPayType .typeMes div').html($$('.selectPayType ul li .select').next('.typeCon').text()).css({'color': '#000'});
+                            // 存数据
+                            gtag('event', 'clickPaymentType');
+                            newMonitor.addMonitor({
+                                'eventAims': 'CHECKOUT',
+                                'eventName': 'CLICK',
+                                'aimsCategory': 'EVENT',
+                            });
+                            app.methods.initDefaultEvents();
+                            app.methods.payNow();
+                            newMonitor.addMonitor({
+                                'eventAims': 'PAYTYPE',
+                                'eventName': 'CLICK',
+                                'aimsCategory': 'EVENT',
+                            });
+                        }else{
+                            mdui.snackbar({message: '請選擇要購買的商品···',position: 'top'});							
+                            $$(this).addClass('no-active');
+                        }
+					}
+					
+				});
+				// 打开选择付款方式盒子
+				$$('.openPayType').off('click').on('click' , function(){
+					// app.datas.process = '1'
+					tipWindow.bottomView.open($$('.selectPayType'))
+				})
+				// 选择付款类型
+				$$('.selectPayType ul .check-icon').off().on('click', function(){
+					// if(app.datas._price.discountTotalPrice>=2500 || app.datas._price.discountTotalPrice==0){
+
+					// 	return false
+					// }
+					if(!$$(this).hasClass('select')){
+						// $$('.selectPayType ul .check-icon')
+						$$(this).parent().siblings().find('.check-icon').attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon_no_check.png').removeClass('select')
+						$$(this).attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon_check.png').addClass('select')
+					}
+				});
+				// 点击行也可选择
+				$$('.selectPayType ul li:not(.tips)').off().on('click', function(){
+					$$(this).find('.check-icon')[0].click()
+				});
+				// 客服下单自动点击
+				if(app.datas.address && app.datas.address.type == 'byCare'){
+					$$('.selectPayType .check-icon[data-type="cash"]').trigger('click')
+				}
+				// 立即结账
+
+			},
+	        closeCardPay : function(){
+				tipWindow.bottomView.close($$('.stripePay'))
+				tipWindow.bottomView.open($$('.selectPayType'))
+				tools.hideLoading();
+			},
+			loadJs: function (url, callback) {
+				var script = document.createElement('script');
+				script.type = "text/javascript";
+				if (typeof (callback) != "undefined") {
+					if (script.readyState) {
+						script.onreadystatechange = function () {
+							if (script.readyState == "loaded" || script.readyState == "complete") {
+								script.onreadystatechange = null;
+								callback();
+							}
+						}
+					} else {
+						script.onload = function () {
+							callback();
+						}
+					}
+				}
+				script.src = url;
+				document.body.appendChild(script);
+			},
+			payNow : function(){
+				tools.loading();
+				var mesDetail = $$('textarea.mdui-cart-comments-area').val().trim();
+				if(mesDetail.length > 200){
+					mdui.snackbar({message: '留言已經超出200個字符，請縮減...',position: 'top'});
+					return
+				}
+				var orderProducts = [];
+				app.datas.orderProducts.map(function(e){
+					if(e.isSelect && !e.soldOut){
+						orderProducts.push(e)
+					}
+				})
+				// 提交订单数据
+				var orderParam = {
+					message : mesDetail,
+					orderProducts : orderProducts,
+					orderAddress : {
+						consignee : app.datas.address.userame ,
+						tel : app.datas.address.phone ,
+						email : app.datas.address.email ,
+						facebook : app.datas.address.facebook ,
+						country: "香港" ,
+						province : app.datas.address.province ,
+						city : app.datas.address.city ,
+						district : app.datas.address.district ,
+						// detail : app.datas.address.adressDetails + (app.datas.address.marketName ? '【' + app.methods.typeToMarketMes() + '】' : ''),
+						detail: app.datas.address.adressDetails + ($$('.mana-radio').hasClass('add') ? '  (管理室代收)' : ''),
+						sex : app.datas.address.sex,
+						type : app.datas.address.addType
+					},
+					pixelId : commonConfig.getFbPiexId(),
+					adlk : app.datas.adlk || '',
+					couponCode: app.datas.couponCode,
+					sourceAffiliateProductId: cacheSessionStorage.getCache('productId') || ''
+				};
+				var aff = cacheCookie.getCache('affiliate')
+				if(aff && aff != ''){
+					orderParam['affiliate'] = aff;
+				}
+				// 立即购买不整理
+				var buyType = cacheSessionStorage.getCache('orderProducts-confirm-type');
+				cacheSessionStorage.removeCache('orderProducts-confirm-type');
+				if(buyType != 'buyNow'){
+					// 暂存订单商品
+					setCache('orderProducts-order-buy', orderProducts);
+				}
+				if(app.datas.payType == 'stripe'){  // stripe
+					// TODO 加載stripe的js
+					app.methods.loadJs("https://js.stripe.com/v3/",function(){
+						$$.ajax({
+							method: 'POST',
+							url: commonConfig.websitePrefix() + '/api/free-shipping/order/stripe/order',
+							data: {
+								'data' : JSON.stringify(orderParam),
+								'requestHost': window.location.host
+							},
+							beforeSend : function (xhr){
+								// tools.loading();
+							},
+							success: function (res) {
+								// 监测
+								newMonitor.addMonitor({
+									'eventAims': 'STRIPE',
+									'eventName': 'CLICK',
+									'aimsCategory': 'EVENT',
+								});
+								// 渲染
+								// action="'+commonConfig.websitePrefix() + '/api/order/stripe/checkout'+'"
+								$$('#stripePayBox').html('<form id="payment-form">'+
+									'<div class="form-row">'+
+									'<div id="card-element"></div>'+
+									'<div id="card-errors" role="alert"></div>'+
+									'</div>'+
+									'<button class="sure">確認支付</button>'+
+								'</form>')
+								var stripe = Stripe(res.body['data-key']);
+								var elements = stripe.elements();
+								var style = {
+									base: {
+										color: '#32325d',
+										fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+										fontSmoothing: 'antialiased',
+										fontSize: '16px',
+										'::placeholder': {color: '#aab7c4'}
+									},
+									invalid: {
+										color: '#fa755a',
+										iconColor: '#fa755a'
+									}
+								};
+								var card = elements.create('card', {style: style});
+								card.mount('#card-element');
+								card.addEventListener('ready', function(event) {
+									tipWindow.bottomView.open($$('.stripePay'))
+									tools.hideLoading();
+									$$('#tip-info').hide()
+								})
+								console.log(card.mount('#card-element'))
+								card.addEventListener('change', function(event) {
+									var displayError = document.getElementById('card-errors');
+									if (event.error) {
+										displayError.textContent = event.error.message;
+									} else {
+										displayError.textContent = '';
+									}
+								});
+								card.on('focus', function(){
+									setTimeout(function(){
+										if(document.body.scrollTop != document.body.clientHeight){
+											document.body.scrollTop = document.body.clientHeight;
+										}
+									},100)
+								})
+								card.on('blur', function(){
+									setTimeout(function(){
+										if(document.body.scrollTop != document.body.clientHeight){
+											document.body.scrollTop = document.body.clientHeight;
+										}
+									},100)
+								})
+								app.datas.stripe = {
+									stripe: stripe,
+									card: card,
+								}
+								var form = document.getElementById('payment-form');
+								form.addEventListener('submit', function(event) {
+									event.preventDefault();
+									tools.loading(10000);
+									stripe.createToken(card).then(function(result) {
+										if (result.error) {
+											$$('#tip-info').hide()
+											tools.hideLoading();
+											var errorElement = document.getElementById('card-errors');
+											errorElement.textContent = result.error.message;
+											card.focus()
+										} else {
+											$$('#tip-info').show()
+											$$.ajax({
+												method: 'POST',
+												url: commonConfig.websitePrefix() + '/api/order/stripe/checkout',
+												data: {
+													'stripeToken': result.token.id,
+													'orderId': res.body.order.id,
+												},
+												success: function (res) {
+													// 监测
+													if(res.statusCode == 'OK'){
+														// 暂存订单号码
+														$$('#order_success').attr('href','success.html?code=' + res.body.code)
+														setTimeout(function() {
+															$$('#order_success')[0].click();
+														}, 500);
+													}
+												},
+												error : function (xhr, textStatus) {
+													$$('#tip-info').hide()
+													tools.hideLoading();
+													var errorElement = document.getElementById('card-errors');
+													errorElement.textContent = '支付失敗！請重試···';
+												}
+											})
+										}
+									});
+								});
+							},
+							error : function (xhr, textStatus) {
+								tools.hideLoading();
+								$$('#tip-info').hide()
+								mdui.snackbar({message: '網路繁忙,請刷新重試或聯繫客服進行幫助...',position: 'top'});
+							}
+						});
+					});
+				}else if(app.datas.payType == 'paypal'){  // paypal
+					tools.loading();
+					tools.postForm(commonConfig.websitePrefix() + '/api/order/paypal' , {data : JSON.stringify(orderParam)});
+				}else if(app.datas.payType == 'cash'){ // 货到付款
+					$$.ajax({
+						method: 'POST',
+						url: commonConfig.websitePrefix() + '/api/free-shipping/order/submit',
+						contentType : "application/json ; charset=utf-8",
+						data: JSON.stringify(orderParam),
+						beforeSend : function (xhr){
+							tools.loading();
+							// 提示文字
+							$$('#tip-info').show()
+						},
+						success: function (res) {
+							if(res.statusCode == 'OK'){
+								var orderCodeData = [], discountTotalPriceData = 0, orderProIds = [], _num_items = 0, productItems = [];
+								var monitorParams = [];
+								var dataList = []
+								if(res.body)dataList.push(res.body)
+								dataList.map(function(order){
+									orderCodeData.push(order.code);
+									discountTotalPriceData += order.discountTotalPrice;
+									order.orderProducts.map(function(orderProduct){
+										_num_items += orderProduct.quantity;
+										productItems.push({
+											id : orderProduct.productId,
+											name : orderProduct.productTitle + '('+ orderProduct.productSkuName +')',
+											quantity : orderProduct.quantity,
+											item_price : orderProduct.discountPrice || orderProduct.originalPrice,
+											price : orderProduct.discountPrice || orderProduct.originalPrice
+										});
+										monitorParams.push({
+											'eventAims': orderProduct.productId,
+											'count': orderProduct.quantity,
+											'eventName': 'SUBMIT',
+											'aimsCategory': 'PRODUCT'
+										});
+										orderProIds.push(orderProduct.productId);
+										if(orderProduct.presents && orderProduct.presents.length > 0){
+											$$.each(orderProduct.presents , function(index2 , present){
+												_num_items += present.quantity;
+												productItems.push({
+													id : present.productId,
+													name : present.productTitle + '('+ present.productSkuName +')',
+													quantity : present.quantity,
+													item_price : present.discountPrice || present.originalPrice,
+													price : present.discountPrice || present.originalPrice
+												});
+												monitorParams.push({
+													'eventAims': present.productId,
+													'count': present.quantity,
+													'eventName': 'SUBMIT',
+													'aimsCategory': 'PRODUCT'
+												});
+												orderProIds.push(present.productId);
+											});
+										}
+									});
+								});
+								var warder_params = {
+									content_type: 'product',
+									transaction_id : $$.guid(),
+									value : discountTotalPriceData, 
+									currency : dataList[0].currency,
+									content_name : 'checkout',
+									content_category : 'checkout',
+									content_ids : orderProIds,
+									num_items : _num_items,
+									contents: productItems,
+									items: productItems
+								};
+
+								newMonitor.addMonitorData(monitorParams);
+								try {
+									fbq("track", "Purchase", warder_params);
+									gtag("event", "Purchase", warder_params);
+									gtag("event", "purchase", warder_params);
+									cacheSessionStorage.removeCache('_fbgaparams');
+									cacheSessionStorage.removeCache("_realgaparams");
+								} catch(t) {
+									console.log(t)
+								}
+
+								// 清购物车
+								var userOrderPro = getCache('orderProducts-order-buy')
+								// 重新整理購物車--將購買過的產品從購物車清除掉
+								if(userOrderPro.length >= 0){
+									try{
+										var _newcartProducts = [];
+										// 清除cookie中保存的贈品信息
+										$$.each(userOrderPro , function(index , orderProduct){
+											setCache('tmpGiftProducts-'+ orderProduct.productId , '' , -1);
+										});
+										
+										// 清除已购品
+										app.datas.orderProducts && app.datas.orderProducts.length > 0 && $$.each(app.datas.orderProducts , function(index , cartProduct){
+											var state = 0;
+											$$.each(userOrderPro , function(index , userOrder){
+												// TODO 删除价格校验 && userOrder.discountPrice == cartProduct.discountPrice
+												if(userOrder.productSkuId == cartProduct.productSkuId && cartProduct.isSelect == true){
+													state += 1;
+												}
+											});
+											if(state == 0){
+												_newcartProducts.push(cartProduct);
+											}
+										});
+										setCache('orderProducts' , _newcartProducts);
+										setCache('orderProducts-order-buy', [])
+									}catch(e){
+										console.log(e)
+									}
+								}
+							
+								cacheSessionStorage.removeCache("orderProducts-confirm");
+								$$('#order_success').attr('href','success.html?code=' + orderCodeData.toString(','))
+								setTimeout(function() {
+									$$('#order_success')[0].click();
+								}, 500);
+							}else{
+								mdui.snackbar({message: '網路繁忙,請刷新重試或聯繫客服進行幫助...',position: 'top'});
+							}
+						},
+						error : function (xhr, textStatus) {
+							tools.hideLoading();
+							$$('#tip-info').hide()
+							mdui.snackbar({message: '網路繁忙,請刷新重試或聯繫客服進行幫助...',position: 'top'});
+						}
+					});
+				}else{
+					mdui.snackbar({message: '請選擇結賬方式...',position: 'top'});
+				}
+			},
+			stripSubmit: function(e){
+				app.datas.stripe.stripe.createToken(app.datas.stripe.card).then(function(result) {
+					if (result.error) {
+						var errorElement = document.getElementById('card-errors');
+						errorElement.textContent = result.error.message;
+						tools.hideLoading();
+
+
+						_this.$loading(false);
+						e.preventDefault();
+						return false
+					}
+					
+				});
+			},
+           	hasProductPayed : function(products , productskuid){
+           		var result = false;
+           		$$.each(products , function(index , product){
+           			if(product.productSkuId == productskuid){
+           				result = true;
+           				return false;
+           			}
+           		});
+           		return result;
+			},
+           	initAddressView : function(){
+				if(app.datas.address){
+					switch(app.datas.address.addType){
+						case 1: app.methods.initDefaultHome();break;
+						case 2: app.methods.initDefaultMarket();break;
+						case 3: app.methods.initDefaultMarket();break;
+						default: app.methods.initDefaultHome();break;
+					}
+				}
+
+                // 监听地址（只要进入页面就触发一次）
+                newMonitor.addMonitor({
+                    'eventAims': 'ADDRESS_HOME',
+                    'eventName': 'CLICK',
+                    'aimsCategory': 'EVENT',
+                });
+                // 地址填写完成
+                fbq("track", "CompleteRegistration");
+                gtag("event", "CompleteRegistration");
+			},
+			initDefaultHome: function () {
+
+	            if(app.datas.address && "" != app.datas.address){
+					if(!app.datas.address.addType || app.datas.address.addType == 1){
+						app.datas.dom_home._username.val(app.datas.address.userame);
+						app.datas.dom_home._phone.val(app.datas.address.phone);
+						app.datas.dom_home._adressDetails.val(app.datas.address.adressDetails);
+						app.datas.dom_home._email.val(app.datas.address.email);
+						$('.mdui-list-address .placeholder').hide()
+						$('.mdui-list-address .title').html('<span class="select-item" data-count="province">'+app.datas.address.province+'</span>/<span class="select-item" data-count="city">'+app.datas.address.city+'</span>/<span class="select-item" data-count="district">'+app.datas.address.district+'</span>').show()
+					}
+				}
+			},
+			initDefaultMarket: function () {
+				$$('.addressView .address-home').hide();
+				$$('.addressView .address-market').show();
+				$$('.addressView .view-bottom-head .success').text('選宅配');
+				// 初始化商超取货
+				app.methods.initSelectMarket();
+				// 初始化值
+				if(!app.datas.address){
+					return;
+				}
+				if(app.datas.address.addType != 1 && app.datas.address && "" != app.datas.address){
+					app.datas.dom_market._username.val(app.datas.address.userame);
+					app.datas.dom_market._phone.val(app.datas.address.phone);
+					app.methods.initMarketSelect(app.datas.address);
+				}
+			},
+			initaddressEvent : function(){
+				// 保存地址
+					var address = {
+						userame: app.methods.getUserName(app.datas.dom_home._username),
+						phone: app.datas.dom_home._phone.val().replace(/\s+/g, ""),
+						adressDetails: app.datas.dom_home._adressDetails.val().trim().replace(/\\/g,''),
+						province:$$(".mdui-list-address .title .select-item[data-count='province']").html(),
+						district: $$(".mdui-list-address .title .select-item[data-count='district']").html(),
+						city: $$(".mdui-list-address .title .select-item[data-count='city']").html(),
+						addType: 1
+					};
+					if (!address.userame){
+						return false;
+					}
+					if (!/^[2|3|5|6|7|8|9][0-9]\d{6}$/.test(address.phone)){
+						mdui.snackbar({message: "您輸入的電話格式有誤，請重新輸入...", position: "top"});
+						return false;
+					}
+					if (!address.adressDetails || !address.city || !address.district || !address.province){
+						mdui.snackbar({message: "地址信息不完善...", position: "top"});
+						return false;
+					}
+					app.datas.address = address;
+					setCache("dataCacheAddress-address", address);
+					
+					// newMonitor.addMonitor({
+					// 	'eventAims': 'ADDRESS_HOME',
+					// 	'eventName': 'CLICK',
+					// 	'aimsCategory': 'EVENT',
+					// });
+					// // 地址填写完成
+					// fbq("track", "CompleteRegistration");
+					// gtag("event", "CompleteRegistration");
+					return true
+			},
+			initDefaultEvents : function(){
+				// 取实时数据进行监测，取缓存会存在问题
+                var shoppingCart = getCache('orderProducts'),
+                    content_ids = [],
+                    contents = [],
+                    num_items = 0,
+                    value = 0
+                var _fbgaparams = {} // InitiateCheckout数据
+
+                if (shoppingCart) {
+                    for (const i in shoppingCart) {
+                        if (shoppingCart[i].isSelect) {
+                            content_ids.push(shoppingCart[i].productId)
+                            contents.push({
+                                id: shoppingCart[i].productId,
+                                item_price: shoppingCart[i].discountPrice,
+                                name: shoppingCart[i].productTitle + '(' + shoppingCart[i].productSkuName + ')',
+                                price: shoppingCart[i].discountPrice,
+                                quantity: shoppingCart[i].quantity
+                            })
+                            num_items += shoppingCart[i].quantity
+                            value += shoppingCart[i].discountPrice * shoppingCart[i].quantity
+                        }
+                    }
+
+                    _fbgaparams = {
+                        content_category: 'product details',
+                        content_ids: content_ids,
+                        content_type: 'product',
+                        contents: contents,
+                        currency: 'HKD',
+                        num_items: num_items,
+                        value: value
+                    }
+
+                    try{
+                        fbq('track', 'InitiateCheckout', _fbgaparams);
+                        gtag('event', 'InitiateCheckout', _fbgaparams);
+                    }catch(e) {
+                        console.log(e);
+                    }
+                }
+
+				//TODO 监测
+				// try{
+				// 	var _fbgaparams = cacheSessionStorage.getCache('_fbgaparams');
+				// 	var _realgaparams = cacheSessionStorage.getCache("_realgaparams");
+				// 	if(_fbgaparams){
+				// 		fbq('track', 'InitiateCheckout', _fbgaparams);
+				// 		gtag('event', 'InitiateCheckout', _fbgaparams);
+				// 		cacheSessionStorage.removeCache('_fbgaparams');
+				// 	}
+				// 	if(_realgaparams){
+				// 		gtag("event", "begin_checkout", _realgaparams);
+				// 		cacheSessionStorage.removeCache("_realgaparams");
+				// 	}
+				// }catch(e) {
+				// 	console.log(e);
+				// }
+				var product_buy_now = cacheSessionStorage.getCache('product-buy-now');
+				if(product_buy_now){
+					newMonitor.addMonitor(product_buy_now);
+					cacheSessionStorage.removeCache('product-buy-now');
+				}
+			},
+			initPageStatus : function(){
+				var status = tools.getURLParam('status');
+				if(status && status == 'error'){
+				    if(tools.getURLParam('message')){
+				    	mdui.snackbar({message: '支付已取消,請重試...' , position: 'top'});
+				    }else{
+				    	mdui.snackbar({message: '支付尚未成功,請重試...',position: 'top'});
+					}
+					
+					history.replaceState(null, null , window.location.origin + window.location.pathname);
+				}
+			},
+			initSelectMarket: function(){
+				var selectMarketView = $$('.selectMarketView');
+				var dom = {
+					type: selectMarketView.find('.step1 li'),
+					addData: selectMarketView.find('.step2 .selectAdd'),
+					navData: selectMarketView.find('.step2 .breadNav')
+				}
+				dom['add'] = {
+					city: dom.addData.find('.level_city'),
+					town: dom.addData.find('.level_town'),
+					market: dom.addData.find('.level_market'),
+				},
+				dom['nav'] = {
+					type: dom.navData.find('.level_type'),
+					city: dom.navData.find('.level_city'),
+					town: dom.navData.find('.level_town'),
+				}
+				// 加载市
+				app.methods.initSelectVal('city');
+				// 关闭
+				selectMarketView.off().on('click' , function(e){
+					if(e.target.classList[1] == 'view-bottom'){
+						tipWindow.bottomView.close($$('.selectMarketView'))
+						selectMarketView.find('.view-bottom-box').removeClass('view-bottom-box-sml-to-min').removeClass('view-bottom-box-min-to-sml');
+						selectMarketView.find('.step1').show();
+						selectMarketView
+							.find('.step2').hide()
+							.find('.selectAdd ul').removeClass('showNext').removeClass('showPrev');
+					}
+				});
+				// 选择type,加载市
+				dom.type.off().on('click' , function(e){
+					selectMarketView.find('.view-bottom-box').addClass('view-bottom-box-sml-to-min').removeClass('view-bottom-box-min-to-sml');
+					selectMarketView.find('.step1').hide();
+					selectMarketView.find('.step2').show();
+					dom.add.city.addClass('show');
+					var type = $(this).data('type');
+					app.datas.marketSelect.marketType = $(this).data('type');
+					// 渲染選擇店鋪
+					dom.addData.find('ul').removeClass('showNext').removeClass('showPrev');
+					dom.nav.type.find('img').attr('src','https://d3o2c7bn83e5x8.cloudfront.net/image/icon-market-' + app.datas.marketSelect.marketType + '.jpg');
+					dom.nav.city.find('span').html('選擇市').addClass('noVal');
+					dom.nav.town.find('span').html('選擇區').addClass('noVal');
+					if(app.datas.marketSelect.marketType == '3'){
+						dom.nav.type.find('span').html('7-11');
+					}else if(type == '2'){
+						dom.nav.type.find('span').html('全家');
+					}
+				});
+				// 加载区
+				dom.add.city.off().on('click', 'li', function(){
+					dom.add.city.removeClass('show').find('li').removeClass('active');
+					dom.add.town.removeClass('showNext').removeClass('showPrev').addClass('show');
+					$(this).addClass('active');
+					app.datas.marketSelect.cityindex = $(this).data('index');
+					app.methods.initSelectVal('town');
+					dom.nav.city.find('span').html($(this).html()).removeClass('noVal');;
+				});
+				// 加载店
+				dom.add.town.off().on('click', 'li', function(){
+					dom.add.town.removeClass('show').find('li').removeClass('active');
+					if(dom.add.market.hasClass('showNext') && dom.add.market.hasClass('showPrev')){
+						dom.add.market.removeClass('showNext').removeClass('showPrev').addClass('show');
+					}else{
+						dom.add.market.removeClass('showPrev').addClass('show');
+					}
+					$(this).addClass('active');
+					app.datas.marketSelect.townindex = $(this).data('index');
+					app.methods.initSelectVal('market');
+					dom.nav.town.find('span').html($(this).html()).removeClass('noVal');;
+				});
+				// 确认收货商超
+				dom.add.market.off().on('click', 'li', function(){
+					dom.add.market.find('li').removeClass('active');
+					$(this).addClass('active');
+					var addType = app.methods.typeToMarket(app.datas.marketSelect.marketType);
+					var market = marketData[app.datas.marketSelect.cityindex].town[app.datas.marketSelect.townindex]['markrt_' + addType][$(this).data('index')]; 
+					app.datas.market = {
+						adressDetails: market.addr,
+						marketName: market.NAME,
+						marketKey: market.pkey,
+						city: marketData[app.datas.marketSelect.cityindex].city,
+						district: marketData[app.datas.marketSelect.cityindex].town[app.datas.marketSelect.townindex].val,
+						addType: app.datas.marketSelect.marketType
+					}
+					app.methods.initMarketSelect(app.datas.market);
+					tipWindow.bottomView.close($$('.selectMarketView'))
+				});
+				// 返回类型
+				dom.nav.type.off().on('click', function(){
+					return
+					if($(this).find('span').hasClass('noVal')){
+						return false;
+					}
+					selectMarketView.find('.view-bottom-box').removeClass('view-bottom-box-sml-to-min').addClass('view-bottom-box-min-to-sml');
+					selectMarketView.find('.step1').show();
+					selectMarketView.find('.step2').hide();
+					dom.addData.find('ul').removeClass('showNext').removeClass('showPrev').removeClass('show');
+				});
+				// 返回市
+				dom.nav.city.off().on('click', function(){
+					if($(this).find('span').hasClass('noVal')){
+						return false;
+					}
+					dom.addData.find('ul').removeClass('show');
+					dom.add.city.addClass('show');
+					dom.add.town.addClass('showPrev');
+					dom.nav.town.find('span').html('選擇區').addClass('noVal');
+				});
+				// 返回区
+				dom.nav.town.off().on('click', function(e){
+					if($(this).find('span').hasClass('noVal')){
+						return false;
+					}
+					dom.addData.find('ul').removeClass('show');
+					dom.add.town.addClass('show');
+					dom.add.market.addClass('showPrev');
+				});
+				// 确认商超选择
+				$$('.address-market .saveAddress').off().on('click', function(e){
+					var address = {
+						userame: app.methods.getUserName(app.datas.dom_market._username),
+						phone: app.datas.dom_market._phone.val().replace(/\s+/g, ""),
+					};
+	            	if(app.datas.market && "" != app.datas.market){
+						address = Object.assign(app.datas.market, address);
+					}else{
+						if(app.datas.address == null){
+							mdui.snackbar({message: "請選擇取貨門市...", position: "top"});
+							return false;
+						}else{
+							address = Object.assign(app.datas.address, address);
+						}
+					}
+					if (!address.userame){
+						return false;
+					}
+					if (!/^[2|3|5|6|7|8|9][0-9]\d{6}$/.test(address.phone)){
+						mdui.snackbar({message: "您輸入的電話格式有誤，請重新輸入...", position: "top"});
+						return false;
+					}
+					if (!address.marketKey || !address.marketName){
+						mdui.snackbar({message: "請選擇取貨門市...", position: "top"});
+						return false;
+					}
+					app.datas.address = address;
+					setCache("dataCacheAddress-address", address);
+					tipWindow.bottomView.close($$('.addressView'))
+					app.methods.initAddress();
+					newMonitor.addMonitor({
+						'eventAims': 'ADDRESS_MARKET',
+						'eventName': 'CLICK',
+						'aimsCategory': 'EVENT',
+					});
+					// 地址填写完成
+					fbq("track", "CompleteRegistration");
+					gtag("event", "CompleteRegistration");
+				});
+				// 开始
+				$$('.selectSuperMarket').off().on('click' , function(e){
+					tipWindow.bottomView.open($$('.selectMarketView'))
+					if(app.datas.market == undefined){
+						dom.type.eq(0).trigger('click')
+					}
+				});
+			},
+			getUserName: function(name){
+				var username = name.val().trim()
+				var right_name = username.match(/^[A-Za-z0-9\u4e00-\u9fa5]+$/g);
+				if (!username){
+					mdui.snackbar({message: "請輸入收件人姓名...", position: "top"});
+				}else if(!right_name){
+					mdui.snackbar({message: "收货人姓名格式不正确...", position: "top"});
+				}
+				return right_name[0] || '';
+			},
+			initSelectVal: function(type){
+				var box = $$('.selectMarketView .step2 .selectAdd');
+				var html = '';
+				var addType = app.methods.typeToMarket(app.datas.marketSelect.marketType);
+				if(type == 'city'){
+					marketData.map(function(e,i){
+						html += '<li data-index="' + i + '">' + e.city + '</li>';
+					});
+				}else if(type == 'town'){
+					marketData[app.datas.marketSelect.cityindex].town.map(function(e,i){
+						if(!e['markrt_' + addType]){
+							return;
+						}
+						var num = e['markrt_' + addType].length;
+						if(num > 0){
+							html += '<li data-index="' + i + '">' + e.val + '(' + num + ')</li>';
+						}
+					});
+					if(html == ''){
+						html = '<p>當前地址暫不支持，如有疑問請聯繫客服...<p>';
+					}
+				}else if(type == 'market'){
+					var data = marketData[app.datas.marketSelect.cityindex].town[app.datas.marketSelect.townindex]['markrt_' + addType];
+					if(data.length > 0){
+						data.map(function(e,i){
+							html += '<li data-index="' + i + '">' + e.NAME + '（' + e.pkey + '）' + '<i>' + e.addr + '</i>' + '</li>';
+						});
+					}else{
+						html = '<p>當前地址暫不支持，如有疑問請聯繫客服...<p>';
+					}
+				}
+				box.children('ul.level_' + type).html(html);
+				(type == 'town' || type == 'market') && box.children('.level_' + type).addClass('showNext');
+			},
+			initMarketSelect: function(data){
+				if(data.addType && data.marketName && data.marketKey){
+					app.datas.dom_market._market.html('<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon-market-' + data.addType + '.jpg" style="height: 20px;margin: 0 6px">' + data.marketName + '(' + data.marketKey + ')').css({'color':'#000'});
+					app.datas.dom_market._adressDetails.html('<span>' + data.city + data.district + data.adressDetails + '</span>');
+				}
+			},
+			typeToMarket: function(type){
+				var addType;
+				switch(type){
+					case 3: addType = '711';break;
+					case 2: addType = 'fm';break;
+				}
+				return addType;
+			},
+			typeToMarketMes: function(){
+				var addType;
+				switch(app.datas.address.addType){
+					case 3: addType = '7-11' + app.datas.address.marketName + '店 ' + app.datas.address.marketKey;break;
+					case 2: addType = app.datas.address.marketName + ' ' + app.datas.address.marketKey;break;
+				}
+				return addType;
+			},
+			getClick: function(){
+				$$('.toHome').on('click', function(e){
+					e.stopPropagation();
+					cacheSessionStorage.setCache("i_to_home", {
+						'eventAims': 'HOME_ICON',
+						'eventName': 'CLICK',
+						'aimsFromUrl': location.href,
+						'aimsCategory': 'EVENT',
+					});
+				});
+				$$('.toCart').on('click', function(e){
+					e.stopPropagation();
+					cacheSessionStorage.setCache("i_to_cart", {
+						'eventAims': 'CART_ICON',
+						'eventName': 'CLICK',
+						'aimsFromUrl': location.href,
+						'aimsCategory': 'EVENT',
+					});
+				});
+
+				// 管理室代收
+				$$('.mana-radio').on('click', function(e){
+					if ($$(this).hasClass('add')) {
+						$$(this).removeClass('add')
+						$$(this).find('span').text('不要')
+					} else {
+						$$(this).addClass('add')
+						$$(this).find('span').text('需要')
+					}
+				})
+			},
+			initShoppingCart: function() {
+				var shoppingCartDom = $$('.shop_cart_num'),
+					shoppingcartNum = tools.getShopCartProductsNum();
+				if(shoppingcartNum == 0){
+					shoppingCartDom.hide();
+				}else{
+					shoppingCartDom.html(shoppingcartNum).show();
+				}
+			},
+			initbuyNowTime: function(){
+				var last_add_time = getCache('last_add_time');
+				if(last_add_time && last_add_time != ''){
+					$$('.cartTime').show()
+					app.methods.initCountdownShort(last_add_time + configurationParameter.shopcart_countdown);
+				}else{
+					$$('.cartTime p:first-child').html('');
+				}
+			},
+			initCountdownShort: function(end_time) {
+				app.data.timeout_interval = null;
+				if(app.data.cartTime > 0) {
+					app.methods.circleNumberShort(end_time);
+					app.data.timeout_interval = window.setInterval(function(){
+						app.methods.circleNumberShort(end_time);
+					}, 100);
+				} else {
+					window.clearInterval(app.data.timeout_interval);
+				}
+			},
+			circleNumberShort: function(endTime) {
+				if(!endTime || endTime == null){
+					$$('#buyNow').html('結賬');
+					return;
+				}
+				// 计算时间差（毫秒）
+				var endTime = new Date(endTime).getTime(),
+					startTime = new Date().getTime();
+				if(endTime - startTime > 0){
+					app.data.cartTime = endTime - startTime;
+				}else{
+					$$('#buyNow').html('結賬');
+					setCache('last_add_time', null, -1);
+					window.clearInterval(app.data.timeout_interval);
+					// location.reload();
+				}
+
+				var leftMinutes = app.methods.addNumber(Math.floor(app.data.cartTime / 1000 / 60 % 60));
+				var leftSeconds = app.methods.addNumber(Math.floor(app.data.cartTime / 1000 % 60));
+				
+				$$('#buyNow span').eq(0).text(leftMinutes + ':' + leftSeconds);
+			},
+			addNumber: function(num) {
+				var num = (num > 9) ? ('' + num) : ('0' + num);
+				return num;
+			},
+		},
+		cart: {
+			initTopTip: function(){
+				$$('.mdui-appbar-with-toolbar').css({'padding-top': '43px'})
+				if(app.datas._price.originalTotalPrice < app.datas.postageFreePrice){
+					// 不包邮 80
+					$$('.mdui-cart-promotion-container span').eq(0).html('再買HK$' + (app.datas.postageFreePrice - app.datas._price.originalTotalPrice) + '，免運費+立享8折價')
+					$$('.mdui-cart-promotion-container span').eq(1).html('去湊單<i class="mdui-icon material-icons array-right">keyboard_arrow_right</i>')
+				}else{
+					$$('.mdui-cart-promotion-container span').eq(0).html('已免運費 + 享8折價')
+					$$('.mdui-cart-promotion-container span').eq(1).html('再逛逛<i class="mdui-icon material-icons array-right">keyboard_arrow_right</i>')
+				}
+
+				$$('.mdui-cart-promotion-container').show()
+			},
+			initMduiNumbox : function(){
+				$$('.mdui-numbox-btn-minus').on('click', function (e) {
+					var _that = this;
+					var value = parseInt($$(this).next().val()) - parseInt($$(this).parent().attr('data-numbox-step'));
+					if(value < parseInt($$(this).parent().attr('data-numbox-min'))){
+						value = $$(this).parent().attr('data-numbox-min');
+					}
+					$$(this).next().val(value);					
+					var _discountprice = $$(this).parents('li.mdui-list-item').attr('discountprice'),
+						_productskuid = $$(this).parents('li.mdui-list-item').attr('productskuid');
+					$$.each(app.datas.orderProducts, function(index , orderProduct) {
+						if(orderProduct.productSkuId == _productskuid && orderProduct.discountPrice == _discountprice){
+							orderProduct.quantity = $$(_that).next().val();
+							return false;
+						}
+					});
+					app.methods.initPayNum();
+				});
+				$$('.mdui-numbox-btn-plus').on('click', function (e) {
+					var _that = this;
+					var value = parseInt($$(this).prev().val()) + parseInt($$(this).parent().attr('data-numbox-step'));
+					if(value > parseInt($$(this).parent().attr('data-numbox-max'))){
+						value = $$(this).parent().attr('data-numbox-max');
+					}
+					$$(this).prev().val(value);
+					var _discountprice = $$(this).parents('li.mdui-list-item').attr('discountprice'),
+						_productskuid = $$(this).parents('li.mdui-list-item').attr('productskuid');
+					$$.each(app.datas.orderProducts, function(index , orderProduct) {
+						if(orderProduct.productSkuId == _productskuid && orderProduct.discountPrice == _discountprice){
+							orderProduct.quantity = $$(_that).prev().val();
+							return false;
+						}
+					});	
+					app.methods.initPayNum();
+				});
+			},
+			initProductDelete : function(){
+				$$('.mdui-cart-products .mdui-list-item .delete-icon').on('click' , function(){
+					var _that = this , _liDOM = $$(_that).parents('li.mdui-list-item') , _deleteProduct = null;
+					var _primaryskuid = $$(_that).parents('li.mdui-list-item').attr('primaryskuid'),
+						_discountprice = $$(this).parents('li.mdui-list-item').attr('discountprice'),
+						_productskuid = $$(this).parents('li.mdui-list-item').attr('productSkuId');
+					$$.each(app.datas.orderProducts, function(index , orderProduct) {
+						if(orderProduct.productSkuId == _productskuid && orderProduct.discountPrice == _discountprice){
+							_deleteProduct = orderProduct ; 
+							return false;
+						}else if(orderProduct.presents && (orderProduct.productSkuId == _primaryskuid)){
+							$$.each(orderProduct.presents, function(index , orderProduct2) {
+								if(orderProduct2.productSkuId == _productskuid){
+									_deleteProduct = orderProduct2 ; 
+									return false;
+								}
+							});
+						}
+					});
+					if(!_deleteProduct)return false;
+					mdui.dialog({
+						cssClass : 'delete-confirm',
+						title: '確定要刪除此商品?',
+						content: '<img class="mdui-cart-product-sku-img" src="'+ _deleteProduct.productImageUrl +'">'
+								+'<div class="mdui-cart-product-sku-info">'
+								+'	<div class="mdui-list-item-title mdui-list-item-one-line">'+ _deleteProduct.productTitle +'</div>'
+								+'	<div class="mdui-list-item-text mdui-list-item-one-line">'+ _deleteProduct.productSkuName +'</div>'
+								+'</div>',
+						buttons: [{
+								text: '確認',
+								onClick: function(inst){
+									var _newProducts = [];
+									/**
+									 * 在這裏需要判斷,是刪除的主商品還是贈品,如果是主商品,則,其對應的贈品也刪除了,如果是贈品,需要明確出該贈品對應的主商品
+									 */
+									var _productDOM = $$(_that).parents('li.mdui-list-item') ; 
+									
+									if(_productDOM.hasClass('gift-item')){//說明是贈品
+										$$.each(app.datas.orderProducts, function(index , orderProduct) {
+											if(orderProduct.presents && (orderProduct.productSkuId == _primaryskuid)){
+												var _presents = [];
+												$$.each(orderProduct.presents, function(index2 , present) {
+													if(present.productSkuId != _productskuid){
+														_presents.push(present);
+													}
+												});
+												orderProduct.presents = _presents ; 
+											}
+											_newProducts.push(orderProduct);
+										});
+									}else{//說明是主商品
+										$$.each(app.datas.orderProducts, function(index , orderProduct) {
+											if(orderProduct.productSkuId != _productskuid || orderProduct.discountPrice != _discountprice){
+												_newProducts.push(orderProduct);
+											}
+										});
+									}
+									app.datas.orderProducts = _newProducts
+									inst.close();
+									app.methods.initPayNum();
+								}
+							},
+							{
+								text: '取消',
+								onClick: function(inst){
+									inst.close();
+								}
+							}
+						]
+					});
+				});
+			},
+			initbuyNowAction : function(){
+				var buyNow = $$('#buyNow');
+				var _mainProduct = [];
+				$$('.mdui-cart-products .mdui-list-item').map(function(i,e){
+					if($(e).find('.check-icon').hasClass('active')){
+						_mainProduct.push(e)
+					}
+				})
+				if(_mainProduct.length == 0){
+					buyNow.addClass('no-active');
+				}else{
+					buyNow.removeClass('no-active');
+				}
+			},
+			initProductListItemClick : function(){
+	        	$$('.mdui-cart-products .mdui-list .mdui-list-item .check-icon:not(.exchange-check)').on('click', function (e) {
+					var _cartProducts = app.datas.orderProducts, 
+						_orderProducts = [];
+					var productskuid = $$(e.target).parents('.mdui-list-item').attr('productskuid'),
+						discountprice = $$(e.target).parents('.mdui-list-item').attr('discountprice');
+	        		if($$(this).hasClass('active')){
+						// 取消勾选
+	        			$$(this).attr('src' , 'https://d3o2c7bn83e5x8.cloudfront.net/image/icon_no_check.png');
+	        			
+	        			if($$(this).parents('.mdui-cart-products').hasClass('mdui-cart-promotions')){
+	        				// 營銷活動產品:
+	        				$$(this).parents('.mdui-list-item').siblings().find('img.check-icon.exchange-check').attr('src' , 'https://d3o2c7bn83e5x8.cloudfront.net/image/icon_no_check_gift.png');
+	        				$$(this).parents('.mdui-list-item').siblings().find('img.check-icon.exchange-check').removeClass('active');
+	        			}
+	        			
+						$$(this).removeClass('active');
+						
+						_cartProducts.map(function(_e){
+							var data = _e;
+							if(productskuid == data.productSkuId && discountprice == data.discountPrice){
+								data.isSelect = false;
+							}
+							_orderProducts.push(data)
+						})
+						app.datas.orderProducts = _orderProducts
+	        		}else{
+						// 勾选
+	        			$$(this).attr('src' , 'https://d3o2c7bn83e5x8.cloudfront.net/image/icon_check.png');
+	        			
+	        			if($$(this).parents('.mdui-cart-products').hasClass('mdui-cart-promotions')){
+	        				// 營銷活動產品:
+	        				$$(this).parents('.mdui-list-item').siblings().find('img.check-icon.exchange-check').attr('src' , 'https://d3o2c7bn83e5x8.cloudfront.net/image/icon-exchange-check.png');
+	        				$$(this).parents('.mdui-list-item').siblings().find('img.check-icon.exchange-check').addClass('active');
+	        			}
+	        			
+						$$(this).addClass('active');
+						
+						_cartProducts.map(function(_e){
+							var data = _e;
+							if(productskuid == data.productSkuId && discountprice == data.discountPrice){
+								data.isSelect = true;
+							}
+							_orderProducts.push(data)
+						})
+						app.datas.orderProducts = _orderProducts
+					}
+					// 触发统计购物车并后台计算价格
+					app.methods.initPayNum();
+				});
+	        },
+		},
+		init : function(){
+			app.methods.initCart();
+			app.methods.initbuyNowTime();
+			tools.loading();
+			app.methods.initPageStatus();
+			tools.initScopeInfo();
+			app.methods.initCartProducts();
+			// app.methods.initDefaultEvents();
+			app.methods.initShoppingCart();
+			app.methods.getClick();
+			app.methods.initAddress();
+			app.methods.initAddressView();
+			app.methods.initSelectPayType();
+			app.methods.initMessage();
+			app.methods.initCouponView();
+			app.methods.scrollFuc()
+			tools.hideLoading();
+			app.methods.androidFbbrower()
+		}
+	}
+	$$(function(){
+		app.init();
+	});
+	// window.addEventListener('pageshow', function( e ){
+	// 	if (e.persisted) {
+	// 		window.location.reload();
+	// 	}
+	// });
+</script>
+

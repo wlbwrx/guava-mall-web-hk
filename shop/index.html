@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="【阿噗購物】首頁-購物，從阿噗開始" />
+		<meta property="og:description"   content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。" />
+		<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+		<title>阿噗購物</title>
+		<meta name="description" content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。!">
+
+		<!-- 安卓平台 chrome -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg">
+		<!-- ios平台 safari -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+		<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+		<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+
+		<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+
+		<meta name="google-site-verification" content="a3WEnwgZ_FcabGTmMSO6g50wtWQa_wFAS0PjnZ9rwN0" />
+		<meta name="google-site-verification" content="P2fm2-zmVc_izaSI_NJQCYdguWpqbjTbBQFd_jD0NwI" />
+		<!--<meta name="shoppingCart">-->
+		<meta name="customerService">
+		<meta name="ad">
+		<meta name="nav">
+		<meta name="searchTool">
+		<meta name="footprint">
+		
+		<!-- <meta name="share"> -->
+		<link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/css/mdui.min.css">
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css">
+		<link rel="stylesheet" href="../css/common.css?v=20210125">
+		<style>
+			body .mdui-appbar-fixed{z-index:2001} 
+			.mdui-overlay{background:rgba(0,0,0,.5)}
+			.mdui-toolbar-title{box-shadow:none}
+			.mdui-page-container{min-height: 100px}
+
+			.mdui-nav{height:36px;background:#fff;overflow:hidden;flex-grow:1}
+			.mdui-nav::-webkit-scrollbar {display: none;}
+			.mdui-nav .mdui-tab{box-sizing:border-box;min-height:initial;height:auto;padding-top:2px;-webkit-overflow-scrolling:touch}
+			.mdui-nav .mdui-tab::-webkit-scrollbar {display:none}
+			.mdui-nav .mdui-tab a{margin-right: 12px;text-transform: initial;padding: 0 6px;min-width:min-content;min-height:initial;color:#363636;opacity:1;height:30px;cursor:pointer;font-size: 16px; font-weight: bold;}
+			.mdui-nav .mdui-tab a:first-child{margin-left: 12px;}
+			.mdui-nav .mdui-tab a.mdui-tab-active{color:#B4272D;position: relative;}
+			.mdui-nav .mdui-tab a.mdui-tab-active::after{display: block;background: #B4272D;height: 3px;border-radius: 10px;content: '';width: calc(100% - 12px);position: absolute;bottom: 0;}
+
+			.mdui-tab-flex{height: auto;background: #FAFAFA;position: relative;display: none;}
+			.mdui-tab-flex.show{display: block!important;}
+			.mdui-tab-flex.hide{display: none!important;}
+			.mdui-tab-flex .mdui-tab-box{width: 100%;display: flex;min-height: initial;max-height: initial;justify-content: center;align-items: center;}
+			.mdui-tab-flex .arrow-down{border-radius:0;min-width:36px;padding:0;color:#7B7B7B;display: flex;align-items: center;}
+			.mdui-tab-flex .arrow-down:active,
+			.mdui-tab-flex .arrow-down:hover{background:transparent;}
+			.mdui-tab-flex .mdui-tab-mes{background: #FAFAFA;height: 44px;line-height: 44px;padding: 0 4px;font-size: 14px;color: #777;}
+			.mdui-tab-flex .mdui-tab-toggle{display: flex;align-items: center;justify-content: flex-end;color: #777;height: 44px;line-height: 44px;}
+
+			.mdui-tab-flex .mdui-tab-navport{width: 100%;background: #fff;display: none;padding: 15px 4%;box-sizing: border-box;flex-wrap: wrap}
+			.mdui-tab-flex .mdui-tab-navport a.nav{flex: initial;width: 48%;opacity: 1;border:1px solid #DFDEDB;border-radius:8px;min-height: initial;min-width:initial;display:flex;align-items:center;justify-content:flex-start;margin-bottom:15px;height:44px;cursor:pointer;padding:0 15px;flex-direction: row;}
+			.mdui-tab-flex .mdui-tab-navport a.nav > img{width: 40px;height: 40px;margin-right: 6px;}
+			.mdui-tab-flex .mdui-tab-navport a.nav > i{width: 40px;height: 40px;background: #f4f4f4;margin-right: 6px;font-size: 0;}
+			.mdui-tab-flex .mdui-tab-navport a.nav > span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+			.mdui-tab-flex .mdui-tab-navport a.nav:nth-child(2n+1){margin-right: 2%;}
+			.mdui-tab-flex .mdui-tab-navport a.nav:nth-child(2n){margin-left: 2%;}
+			.mdui-tab-flex .mdui-tab-navport a.nav:nth-last-child(1){margin-bottom: 0;}
+			.mdui-tab-flex .mdui-tab-navport a.nav:nth-last-child(2){margin-bottom: 0;}
+			.mdui-tab-flex .mdui-tab-navport a.nav-active{border-color:#b4272d;color:#b4272d;}		
+
+			.mdui-loading{text-align: center;padding: 8%;font-size: 12px;color: #7B7B7B}
+			.mdui-loading i{font-size: 16px;margin-left: 4px;}
+
+			.mdui-depletion-box{display: none;}
+			ul,li{
+				list-style: none;margin:0;padding:0;
+			}
+			.operatingPolicy{
+				width:96%;background:#fff;
+				border-radius:5px;margin:10px auto;
+			}
+			.operatingPolicy ul{
+				padding:0 0 0 3%;
+			}
+			.operatingPolicy li{
+				padding:14px 0;border-bottom:1px solid #EDEDED;
+				font-size:15px;font-weight:400;
+			}
+			.operatingPolicy li:last-child{
+				border-bottom:0;
+			}
+			.operatingPolicy li i{
+				float:right;color:#BCBCBC !important;
+				position: relative;
+				top: -4px;
+			}
+			.operatingPolicy li a{
+				text-decoration: none;
+				display:block;
+				color: #363636;
+			}
+			.operatingPolicy li .pay-img-list{
+				float:right;
+			}
+			.operatingPolicy li .pay-img-list img{
+				width:30px;height:20px;display:inline-block;
+			}
+			#toTop{
+				bottom:100px;
+			}
+			#bottomBot{
+				width: 36px;
+				height: 36px;
+				line-height: 28px;
+				bottom: 60px;
+				right: 15px;
+				position: fixed;
+				cursor: pointer;
+				z-index: 5050;
+				border: 1px solid #ccc;
+				text-align: center;
+				border-radius: 50%;
+				box-sizing: border-box;
+				background: #fff;
+				color: #868686;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#bottomBot img{
+				width:30px;height:30px;border-radius:50%;
+			}
+		</style>
+		<script>
+			var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+		</script>
+	</head>
+	<body class="mdui-bottom-nav-fixed mdui-appbar-with-toolbar mdui-loaded" onload="setStart()" onbeforeunload="setEnd();">
+		
+		<div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-toolbar-hide">
+<!--			<div class="mdui-toolbar mdui-appbar-depletion">-->
+<!--				<div class="mdui-depletion">-->
+<!--					<div class="mdui-depletion-box" onclick="tools.openTech()">-->
+<!--						<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon-desktop.png" alt="" srcset="">-->
+<!--						<div>-->
+<!--							<span>阿噗特賣</span>-->
+<!--							<span>直通工廠 限時出清</span>-->
+<!--						</div>-->
+<!--						<span class="iosShow">下載</span>-->
+<!--					</div>-->
+<!--					<a href="javascript:void(0)" onclick="tools.closeTech()"></a>-->
+<!--				</div>-->
+<!--			</div>-->
+			<!-- <div class="mdui-toolbar mdui-appbar-depletion">
+				<div class="mdui-depletion" onclick="tools.closeTech()">
+					<div></div>
+					<span>因新春物流停運<i>1.25日之後的訂單</i>延遲到<i>2.21日後發貨</i></span>
+					<button><img src="../image/icon/icon-close-c.png" alt=""></button>
+				</div>
+			</div> -->
+			<div class="mdui-toolbar-title">
+				<div class="top-left-options" style="margin-right: 0px;">
+					<!-- <a href="../shop/index.html" class="logo"></a> -->
+				</div>
+				<div class="top-center-options">
+					<!-- <div class="search_box" onclick="tools.openSearch()">
+						<div class="search_box_bg">
+							<img src="../image/icon/search.png" alt="" srcset="">
+						</div>
+					</div> -->
+					<img src="../image/logo-2020919.jpg" height="40px">
+				</div>
+				<div class="top-right-options">
+				
+				</div>
+			</div>
+			<div class="mdui-nav"></div>
+			<div class="mdui-tab-flex" style="display:none;">
+				<div class="mdui-tab-box">
+					<div class="mdui-tab-mes">選擇二級分類</div>
+					<div class="mdui-tab-toggle">
+						<span>全部</span>
+						<button class="mdui-btn arrow-down"><i class="mdui-icon material-icons">expand_more</i></button>
+					</div>
+				</div>
+				<div class="mdui-tab-navport"></div>
+			</div>
+		</div>
+
+		<div class="mdui-container-fluid mdui-page-container"></div>
+		<!-- 新增到底提示 -->
+		<div class="footer-note-new" id='footer-note-new' style="display:none;">
+			<div class="footer-note-new-div">
+				<span>(๑¯∀¯๑)已經到底了喔</span>
+			</div>
+		</div>
+		<!-- 新增公司经营政策 -->
+		<div class="operatingPolicy">
+			<ul calss='operating-ul'>
+				<li class='operating-li'>
+					<a href="../other/freight.html">
+						運費&配送
+						<i class="mdui-icon material-icons mdui-text-color-grey-500">keyboard_arrow_right</i>
+					</a>
+				</li>
+				<li class='operating-li'>
+					<a href="../other/changeRefund.html">
+						支持在線退換貨
+						<i class="mdui-icon material-icons mdui-text-color-grey-500">keyboard_arrow_right</i>
+					</a>
+				</li>
+				<li class='operating-li'>
+					<a href="../other/payStyle.html">
+						如何支付
+						<i class="mdui-icon material-icons mdui-text-color-grey-500">keyboard_arrow_right</i>
+						<div class="pay-img-list">
+							<img src="../image/visa.png" alt="">
+							<img src="../image/MasterCard.png" alt="">
+							<img src="../image/American-Express.png" alt="">
+							<img src="../image/discover.png" alt="">
+						</div>
+					</a>
+				</li>
+				<li class='operating-li'>
+					<a href="../other/newPrivacyPolicy.html">
+						隱私政策
+						<i class="mdui-icon material-icons mdui-text-color-grey-500">keyboard_arrow_right</i>
+					</a>
+				</li>
+				<li class='operating-li'>
+					<a href="../other/aboutAchat.html">
+						關於&聯繫我們
+						<i class="mdui-icon material-icons mdui-text-color-grey-500">keyboard_arrow_right</i>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mdui-loading" style="display:none">正在加载<i class="mdui-icon material-icons">&#xe863;</i></div>
+
+		<!-- <div class="mdui-valign mdui-text-center mdui-page-bottom">
+			<span class="mdui-page-bottom-text">香港芭樂科技有限公司版權所有<a href="../other/index.html">了解我們</a></span>
+		</div> -->
+		<div id='bottomBot'>
+			<img src="../image/bottomBot.png" alt="">
+		</div>
+		<div class="mdui-bottom-nav mdui-row mdui-color-grey-50">
+			<div class="mdui-col-2-6">
+				<a href="../shop/index.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-home-0.png" />
+					<span>首頁</span>
+				</a>
+			</div>
+			<div class="mdui-col-2-6">
+				<a href="../shop/menu.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-classification-0.png" />
+					<span>分類</span>
+				</a>
+			</div>
+			<div class="mdui-col-2-6">
+				<a href="../product/indexCart.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-cart-0.png" />
+					<span>購物車</span>
+					<label class="text-icon-num shop_cart_num"></label>
+				</a>
+			</div>
+			<div class="mdui-col-2-6">
+				<a href="../user/order.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-me-0.png" />
+					<span>查貨</span>
+				</a>
+			</div>
+		</div>
+	</body>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/clipboard/dist/clipboard.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/echo.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/art-template/lib/template-web.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/templateImport.js?v=20180526"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script src="../js/common.js?v=2020110500"></script>
+	<script>
+		commonConfig.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + commonConfig.getGATracking());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag("config",commonConfig.getGATracking());
+		if(commonConfig.getGATracking() != 'UA-117174835-7'){
+			gtag("config",'UA-117174835-7');
+		}
+	</script>
+	<script>
+		!function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+	</script>
+	<script id="mdui-tab-container" type="text/html">
+		<div id="productTab" class="mdui-tab">
+			<% for (var i = 0; i < list.length; i++) { %>
+				<% if (list[i].isTopNavigation) { %>
+					<a id="<%=list[i].id%>" _index="<%=i%>"><%=list[i].name%></a>
+				<% } %>
+			<% } %>
+		</div>		
+	</script>
+	<script id="mdui-tab-navport" type="text/html">
+		<% for (var i = 0; i < list.length; i++) { %>
+			<a href="#module_<%=list[i].id%>" class="mdui-btn nav">
+			<% if (list[i].thumb) { %>
+				<img src="<%=list[i].thumb%>">
+			<% }else{ %>
+				<i></i>
+			<% } %>
+			<span><%=list[i].name%></span></a>
+		<% } %>
+	</script>
+    <script>
+        var app = {
+			data: {
+				luxury: tools.getURLParam('luxury'),
+				second_nav: [],
+				hashValue: location.hash,
+				adlk: cacheSessionStorage.getCache('adlk'),
+				id: tools.getURLParam('id'),
+				source: tools.getURLParam('source'),
+				noMonitor: null,
+				sub_page_data: [],
+				page: 0, // 页数
+				module_page_state: false, // 模块-页面级-加载完成
+				should_clear: false, // 清除模块盒子状态
+				more_page: true, // 分页未完成
+				ajax_type: 'page', // 加载状态（page|sub）
+				subId: null,
+				page_length: 2, // 每页模块长度 TODO
+				module_page: {},
+			},
+			methods: {
+				initScopeInfo : function(){
+					// 阿噗政策跳转到锚点指定位置
+					$$('#bottomBot').on('click',function(){
+						let height = $$('.mdui-page-container').height();
+						console.log($$('.operatingPolicy').offset().top)
+						window.scrollTo({
+							top:$$('.operatingPolicy').offset().top - 530,
+							behavior:'smooth'  //instant /smooth
+						})
+					})
+					if(!tools.isSpHost()){
+						// logo+名称
+						tools.initScopeInfo()
+						// tools.initScopeInfo(function(scopeData){
+						// 	scopeData.logo && scopeData.logo != '' && $$('.mdui-toolbar-title .top-left-options > a.logo').html('<img src="'+scopeData.logo+'" />');
+						// });
+						$$('.mdui-depletion-box').css('display','flex')
+					}
+					// 初始化出清条幅
+					if(commonConfig.havDepletion()){
+						$$('.mdui-appbar-depletion').show()
+						// .find('button').on('click', function(){
+						// 	$$('.mdui-appbar-depletion').hide();
+						// 	app.methods.initScrollView();
+						// });
+						app.methods.initScrollView();
+					}else{
+						$$('.mdui-appbar-depletion').remove();
+					}
+				},
+				initNavInfo : function(){
+					// 初始化数据
+					if(tools.isSpHost()){
+						app.data.second_nav = cacheSessionStorage.getCache('second-nav-sp');
+					}else{
+						app.data.second_nav = cacheSessionStorage.getCache('second-nav');
+					}
+					if(!app.data.second_nav || app.data.second_nav.length == 0){
+						var header_data = {
+							requestId: $$.guid(),
+							requestTime: (new Date()).valueOf(),
+						};
+						if(tools.isSpHost()){
+							header_data['requestHost'] = configurationParameter.luxuryHost
+						}else{
+							header_data['requestHost'] = window.location.host
+						}
+						$$.ajax({
+							url: commonConfig.websitePrefix() + "/api/aggregate/page/secondaryNavigation",
+							headers: header_data,
+							success: function(data) {
+								if(tools.isSpHost()){
+									cacheSessionStorage.setCache('second-nav-sp' , data.body);
+								}else{
+									cacheSessionStorage.setCache('second-nav' , data.body);
+								}
+								app.data.second_nav = data.body;
+								// 一级导航
+								app.methods.initFirstNav();
+								// 二級展開
+								app.events.mduiTabNavport();
+							}
+						})
+					}else{
+						// 一级导航
+						app.methods.initFirstNav();
+						// 二級展開
+						app.events.mduiTabNavport();
+					}
+					
+				},
+				// 解決安卓低版本facebook瀏覽器會遮住底部的問題
+				androidFbbrower: function(){
+					// 新增
+					if(tools.getPlatform() == 'Android' && tools.getBrowerForm() == 'FB'){
+						$$('.mdui-bottom-nav').css({
+							'padding-bottom': '50px'
+						})
+						$$('body.mdui-bottom-nav-fixed').css({
+							'padding-bottom': '100px'
+						})
+						$$('#bottomBot').css({
+							'bottom': '110px'
+						})
+						$$('#toTop').css({
+							'bottom': '150px'
+						})
+					}
+				},
+				initFirstNav: function(){
+					// 渲染
+					$$('.mdui-nav').html(template('mdui-tab-container', {'list': app.data.second_nav}));
+					// 事件
+					$$('.mdui-nav .mdui-tab > a').off().on('click' , function(e){
+						$$('.mdui-tab-flex .mdui-tab-toggle .arrow-down i').html('expand_more');
+						tools.hideLoading();
+						if(!$$(this).hasClass('mdui-tab-active')){
+							// 点击切换，adlk失效
+							if(app.data.id != $$(this).attr("id")){app.data.adlk = null;}
+							// 初始化
+							app.data.id = $$(this).attr("id");
+							app.data.noMonitor = null;
+							app.data.page = 0;
+							app.data.should_clear = true;
+							app.data.ajax_type = 'page';
+							app.data.subId = null;
+							app.methods.initPageAdModule();
+							// 初始化聚合模块id序列 
+							app.methods.initPageOrder();
+							// 定位到顶部，重写链接
+							document.body.scrollTop = document.documentElement.scrollTop = 0;
+							app.methods.reWriteURL();
+							// 点击效果
+							$$('.mdui-nav .mdui-tab > a').removeClass('mdui-tab-active');
+							$$(this).addClass('mdui-tab-active');
+							// 一级导航点击，排除第一次的二次加载
+							!app.data.noMonitor && app.data.id && app.data.id != '' && newMonitor.addMonitor({
+								'eventAims': app.data.id,
+								'eventName': 'CLICK',
+								'aimsCategory': 'NAV_F',
+							});
+							// 二级导航，一级导航横向定位
+							app.methods.initSubNav();
+							app.methods.initNavLeftPosition();
+						}
+					});
+					// 初始化
+					if(app.data.id && app.data.id != ''){
+						if(app.data.source != 'TAG'){
+							app.data.noMonitor = true;
+						}
+						if($$('.mdui-nav .mdui-tab > a[id="'+app.data.id+'"]').length > 0){
+							// 加载对应id的聚合
+							$$('.mdui-nav .mdui-tab > a[id="'+app.data.id+'"]').trigger('click');
+						}else{
+							// 不在菜单中的加载
+							// TODO,这里缺少监测
+							$$('.mdui-nav .mdui-tab > a').removeClass('mdui-tab-active');
+							$$('.mdui-tab-navport a.nav').removeClass('nav-active');
+							app.methods.initPageOrder();
+							$$('.mdui-page-container').css({'margin-top': '0px'});
+							$$('.mdui-discount').css({'margin-top': '0px'});
+
+							// 二级导航，一级导航横向定位
+							app.methods.initSubNav();
+							app.methods.initNavLeftPosition();
+						}
+					}else{
+						// 不传id，自动点击一级导航或者二级导航
+						app.methods.clickFirstNav();
+					}
+					app.methods.initScrollView();
+				},
+				clickFirstNav: function(){
+					if($$('.mdui-nav .mdui-tab > a').length > 0){
+						$$('.mdui-nav .mdui-tab > a').eq(0).trigger('click');
+					}else if($$('.navBox ul.levelA > li > a').length > 0){
+						$$('.navBox ul.levelA > li > a').eq(0).trigger('click');
+					}
+				},
+				initScrollView: function(){
+					$$('.mdui-appbar-with-toolbar').css({'padding-top':$$('.mdui-appbar').height()+'px'})
+				},
+				reWriteURL: function(){
+					// var newURL = window.location.origin + window.location.pathname + '?id=' + app.data.id + window.location.hash;
+					var newURL = window.location.origin + window.location.pathname + '?id=' + app.data.id;
+					if(app.data.luxury){
+						newURL += '&luxury=true'
+					}
+					if(window.location.href != newURL){
+						history.pushState({'url': newURL }, '', newURL);
+					}
+					if(cacheSessionStorage.getCache('_index_') && cacheSessionStorage.getCache('_index_') != ''){
+						cacheSessionStorage.removeCache('_index_');
+						history.pushState({'url': window.location.pathname }, '', window.location.pathname);
+					}
+				},
+				initPageOrder : function(){
+					app.data.module_page = cacheSessionStorage.getCache('pageModules' + app.data.id );
+					if(!app.data.module_page || app.data.module_page.length == 0){
+						$$.ajax({
+							beforeSend : function(){
+								app.methods.loading();
+							},
+							url : commonConfig.websitePrefix() + '/api/aggregate/page/moduleIds/info/' + app.data.id + (app.data.adlk && app.data.adlk != '' ? '?adlk=' + app.data.adlk : ''),
+							success: function (data) {
+								// 格式化数据
+								app.data.module_page = data.body
+								if(!app.data.module_page || app.data.module_page.length == 0){
+									mdui.snackbar({message: '正在施工，带您了解更多产品(=^_^=)...',position: 'top'});
+									app.methods.clickFirstNav();
+									return;
+								}
+								cacheSessionStorage.setCache('pageModules' + app.data.id , app.data.module_page);
+								app.methods.initModuleByIds();
+							},
+							// complete : function(){
+							// 	app.methods.hideLoading();
+							// },
+							error:function(error){
+								if(!error.responseText){
+									mdui.snackbar({message: '好像出了點小問題,要不您先看看別的(=^_^=)...',position: 'top'});
+								}
+							}
+						});
+					}else{
+						app.methods.initModuleByIds();
+					}
+				},
+				getSession: function(module_datas){
+					var session_data = [];
+					module_datas.map(function(e){
+						var module_cache = cacheSessionStorage.getCache('aggregate-module-' + e.aggregate_module_id);
+						if(module_cache && module_cache != ''){
+							session_data.push(module_cache)
+						}
+					})
+					if(session_data.length != module_datas.length){
+						return [];
+					}else{
+						return session_data;
+					}
+				},
+				initModuleByIds : function(){
+					var modules_id = [];
+					if(app.data.ajax_type == 'sub'){
+						modules_id = app.data.module_sub_page
+					}else if(app.data.ajax_type == 'page'){
+						modules_id = app.data.module_page
+					}
+					// 根据序列加载模块
+					var this_page_module_datas = modules_id.slice(app.data.page * app.data.page_length, (app.data.page + 1) * app.data.page_length )
+					// 模块数据
+					var moduleIds_session = app.methods.getSession(this_page_module_datas);
+					if(moduleIds_session.length != 0){
+						app.methods.initModuleHTML({'aggregateModules': moduleIds_session});
+					}else{
+						if(this_page_module_datas.length == 0){
+							app.data.more_page = false;
+							// 顯示到底的提示
+							$$('#footer-note-new').show()
+							return;
+						}
+						$$('#footer-note-new').hide()
+						var params = '';
+						this_page_module_datas.map(function(e){params += 'aggregateModuleIds=' + e.aggregate_module_id + '&';});
+						params = params.slice(0, -1);
+						$$.ajax({
+							beforeSend : function(){
+								app.methods.loading();
+								app.data.module_page_state = true;
+							},
+							url : commonConfig.websitePrefix() + '/api/aggregate/page/moduleIds/details?' + params + '&viewType=h5',
+							success: function (data) {
+								if(data.body && data.body.length != 0){
+									try{
+									// 格式化数据
+									var _data = data.body;
+									if(this_page_module_datas.length != _data.length){
+										// TODO 补充重复数据，暂时支持 app.data.page_length == 2的情况
+										_data.push(data.body[0]);
+									}
+									_data.map(function(e){
+										e.products.map(function(_e){
+											if(typeof _e.flag == 'string' &&_e.flag && _e.flag != ''){
+												_e.flag = _e.flag.split(',');
+											}
+										});
+										cacheSessionStorage.setCache('aggregate-module-' + e.id, e);
+										moduleIds_session.push(e);
+									});
+									// 渲染
+									app.methods.initModuleHTML({'aggregateModules': moduleIds_session});
+									if(this_page_module_datas.length <= 1){
+										// 顯示到底的提示
+										$$('#footer-note-new').show()
+									}
+									}catch(e){console.log(e)}
+								}
+							},
+							complete : function(){
+								app.methods.hideLoading();
+								app.data.module_page_state = false;
+							},
+							error:function(error){
+								if(!error.responseText){
+									mdui.snackbar({message: '好像出了點小問題,要不您先看看別的(=^_^=)...',position: 'top'});
+								}
+							}
+						});
+					}
+				},
+				initModuleHTML: function(aggregatePageModuleData){
+					// 渲染模块
+					if(!aggregatePageModuleData || !aggregatePageModuleData.aggregateModules || aggregatePageModuleData.aggregateModules.length == 0){
+						// 数据异常||加载完成
+						app.data.more_page = false;
+						return;
+					}else{
+						if(aggregatePageModuleData.aggregateModules.length != app.data.page_length){
+							app.data.more_page = false;
+						}else{
+							app.data.more_page = true;
+						}
+					}
+					app.methods.getPageSecondNav();
+					app.methods.initPageViewRender(aggregatePageModuleData);
+					app.methods.hideLoading();
+					//图片懒加载
+					echo.init({offset: 667,throttle: 0});
+					// 还需要再次加载子页面
+					if(document.body.clientHeight < window.innerHeight){
+						app.data.should_clear = false;
+						app.data.page++;
+						app.methods.initModuleByIds();
+					}
+				},
+				getPageSecondNav: function(){
+					// 获取当前页面的二级数据 sub_page_data
+					var sub_show = [];
+					app.data.second_nav.map(function(e){
+						if(e.id == app.data.id){
+							e.childrens.map(function(_e){
+								if(_e.isShow){
+									sub_show.push(_e);
+								}
+							})
+						};
+					});
+					app.data.sub_page_data = sub_show;
+				},
+				initPageViewRender : function(aggregatePageData){
+					// 准备数据
+					if(aggregatePageData){
+						// 清除盒子
+						app.methods.clearOldCode();
+						$$.each(aggregatePageData.aggregateModules , function(index , aggregateModule){
+							try{
+								if(aggregateModule.present){
+									app.methods.initMoudule(aggregateModule);
+								}
+							}catch(e){console.log(e);}
+						});
+					}else{
+						mdui.snackbar({message: '好像出了點小問題,要不您先看看別的(=^_^=)...',position: 'top'});
+					}
+				},
+				clearOldCode: function(){
+					if(app.data.should_clear){
+						$$('.mdui-page-container').html('');
+						$$('script[attr="pageCustom"]').remove();
+						tools.removeCustomPageCssCode();
+					}
+				},
+				initMoudule: function(aggregateModule){
+					//加载CSS
+					tools.loadCssCode(aggregateModule.present.css,'pageCustom');
+					//加载模板
+					var guid = $$.guid();
+					$$('body').append('<script id="mdui-page-container-'+ guid +'" attr="pageCustom" type="text/html">' + aggregateModule.present.html + '<\/script>');
+					//完成数据渲染
+					var _domHtml = template('mdui-page-container-' + guid , {'aggregateModule' : aggregateModule}) ; 
+					$$('.mdui-page-container').append('<div class="pro_box" _index="'+aggregateModule.id+'">' + _domHtml + '</div>');
+					//自定义JS
+					if(aggregateModule.present.js && aggregateModule.present.js != ''){
+						eval(aggregateModule.present.js);
+					}
+				},
+				initPageAdModule: function(){
+					var adlk = tools.getURLParam('adlk')
+					if(adlk && adlk != ''){
+						newMonitor.addMonitor({
+							'eventAims': adlk,
+							'eventName': 'VIEW',
+							'aimsCategory': 'AD',
+						});
+					}
+				},
+				initNavLeftPosition: function(){
+					// 一级导航点击定位
+					var width = 0;
+					$$('.mdui-nav .mdui-tab > a').map(function(i){
+						if($$(this).attr('id') == app.data.id){
+							$$('#productTab')[0].scrollLeft = width;
+						}
+						width += $$(this).innerWidth() + 12 + (i == 0 ? 12 : 0);
+					});
+				},
+				initSubNav: function(){
+					var subNav = $$('.mdui-tab-flex');
+					// 初始化
+					subNav.find('.mdui-tab-navport').hide();
+					subNav.find('.mdui-tab-toggle > span').html('');
+					app.methods.getPageSecondNav();
+					if(!app.data.sub_page_data || app.data.sub_page_data.length == 0){
+						subNav.hide();
+						app.methods.initScrollView();
+						return;
+					}
+					// 有
+					$$('.mdui-tab-navport').html(template('mdui-tab-navport', {'list' : app.data.sub_page_data}));
+					$$('.mdui-tab-mes').html('選擇二級分類').show();
+					subNav.show();
+					app.methods.initScrollView();
+					// 事件 - 渲染子模块的页面
+					$$('.mdui-tab-navport .mdui-btn').off().on('click',function(e){
+						e.preventDefault();
+						app.data.subId = $$(this).attr('href').split('_')[1];
+						// 监测
+						app.data.subId && app.data.subId != 0 && newMonitor.addMonitor({
+							'eventAims': app.data.subId,
+							'eventName': 'CLICK',
+							'aimsCategory': 'NAV_S',
+						});
+						// 樣式
+						document.body.scrollTop = document.documentElement.scrollTop = 0;
+						$$('.mdui-tab-flex .mdui-tab-mes').hide();
+						$$('.mdui-tab-flex .mdui-tab-toggle span').html('二级分类：' + $$(this).find('span').html());
+						// 初始化
+						app.data.adlk = null;
+						app.data.more_page = true;
+						app.data.should_clear = true;
+						app.data.ajax_type = 'sub';
+						app.data.page = 0;
+						// 渲染
+						app.methods.initSubOrder();
+					});
+				},
+				initSubOrder: function(){
+					app.data.module_sub_page = cacheSessionStorage.getCache("subPageModules" + app.data.subId);
+					if(!app.data.module_sub_page){
+						$$.ajax({
+							beforeSend : function(){
+								app.methods.loading();
+							},
+							url : commonConfig.websitePrefix() + '/api/aggregate/page/moduleIds/info/' + app.data.subId,
+							success: function (data) {
+								// 格式化数据
+								app.data.module_sub_page = data.body
+								cacheSessionStorage.setCache('subPageModules' + app.data.subId , app.data.module_sub_page);
+								app.methods.initModuleByIds();
+							},
+							// complete : function(){
+							// 	app.methods.hideLoading();
+							// },
+							error:function(error){
+								if(!error.responseText){
+									mdui.snackbar({message: '好像出了點小問題,要不您先看看別的(=^_^=)...',position: 'top'});
+								}
+							}
+						});
+					}else{
+						app.methods.initModuleByIds();
+					}
+				},
+				loading: function(){
+					if(app.data.page == 0){
+						tools.loading(2001);
+					}else{
+						$$('.mdui-loading').show();
+					}
+				},
+				hideLoading: function(){
+					tools.hideLoading();
+					$$('.mdui-loading').hide();
+				},
+				initPositionUpdate: function(select){
+					// 更新定位
+					if(!app.data.should_clear){
+						return;
+					}
+					var positionUpdate = 0;
+					if(app.data.hashValue){
+						if($$(app.data.hashValue).length > 0){
+							positionUpdate = $$(app.data.hashValue).offset().top - $$('.mdui-appbar').height();
+						}
+						app.data.hashValue = null;
+					}else if(select){
+						positionUpdate = $$(select).offset().top - $$('.mdui-appbar').height();
+						if($$('.mdui-tab-navport').height() != NaN){
+							// TODO 2是修正值
+							positionUpdate = positionUpdate + $$('.mdui-tab-navport').height() + 2;
+						}
+					}else{
+						positionUpdate = app.data.scrollTop;
+						app.data.scrollTop = 0;
+					}
+					document.body.scrollTop = document.documentElement.scrollTop = positionUpdate;
+				},
+				initShoppingCart: function() {
+					var shoppingCartDom = $$('.shop_cart_num'),
+						shoppingcartNum = tools.getShopCartProductsNum();
+					if(shoppingcartNum == 0){
+						shoppingCartDom.hide();
+					}else{
+						shoppingCartDom.html(shoppingcartNum).show();
+					}
+				},
+			},
+			events : {
+				initDefaultEvents : function(){
+					window.onscroll = function(){
+						// 回到顶部
+						if(document.body.scrollTop <= 480 && document.documentElement.scrollTop <= 480) {
+							$$("#toTop").hide();
+						} else {
+							$$("#toTop").show();
+						}
+						// 下拉分页
+						if(app.data.more_page){
+							var top = document.documentElement.scrollTop || document.body.scrollTop;
+							var height = document.body.clientHeight + 667;
+							
+							if(height - top <= 667 + document.documentElement.clientHeight && !app.data.module_page_state){
+								// 加载下一页
+								app.data.should_clear = false;
+								app.data.page++;
+								app.methods.initModuleByIds();
+							}
+						}
+					}
+					// 喇叭
+					// setInterval(function(){
+					// 	$$('.mdui-depletion > div').toggleClass('loud');
+					// },500);
+					// 监测
+					var to_home = cacheSessionStorage.getCache("i_to_home");
+					if(to_home){
+						newMonitor.addMonitor(to_home);
+						cacheSessionStorage.removeCache('i_to_home');
+					}
+					$$('.mdui-page-container').on('click', 'a', function(e){
+						e.stopPropagation();
+						var _this = $$(this).find('img');
+						if(_this.length == 0){
+							return;
+						}
+						var cat = _this.attr('type').toUpperCase();
+						if(cat && cat == 'BANNER'){
+							cacheSessionStorage.setCache("m_click_module", {
+								'eventAims': _this.data('id'),
+								'eventName': 'CLICK',
+								'aimsFromUrl': location.href,
+								'aimsCategory': cat,
+							});
+						}
+					});
+					$$('.toCart').on('click', function(e){
+						e.stopPropagation();
+						cacheSessionStorage.setCache("i_to_cart", {
+							'eventAims': 'CART_ICON',
+							'eventName': 'CLICK',
+							'aimsFromUrl': location.href,
+							'aimsCategory': 'EVENT',
+						});
+					});
+				},
+				mduiTabNavport : function(){
+					// 点击效果
+					$$('.mdui-tab-flex').off('click').on('click' , function(){
+						var navDom = $$('.mdui-tab-flex .mdui-tab-navport');
+						if(navDom.css('display') == 'none'){
+							$$.showOverlay(2000);
+							navDom.css('display','flex');
+							$$(this).find('button i').html('expand_less');
+							$$('.mdui-overlay.mdui-overlay-show').off('click').on('click' , function(){
+								if($$('.mdui-overlay.mdui-overlay-show + .loader').length == 0){
+									navDom.css('display','none');
+									$$.hideOverlay();
+									$$('.mdui-tab-flex').find('i').html('expand_more');
+									$$('.mdui-overlay.mdui-overlay-show').off('click');
+								}
+							});
+						}else{
+							navDom.css('display','none');
+							$$.hideOverlay();
+							$$(this).find('i').html('expand_more');
+						}
+					});
+					// 滚动隐藏
+					// $$('.mdui-page-container').off().on('touchstart',function(){
+					// 	$$('.mdui-tab-flex').removeClass('show').addClass('hide');
+					// }).on('touchend',function(){
+					// 	setTimeout(function(){
+					// 		$$('.mdui-tab-flex').addClass('show').removeClass('hide');
+					// 	},300);
+					// });
+				},
+			},
+			init: function() {
+				// tools.initDepletion(); // 是否显示头部下载链接
+				if(tools.getPlatform() == 'Android'){
+					$$('.iosShow').text('下載軟體')
+				}
+				var browserRule = /^.*((iPhone)|(iPad)|(Safari))+.*$/;
+				if (browserRule.test(navigator.userAgent)) {
+					window.onpageshow = function(event) {
+						if (event.persisted) {
+							app.methods.initShoppingCart();
+						}
+					};
+				}
+				app.methods.initShoppingCart();
+				app.events.initDefaultEvents();
+				app.methods.initScopeInfo();
+				app.methods.initNavInfo();
+				app.methods.androidFbbrower()
+			}
+		};
+		$$(function() {
+			app.init();
+		});
+    </script>
+</html>

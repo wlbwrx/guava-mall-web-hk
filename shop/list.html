@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="【阿噗購物】列表頁-購物，從阿噗開始" />
+		<meta property="og:description"   content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。" />
+		<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+		<title>阿噗購物</title>
+		<meta name="description" content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。!">
+		
+		<!-- 安卓平台 chrome -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg">
+		<!-- ios平台 safari -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+		<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+		<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+
+		<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+		
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+
+		<meta name="google-site-verification" content="a3WEnwgZ_FcabGTmMSO6g50wtWQa_wFAS0PjnZ9rwN0" />
+		<meta name="google-site-verification" content="P2fm2-zmVc_izaSI_NJQCYdguWpqbjTbBQFd_jD0NwI" />
+		<!--<meta name="shoppingCart">-->
+		<meta name="customerService">
+		<meta name="ad">
+		<meta name="share">
+		<!-- <meta name="nav"> -->
+		<!-- <meta name="footprint"> -->
+		<link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/css/mdui.min.css">
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css">
+		<link rel="stylesheet" href="../css/common.css?v=20210125">
+		<style>
+			body .mdui-appbar-fixed{z-index:2001} 
+			.mdui-appbar-with-toolbar{padding-top: 152px;}
+
+			.mdui-tab-flex{height: auto;background: #fff;position: relative;}
+			.mdui-tab-flex .mdui-tab-box{width: 100%;display: flex;min-height: initial;max-height: initial;}	
+			.mdui-tab-flex .mdui-tab-box .mdui-tab-container{height:36px;background:#fff;overflow:hidden;flex-grow:1}
+			.mdui-tab-flex .mdui-tab-box .mdui-tab-container .mdui-tab{box-sizing:border-box;min-height:initial;height:auto;padding-top:2px;-webkit-overflow-scrolling:touch}
+			.mdui-tab-flex .mdui-tab-box .mdui-tab-container .mdui-tab a{margin-right: 12px;text-transform: initial;padding: 0 6px;min-width:min-content;min-height:initial;color:#363636;opacity:1;height:30px;cursor:pointer;}
+			.mdui-tab-flex .mdui-tab-box .mdui-tab-container .mdui-tab a:first-child {margin-left: 12px;}
+			.mdui-tab-flex .mdui-tab-box .mdui-tab-container .mdui-tab .mdui-tab-active{color:#B4272D;position: relative;}
+			.mdui-tab-flex .mdui-tab-box .mdui-tab-container .mdui-tab .mdui-tab-active::after{display: block;background: #B4272D;height: 3px;border-radius: 10px;content: '';width: calc(100% - 12px);position: absolute;bottom: 0;}
+
+			.mdui-tab-flex .arrow-down{display: none;;border-radius:0;min-width:36px;padding:0;background:#FAFAFA;border-left:1px solid #EDEDED;color:#7B7B7B}
+			.mdui-tab-flex .arrow-down:active{background:#FAFAFA;background-color:#FAFAFA}
+			.mdui-tab-flex .mdui-tab-mes{display: none;;width: calc(92% - 36px);position: absolute;top: 0;background: #FAFAFA;height: 36px;line-height: 36px;padding: 0 4%;font-size: 14px;color: #979797;}
+			.mdui-tab-flex .mdui-tab-navport{width: 100%;background: #fff;display: none;}
+			.mdui-tab-flex .mdui-tab-navport>.mdui-tab-container-fluid{width:100%;box-sizing:border-box}
+			.mdui-tab-flex .mdui-tab-navport>.mdui-tab-container-fluid a.nav{opacity: 1;border:1px solid #DFDEDB;border-radius:2px;min-height: initial;min-width:initial;display:flex;align-items:center;justify-content:center;margin-bottom:20%;height:30px;cursor:pointer;padding:0}
+			.mdui-tab-flex .mdui-tab-navport>.mdui-tab-container-fluid a.mdui-tab-active{border-color:#b4272d;color:#b4272d;}		
+			
+			.mdui-overlay{background:rgba(0,0,0,.5)}
+
+			.mudi-bigPic2.mdui-panel{background: #FFFFFF;color: #000;}
+			.mudi-bigPic2.mdui-panel .mdui-panel-body{padding:12px 4% 24px ;box-sizing: border-box;display: flex;justify-content: space-between;flex-wrap: wrap;}
+			.mudi-bigPic2.mdui-panel .mdui-panel-body .mdui-card-product{border:none!important;width: 48%; margin-bottom: 8px ;box-shadow: none;box-sizing: border-box; text-decoration: none; border-radius: 0px;}
+			.mudi-bigPic2.mdui-panel .mdui-panel-body .mdui-card-product > a{text-decoration: none;}
+			.mudi-bigPic2.mdui-panel .mdui-panel-body .mdui-card-product .mdui-card-media{padding-bottom: 100%;}
+			.mudi-bigPic2.mdui-panel .mdui-panel-body .mdui-card-product .mdui-card-media > img{position: absolute; width: 100%; height: 100%; top: 0; left: 0;border-bottom-left-radius: 0 !important;border-bottom-right-radius: 0 !important;}
+			.mudi-bigPic2.mdui-panel .mdui-panel-footer{height: 44px; display: flex; box-sizing: border-box; align-items: center;justify-content: center; border-top: 1px solid #EDEDED;}
+
+			.mudi-bigPic3.mdui-panel{background: #f4f4f4;color: #000;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body{padding:8px 2.4% 0 ;box-sizing: border-box;display: flex;justify-content: space-between;flex-wrap: wrap;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body .mdui-card-product{width: 48.8%; margin-bottom: 8px ;box-shadow: none;box-sizing: border-box; text-decoration: none; border-radius: 0px;background: #FFFFFF;border-radius: 6px;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body .mdui-card-product:nth-last-child(1){margin-bottom: 0;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body .mdui-card-product:nth-last-child(2){margin-bottom: 0;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body .mdui-card-product > a{text-decoration: none;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body .mdui-card-product .mdui-card-media{padding-bottom: 100%;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-body .mdui-card-product .mdui-card-media > img{position: absolute; width: 100%; height: 100%; top: 0; left: 0;border-radius: 0px !important;}
+			.mudi-bigPic3.mdui-panel .mdui-panel-footer{height: 44px; display: flex; box-sizing: border-box; align-items: center;justify-content: center; border-top: 1px solid #EDEDED;}
+
+			.mudi-bigPic3 .mdui-card-product-content{padding: 8px 8px 0; color: #000;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-title{height: 36px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;width: 100%;font-size: 13px;line-height: 18px;margin-bottom: 5px;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-price{display: flex;align-items: baseline;justify-content: space-between;padding-top: 4px;padding-bottom: 2px;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-price > span:last-child{font-size: 12px;color: #777777;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-discountprice{font-size: 16px;color: #B4272D; line-height: 16px; display: inline-block;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-discountprice:before{content: 'HK$';font-size: 12px;margin-right: 2px;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-tag{height: 16px;overflow: hidden;font-size: 0;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-tag span{display: inline-block;padding: 0 7px;border: none; border-radius: 8px;font-size: 12px;color: #E56214;line-height: 16px;height: 16px;background: #FCE9D5;box-sizing: border-box;margin-right: 6px;}
+			.mudi-bigPic3 .mdui-card-product-content .mdui-card-product-tag span:last-child{margin-right: 0;}
+
+			.mudi-bigPic3 .mdui-card-product-more{background: #FFF;color: #7B7B7B;padding: 0;border: none!important}
+			.mudi-bigPic3 .mdui-card-product-more a{position: relative;color: #7b7b7b;display: block;padding-bottom: 100%;border: 1px solid #f4f4f4;}
+			.mudi-bigPic3 .mdui-card-product-more a .textBox{position: absolute;left: 50%;margin-left: -25px;top: 50%;margin-top: -28px;text-align: center;}
+			.mudi-bigPic3 .mdui-card-product-more a span{display: inline-block;}
+			.mudi-bigPic3 .mdui-card-product-more a span.circle{border: 1px solid #7B7B7B; border-radius: 50%; padding: 3px;margin-top: 12px;}
+		</style>
+		<script>
+			var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+		</script>
+	</head>
+	<body class="mdui-appbar-with-toolbar" onload="setStart()" onbeforeunload="setEnd()">
+		<div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0 mdui-appbar-scroll-toolbar-hide">
+			<div class="mdui-tab">
+				<div class="mdui-toolbar-title">
+					<div class="top-left-options">
+						<a href="../shop/index.html" class="text-icon-options toHome"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-homepage.png" /></a>
+						<!-- <a class="text-icon-options" href="javascript:void(0)" onclick="tools.goBack();"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png"></a> -->
+						<!-- <a href="../shop/index.html" class="logo"></a> -->
+					</div>
+					<div class="top-right-options">
+						<!-- <a href="../shopcart/cart.html" class="text-icon-options toCart">
+							<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-shopping-cart.png" /><label class="shopping-cart-num"></label>
+							<span>購物車</span>
+						</a>
+						<a href="../user/order.html" class="text-icon-options">
+							<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-order.png" />
+							<span>查訂單</span>
+						</a> -->
+					</div>
+				</div>
+				<div class="mdui-tab-flex">
+					<div class="mdui-tab-box">
+						<div class="mdui-tab-container"></div>
+						<button class="mdui-btn arrow-down"><i class="mdui-icon material-icons">expand_more</i></button>
+					</div>
+					<div class="mdui-tab-mes"><span>請選擇頻道</span></div>
+					<div class="mdui-tab-navport mdui-p-t-2 mdui-p-b-1"></div>
+				</div>
+			</div> 
+		</div>
+		
+		<div class="mdui-container-fluid mdui-page-container"></div>
+
+		<div class="mdui-loading" style="display:none">正在加载<i class="mdui-icon material-icons">&#xe863;</i></div>
+		
+		<!-- <div class="mdui-valign mdui-text-center mdui-page-bottom">
+			<span class="mdui-page-bottom-text">香港芭樂科技有限公司版權所有<a href="../other/index.html">了解我們</a></span>
+		</div> -->
+		<!-- 新增到底提示 -->
+		<div class="footer-note-new" id='footer-note-new' style="margin-bottom:20px;display:none;">
+			<div class="footer-note-new-div">
+				<span>(๑¯∀¯๑)已經到底了喔</span>
+			</div>
+		</div>
+	</body>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/clipboard/dist/clipboard.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/echo.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/art-template/lib/template-web.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/templateImport.js?v=20180526"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script src="../js/common.js?v=20200920"></script>
+	<script>
+		commonConfig.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + commonConfig.getGATracking());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag("config",commonConfig.getGATracking());
+		if(commonConfig.getGATracking() != 'UA-117174835-7'){
+			gtag("config",'UA-117174835-7');
+		}
+	</script>
+	<script>
+		!function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+	</script>
+	<script id="mdui-tab-container" type="text/html">
+		<div id="productTab" class="mdui-tab">
+			<% for (var i = 0; i < list.length; i++) { %>
+				<a data-subId="<%= list[i].id %>" class="nav <%= list[i].id == subId ? 'mdui-tab-active' : '' %>"><%=list[i].name%></a>
+			<% } %>
+		</div>
+	</script>
+	<script id="mdui-tab-navport" type="text/html">
+		<div class="mdui-tab-container-fluid mdui-p-x-1">
+			<div class="mdui-row mdui-m-x-0">
+				<% for (var i = 0; i < list.length; i++) { %>
+					<div class="mdui-col-xs-3 mdui-col-sm-2">
+						<a data-subId="<%=list[i].id%>" class="mdui-btn mdui-btn-block nav <%= list[i].id == subId ? 'mdui-tab-active' : '' %>" style="<%= list[i].name.length > 4 ? 'font-size:13px;' : '' %>"><%=list[i].name%></a>
+					</div>
+				<% } %>
+			</div>
+		</div>	
+	</script>
+	<script id="listHtml" type="text/html">
+		<div class="pro_box">
+			<div class="mdui-row">
+				<div class="mdui-panel mudi-bigPic3">
+					<div class="mdui-panel-body">
+						<% for (var i = 0; i < list.length; i++) { %>
+							<div class="mdui-card mdui-card-product mdui-card-product-recommend">
+								<a href="../product/index.html?id=<%=list[i].id%>">
+									<div class="mdui-card-media">
+										<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/placeholder.png" data-echo="<%=list[i].productImageUrl%>" type="product" data-id="<%=list[i].id%>"/>
+									</div>
+									<div class="mdui-card-content mdui-card-product-content">
+										<div class="mdui-card-product-title"><%=list[i].title%><%=list[i].description%></div>
+										<div class="mdui-card-product-tag">
+											<% if(list[i].flag && list[i].flag != ''){ %>
+												<% for (var j = 0; j < list[i].flag.length; j++) { %>
+													<span><%= list[i].flag[j] %></span>
+												<% } %>
+											<% } %>
+										</div>
+										<div class="mdui-card-product-price">
+											<span class="mdui-card-product-discountprice"><%= list[i].minPrice %></span>
+											<span><%=$imports.buyCount(list[i].id)%>件已出</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+    <script>
+        var app = {
+			data: {
+				pageId: tools.getURLParam('pageId'),
+				subId: tools.getURLParam('subId'),
+				page: 0, // 页数
+				module_page_state: false, // 模块-页面级-加载完成
+				should_clear: false, // 清除模块盒子状态
+				more_page: true, // 分页未完成
+				sub_page_data: [],
+				page_length: 2, // 每页模块长度 TODO
+				module_page: {},
+			},
+			methods: {
+				initNavInfo : function(){
+					if(app.data.pageId == '' || app.data.subId == ''){
+						window.location.href = './index.html';
+					}
+					var listPageModuleData = cacheSessionStorage.getCache("list-page-module-" + app.data.pageId);
+					if(!listPageModuleData){
+						$$.ajax({
+							url: commonConfig.websitePrefix() + "/api/aggregate/page/" + app.data.pageId + "/navigation",
+							success: function(data) {
+								// TODO,上部点击切换-ajax
+								if(data.body.childrens && data.body.childrens.length > 0){
+									cacheSessionStorage.setCache("list-page-module-" + app.data.pageId , data.body.childrens);
+									app.methods.initNavDom(data.body.childrens);
+								}else{
+									cacheSessionStorage.setCache("list-page-module-" + app.data.pageId , [data.body]);
+									app.methods.initNavDom([data.body]);
+								}
+							}
+						})
+					}else{
+						app.methods.initNavDom(listPageModuleData);
+					}
+				},
+				initNavDom : function(listPageModuleData){
+					$$('.mdui-tab-container').html(template('mdui-tab-container', {
+						'list': listPageModuleData,
+						'pageId': app.data.pageId,
+						'subId': app.data.subId,
+					}));
+					newMonitor.addMonitor({
+						'eventAims': app.data.subId,
+						'eventName': 'CLICK',
+						'aimsCategory': 'NAV_S',
+					});
+					app.methods.initNavLeftPosition();
+					// $$('.mdui-tab-navport').html(template('mdui-tab-navport', {
+					// 	'list' : listPageModuleData,
+					// 	'pageId': app.data.pageId,
+					// 	'subId': app.data.subId,
+					// }));
+					// app.events.mduiTabNavport();
+					$$('.mdui-tab-flex a.nav').off().on('click',function(){
+						app.data.subId = $$(this).data('subId');
+						newMonitor.addMonitor({
+							'eventAims': app.data.subId,
+							'eventName': 'CLICK',
+							'aimsCategory': 'NAV_S',
+						});
+						app.methods.reWriteURL();
+						// 初始化
+						app.data.page = 0;
+						document.body.scrollTop = document.documentElement.scrollTop = 0;
+						app.data.should_clear = true;
+						app.data.more_page = true;
+						// 样式
+						$$('.mdui-tab-flex a.nav').removeClass('mdui-tab-active');
+						$$('.mdui-tab-flex a.nav[data-subId="' + app.data.subId + '"]').addClass('mdui-tab-active');
+						$$('.mdui-tab-flex .mdui-tab-navport').hide();
+						$$('.mdui-tab-mes').hide();
+						app.methods.initNavLeftPosition();
+						// 渲染
+						app.methods.initPageView();
+					});
+				},
+				initNavLeftPosition: function(){
+					// 一级导航点击定位
+					var width = 0;
+					$$('.mdui-tab-flex .mdui-tab > a').map(function(i){
+						if($$(this).attr('data-subid') == app.data.subId){
+							$$('#productTab')[0].scrollLeft = width;
+						}
+						width += $$(this).innerWidth() + 12 + (i == 0 ? 12 : 0);
+					});
+				},
+				reWriteURL: function(){
+					// var newURL = window.location.origin + window.location.pathname + '?id=' + app.data.id + window.location.hash;
+					var newURL = window.location.origin + window.location.pathname + '?pageId=' + app.data.pageId + '&subId=' + app.data.subId;
+					if(window.location.href != newURL){
+						history.pushState({'url': newURL }, '', newURL);
+					}
+				},
+				initPageView : function(){
+					if(app.data.pageId == '' || app.data.subId == ''){
+						window.location.href = './index.html';
+					}
+					app.data.module_sub_page = cacheSessionStorage.getCache("subPageModules" + app.data.subId);
+					if(!app.data.module_sub_page){
+						$$.ajax({
+							beforeSend : function(){
+								app.methods.loading();
+								app.data.module_page_state = true;
+							},
+							url : commonConfig.websitePrefix() + '/api/aggregate/page/moduleIds/info/' + app.data.subId,
+							success: function (data) {
+								app.data.module_sub_page = data.body
+								cacheSessionStorage.setCache('subPageModules' + app.data.subId , app.data.module_sub_page);
+								app.methods.initModuleByIds();
+							},
+							complete : function(){
+								app.methods.hideLoading();
+								app.data.module_page_state = false;
+							}
+						});
+					}else{
+						app.methods.initModuleByIds();
+					}
+				},
+				getSession: function(module_datas){
+					var session_data = [];
+					module_datas.map(function(e){
+						var module_cache = cacheSessionStorage.getCache('aggregate-module-' + e.aggregate_module_id);
+						if(module_cache && module_cache != ''){
+							session_data.push(module_cache)
+						}
+					})
+					if(session_data.length != module_datas.length){
+						return [];
+					}else{
+						return session_data;
+					}
+				},
+				initModuleByIds : function(){
+					// 根据序列加载模块
+					var this_page_module_datas = app.data.module_sub_page.slice(app.data.page * app.data.page_length, (app.data.page + 1) * app.data.page_length )
+					// 模块数据
+					var moduleIds_session = app.methods.getSession(this_page_module_datas);
+					if(moduleIds_session.length != 0){
+						app.methods.initModuleHTML({'aggregateModules': moduleIds_session});
+					}else{
+						if(this_page_module_datas.length == 0){
+							app.data.more_page = false;
+							return;
+						}
+						var params = '';
+						this_page_module_datas.map(function(e){params += 'aggregateModuleIds=' + e.aggregate_module_id + '&';});
+						params = params.slice(0, -1);
+						$$.ajax({
+							beforeSend : function(){
+								app.methods.loading();
+								app.data.module_page_state = true;
+							},
+							url : commonConfig.websitePrefix() + '/api/aggregate/page/moduleIds/details?' + params,
+							success: function (data) {
+								if(data.body && data.body.length != 0){
+									// 格式化数据
+									var _data = data.body;
+									if(this_page_module_datas.length != _data.length){
+										// TODO 补充重复数据，暂时支持 app.data.page_length == 2的情况
+										_data.push(data.body);
+									}
+									_data.map(function(e){
+										e.products.map(function(_e){
+											if(_e.flag && _e.flag != ''){
+												_e.flag = _e.flag.split(',');
+											}
+										});
+										cacheSessionStorage.setCache('aggregate-module-' + e.id, e);
+										moduleIds_session.push(e);
+									});
+									// 渲染
+									app.methods.initModuleHTML({'aggregateModules': moduleIds_session});
+								}
+							},
+							complete : function(){
+								app.methods.hideLoading();
+								app.data.module_page_state = false;
+							},
+							error:function(error){
+								if(!error.responseText){
+									mdui.snackbar({message: '好像出了點小問題,要不您先看看別的(=^_^=)...',position: 'top'});
+								}
+							}
+						});
+					}
+				},
+				initModuleHTML: function(aggregatePageModuleData){
+					// 渲染模块
+					if(!aggregatePageModuleData || !aggregatePageModuleData.aggregateModules || aggregatePageModuleData.aggregateModules.length == 0){
+						// 数据异常||加载完成
+						app.data.more_page = false;
+						return;
+					}else{
+						if(aggregatePageModuleData.aggregateModules.length != app.data.page_length){
+							// console.log('加載完成')
+							$$('#footer-note-new').show()
+							app.data.more_page = false;
+						}else{
+							// console.log('沒加載完成')
+							$$('#footer-note-new').hide()
+							app.data.more_page = true;
+						}
+					}
+					app.methods.initPageViewRender(aggregatePageModuleData);
+					
+					//图片懒加载
+					echo.init({offset: 667,throttle: 0});
+					// 还需要再次加载子页面
+					if(document.body.clientHeight < window.innerHeight){
+						app.data.should_clear = false;
+						app.data.page++;
+						app.methods.initModuleByIds();
+					}
+				},
+				initPageViewRender : function(aggregatePageData){
+					// 准备数据
+					if(aggregatePageData){
+						// 清除盒子
+						app.methods.clearOldCode();
+						$$.each(aggregatePageData.aggregateModules , function(index , aggregateModule){
+							try{
+								if(aggregateModule.present){
+									app.methods.initMoudule(aggregateModule);
+								}
+							}catch(e){console.log(e);}
+						});
+					}else{
+						mdui.snackbar({message: '好像出了點小問題,要不您先看看別的(=^_^=)...',position: 'top'});
+					}
+				},
+				initMoudule: function(aggregateModule){
+					//加载CSS
+					tools.loadCssCode(aggregateModule.present.css,'pageCustom');
+					//加载模板
+					var guid = $$.guid();
+					$$('body').append('<script id="mdui-page-container-'+ guid +'" attr="pageCustom" type="text/html">' + aggregateModule.present.html + '<\/script>');
+					//完成数据渲染
+					var _domHtml = template('mdui-page-container-' + guid , {'aggregateModule' : aggregateModule}) ; 
+					$$('.mdui-page-container').append('<div class="pro_box" _index="'+aggregateModule.id+'">' + _domHtml + '</div>');
+					//自定义JS
+					if(aggregateModule.present.js && aggregateModule.present.js != ''){
+						eval(aggregateModule.present.js);
+					}
+				},
+				loading: function(){
+					if(app.data.page == 0){
+						tools.loading(2001);
+					}else{
+						$$('.mdui-loading').show();
+					}
+				},
+				hideLoading: function(){
+					tools.hideLoading();
+					$$('.mdui-loading').hide();
+				},
+				clearOldCode: function(){
+					if(app.data.should_clear){
+						$$('.mdui-page-container').html('');
+					}
+				},
+			},
+			events : {
+				mduiTabNavport : function(){
+					$$('.mdui-tab-flex .arrow-down').off().on('click' , function(){
+						var navDom = $$('.mdui-tab-flex .mdui-tab-navport');
+						if(navDom.css('display') == 'none'){
+							$$.showOverlay(2000);
+							navDom.show();
+							$$('.mdui-tab-mes').show();
+							
+							$$(this).html('<i class="mdui-icon material-icons">expand_less</i>');
+							
+							$$('.mdui-overlay.mdui-overlay-show').off().on('click' , function(){
+								$$('.mdui-tab-flex .arrow-down').trigger('click');
+							});
+						}else{
+							navDom.hide();
+							$$('.mdui-tab-mes').hide();
+
+							$$.hideOverlay();
+							$$(this).html('<i class="mdui-icon material-icons">expand_more</i>');
+						}
+					});
+				},
+				initDefaultEvents : function(){
+					window.onscroll = function(){
+						// 回到顶部
+						if(document.body.scrollTop <= 480 && document.documentElement.scrollTop <= 480) {
+							$$("#toTop").hide();
+						} else {
+							$$("#toTop").show();
+						}
+						// 下拉分页
+						if(app.data.more_page){
+							var top = document.documentElement.scrollTop || document.body.scrollTop;
+							var height = document.body.clientHeight;
+							if(height - top <= 667 + document.documentElement.clientHeight && !app.data.module_page_state){
+								// 加载下一页
+								app.data.page++;
+								app.data.should_clear = false;
+								app.methods.initModuleByIds();
+							}
+						}else{
+							// 顯示到底提示 已經沒有下一頁商品了
+						}
+					}
+					$$('.mdui-page-container').on('click', 'a', function(e){
+						e.stopPropagation();
+						var _this = $$(this).find('img');
+						cacheSessionStorage.setCache("m_click_module", {
+							'eventAims': _this.data('id'),
+							'eventName': 'CLICK',
+							'aimsFromUrl': location.href,
+							'aimsCategory': 'PROCUCT',
+						});
+					});
+					$$('.toCart').on('click', function(e){
+						e.stopPropagation();
+						cacheSessionStorage.setCache("i_to_cart", {
+							'eventAims': 'CART_ICON',
+							'eventName': 'CLICK',
+							'aimsFromUrl': location.href,
+							'aimsCategory': 'EVENT',
+						});
+					});
+				},
+			},
+			init: function() {
+				tools.initScopeInfo();
+				app.methods.initNavInfo();
+				app.methods.initPageView();
+				app.events.initDefaultEvents();
+			}
+		};
+		$$(function() {
+			app.init();
+		});
+    </script>
+</html>

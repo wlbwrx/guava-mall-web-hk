@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="91up">
+    <!-- <link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg"> -->
+    <link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+    <title>91up</title>
+    <!-- 双核浏览器 优先使用 webkit打开 -->
+    <meta name="renderer" content="webkit">
+    <!-- 开发单页面专用start -->
+        <!-- vue框架 -->
+        <!-- 开发环境 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- 生产环境 -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+        <!-- 公共js -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src='../../js/singlePage/common.js'></script>
+        <!-- 公共css -->
+        <link rel="stylesheet" href="../../css/singlePage/common.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <!-- 开发单页面专用end -->
+    <script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css">
+    <!-- 複製功能js -->
+    <script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/clipboard/dist/clipboard.min.js"></script>
+    <link rel="stylesheet" href="../../css/singlePage/orderSuccess.css">
+</head>
+<body>
+    <div id="orderSuccess">
+        <!-- 头部广告条 -->
+        <!-- <div class='gradle-img' @click="join91Up">
+            <div class="gradle-img-in">
+                <div class="gradle-img-l">
+                    <img src="../../image/success-logo.jpg" alt="">
+                </div>
+                <div class="gradle-img-r">
+                    {{resultText}}
+                </div>
+            </div>
+        </div> -->
+        <!-- --------- -->
+        <!-- 訂單成功信息 -->
+        <div class='orderInfo'>
+            <div class='success-info'>
+                <div class="success-info-l">
+                    <img src="../../image/single-success.png" alt="">
+                </div>
+                <div class="success-info-r">
+                    <h4>Successfully Ordered</h4>
+                    <p>
+                        For order questions, please contact customer service.
+                    </p>
+                </div>
+            </div>
+            <div class="order-all-info">
+                <div class="order-all-info-h">
+                    <h4>Order Number：{{orderid}}  <span class='mdui-btn-copy' :data-clipboard-text='orderid'>COPY</span></h4>
+                    <p>{{productNumber}} {{productNumber > 1 ? "items" : "item"}} in total&nbsp;&nbsp;{{createdAt}}</p>
+                    <!-- <span class='kefu'>
+                        <a :href="kfUrl" target="_blank">
+                            <img src="../../image/kefu.png" alt="">
+                            客服
+                        </a>
+                    </span> -->
+                </div>
+                <div class='order-line'></div>
+                <div class="order-all-info-c">
+                    Recipient：<br>
+                    {{reciveUserInfo.consignee}} {{reciveUserInfo.tel}} <br>
+                    {{reciveUserInfo.address}} 
+                    <!-- <span v-if="reciveUserInfo.addIfneed"> (管理室待收) </span> -->
+                </div>
+                <div class='order-all-info-imglist'>
+                    <a href="javascript:;" v-for="(itemPro, index) in orderSuccess.orderProducts" @click="joinSingle(itemPro.productId)">
+                        <img :src="itemPro.productImageUrl" alt="">
+                        <span>{{itemPro.quantity}} {{itemPro.quantity > 1 ? 'items' : 'item'}}</span>
+                    </a>
+                </div>
+                <div class='order-line'></div>
+                <div class="order-all-info-panel">
+                    <p class="info-price">
+                        {{productNumber}} {{productNumber > 1 ? 'items' : 'item'}} in total： <i>{{symbol}}{{orderSuccess.originalTotalPrice}}</i>
+                    </p>
+                    <p class="info-price">
+                        Shipping fees： <i>{{symbol}}0</i>
+                    </p>
+                    <!-- <p class="info-price" v-if="orderSuccess.paymentType == 3">
+                        信用卡支付，隨機立減： <i>-{{symbol}}{{orderSuccess.randomReductionPrice}}</i>
+                    </p> -->
+                </div>
+                <div class='order-line'></div>
+                <div class="order-all-info-result-price">
+                    <p class="info-price">
+                        Total Amount <i>{{symbol}}{{orderSuccess.discountTotalPrice}}</i>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- --------- ---->
+        <!-- 聯繫我們 ------>
+        <div class='order-chat'>
+            <p>If you have any after-sales questions, you can contact us through the following ways</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Type</td>
+                        <td>Account</td>
+                        <td>Operation</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>91up.aputemai@gmail.com</td>
+                        <td><span class='mdui-btn-copy' data-clipboard-text='91up.aputemai@gmail.com'>COPY</span></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>客服電話</td>
+                        <td>+852 65287866</td>
+                        <td>
+                            <a href="tel:+852 65287866">
+                                <span class='mdui-btn-copy'>撥打</span>
+                            </a>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <!-- ----------- -->
+        <!-- 提示層 -->
+        <div id="tipsFixed" class="animate__animated animate__bounceIn" v-if="tipsIf">
+            <span> {{tipsHtml}} </span>
+        </div>
+    </div>
+    <!-- 谷歌監測 -->
+    <script>
+        singleInfo.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + singleInfo.getGATracking());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag("config", singleInfo.getGATracking());
+        if (singleInfo.getGATracking() != 'UA-117174835-1') {
+            gtag("config", 'UA-117174835-1');
+        }
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+    </script>
+    <script>
+        var app = new Vue({
+            el:'#orderSuccess',
+            data: {
+                orderid: singleInfo.getURLParam('code'),
+                country: singleInfo.getURLParam('country'),
+                symbol: '$', // 货币符号
+                orderSuccess: [],
+                currency:'',
+                currencyDes: '', // 货币缩写
+                changeText: 0,
+                timeChangeText:'',
+                resultText:'進入商城, 查詢訂單',
+                tipsHtml:'',
+                tipsIf:false,
+                createdAt: '', // 下單時間
+                productNumber: 0,
+                reciveUserInfo: JSON.parse(localStorage.getItem('reciveUserInfo')),// 收件人信息
+                hostCustomerMap: null,
+                contentIds: [], // 下單單品id
+                productItems:[], // 下單成功商品信息
+                kfUrl: '',            //客服鏈接
+                similarInfo: [],  // 猜你喜歡
+                popularInfo: [] // 人氣推薦
+            },
+            methods: {
+                bitweenChange: function(){
+                    let that = this;
+                    if(that.changeText == 0){
+                        that.resultText = "阿噗特賣商城, 點此進入"
+                        that.changeText = 1
+                    }else{
+                        that.resultText = "進入商城, 查詢訂單"
+                        that.changeText = 0
+                    }
+                },
+                // 提示
+                singleTips: function(title){
+                    let that = this
+                    that.tipsIf = true
+                    that.tipsHtml = title
+                    setTimeout(() => {
+                        that.tipsIf = false
+                    }, 1500)
+                },
+                joinApu: function(itemData){
+                    window.location.href = "https://www.91up.com.tw/product/index.html?id=" + itemData.id
+                },
+                join91Up: function(){
+                    window.open("https://www.91up.com.tw","_blank");
+                },
+                joinSingle:function (productId){
+                    window.location.href = '/singlePage/singleLanguage/index.html?id=' + productId + '&country=' + this.country
+                }
+            },
+            beforeCreate: function(){
+
+            },
+            created: function(){
+                // 查看猜你喜歡和推薦商品
+                let that = this
+                // 赋值地址信息
+                if(that.country == "Malaysia"){
+                    that.symbol = 'RM'
+                    that.currencyDes = 'MYR'
+                }else if(that.country == "Philippines"){
+                    that.symbol = '₱'
+                    that.currencyDes = 'PHP'
+                }else if(that.country == "Singapore"){
+                    that.symbol = 'S$'
+                    that.currencyDes = 'SGD'
+                }
+                // 設置客服鏈接地址
+                // console.log(singleInfo.getPlatform())
+                // (tools.getPlatform() == 'PC' ? "https://www.facebook.com/messages/t/" : "https://m.facebook.com/messages/thread/") + commonConfig.getCustomerIdByHost() + "
+                that.kfUrl = (singleInfo.getPlatform() == "PC" ? "https://www.facebook.com/messages/t/" : "https://m.facebook.com/messages/thread/" + singleInfo.getCustomerIdByHost())
+                // axios.all([
+                //     axios.get(singleInfo.websitePrefix() + ' /api/recommend/similar/' + that.orderid),
+                //     axios.get(singleInfo.websitePrefix() + ' /api/recommend/popular')
+                // ])
+                // .then(axios.spread(function (similarInfo, popularInfo) {
+                //     //多个请求现在都执行完成
+                //     console.log(similarInfo.data)
+                //     console.log(popularInfo.data)
+                // }));
+                axios.get(singleInfo.websitePrefix() + '/api/recommend/similar/'+ that.orderid).then(res => {
+                    // 猜你喜歡
+                    that.similarInfo = res.data.body
+                    that.similarInfo.map((item, index) => {
+                        item.hasquality = singleInfo.getRadomInt()
+                    })
+                }).catch(error => {
+
+                })
+                axios.get(singleInfo.websitePrefix() + '/api/recommend/popular').then(res => {
+                    // 人氣推薦
+                    that.popularInfo = res.data.body
+                    that.popularInfo.map((item, index) => {
+                        item.hasquality = singleInfo.getRadomInt()
+                    })
+                }).catch(error => {
+                    // that.singleTips('複製成功')
+                })
+            },
+            mounted: function(){
+                this.$nextTick(function(){
+                    let that = this
+                    // 头部广告交替效果
+                    this.timeChangeText = setInterval(this.bitweenChange, 1500);
+                    // 訂單信息
+                    that.orderSuccess = JSON.parse(localStorage.getItem('orderSuccess')) //成功之後的訂單信息
+                    let orderSuccessNew = JSON.parse(localStorage.getItem('orderSuccess'))
+                    // console.log(that.orderSuccess)
+                    // 下單時間
+                    that.createdAt = orderSuccessNew.createdAt
+                    // 商品數量
+                    orderSuccessNew.orderProducts.forEach((item, index) => {
+                        that.productNumber += item.quantity
+                        that.contentIds.push(item.productId)
+                        that.productItems.push({
+                            id : item.productId,
+                            name : item.productTitle + '('+ item.productSkuName +')',
+                            quantity : item.quantity,
+                            item_price : item.discountPrice || item.originalPrice,
+                            price : item.discountPrice || item.originalPrice
+                        })
+                    })
+                    // console.log(that.orderSuccess)
+                    // 下單成功監測
+                    //购买成功。。。
+                    var _fbgaparams = {
+                        content_type: 'product',
+                        transaction_id : that.orderSuccess.code, // 訂單號作為識別的唯一ID
+                        value : that.orderSuccess.discountTotalPrice , // 支付價格
+                        currency : that.currencyDes,
+                        content_name : 'checkout',
+                        content_category : 'checkout',
+                        content_ids : that.contentIds, //下單id
+                        num_items : that.productNumber, // 購買數量
+                        contents: that.productItems,
+                        items: that.productItems
+                    };
+                    // newMonitor.addMonitorData(monitorParams);
+                    try{
+                        fbq('track', 'Purchase' , _fbgaparams);
+                        gtag('event', 'Purchase', _fbgaparams);
+                        gtag("event", "purchase", _fbgaparams);
+                        cacheSessionStorage.removeCache('_fbgaparams');
+                        cacheSessionStorage.removeCache("_realgaparams");
+                    }catch(e){
+                        console.log(e);
+                    }
+                })
+            },
+            updated: function(){
+                // 复制功能
+                let that = this
+                let clipboard = new Clipboard('.mdui-btn-copy')
+                clipboard.on('success', function(e) {
+                    that.singleTips('Copy success')
+                    // newMonitor.addMonitor({
+                    //     'eventAims': 'COPY',
+                    //     'eventName': 'CLICK',
+                    //     'aimsCategory': 'EVENT',
+                    // });
+                }).on('error', function(e) {
+                    that.singleTips('The copy failed. Please try again')
+                })
+            },
+            beforeDestroy: function(){
+                clearInterval(this.timeChangeText);
+            }
+        })
+    </script>
+</body>
+</html>

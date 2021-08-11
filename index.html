@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="【阿噗購物】-購物，從阿噗開始" />
+		<meta property="og:description"   content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。" />
+		<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+		<title>【阿噗購物】-購物，從阿噗開始</title>
+		<meta name="description" content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。!">
+		<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+		
+		<!-- <meta http-equiv="Refresh" content="0; url=shop/index.html" /> -->
+		<meta name="google-site-verification" content="a3WEnwgZ_FcabGTmMSO6g50wtWQa_wFAS0PjnZ9rwN0" />
+		<meta name="google-site-verification" content="P2fm2-zmVc_izaSI_NJQCYdguWpqbjTbBQFd_jD0NwI" />
+		<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+		
+		<script>
+			var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+		</script>
+		
+		<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script>
+		<script src="./js/common.js?v=20200920"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117174835-7"></script>
+		<script>
+		  	window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+	  		gtag('js', new Date());
+		
+		  	gtag('config', 'UA-117174835-7');
+		  	gtag("config",commonConfig.getGATracking());
+			if(commonConfig.getGATracking() != 'UA-117174835-7'){
+				gtag("config",'UA-117174835-7');
+			}
+		</script>
+		<script>
+			var app = {
+				datas : {
+					adlk : tools.getURLParam('adlk')
+				},
+				methods : {
+					initadlk : function(){
+						if(!app.datas.adlk){
+							window.location.href = "shop/index.html" ; 
+							cacheSessionStorage.setCache('_index_' , true);
+						}else{
+							$$.ajax({
+								method: 'GET',
+								url: commonConfig.websitePrefix() + '/api/ad/link/' + app.datas.adlk,
+								beforeSend: function(xhr) {
+									tools.loading();
+								},
+								success : function(result){
+									if(result.statusCode == 'OK' && result.body.linkUrl){
+										var moduleData = result.body;
+										moduleData.adLinkProducts.map(function(e){
+											if(e.product && e.product.flag && e.product.flag != ''){
+												e.product.flag = e.product.flag.trim().split(',');
+											}
+										});
+										cacheSessionStorage.setCache("adlk-" + app.datas.adlk , moduleData , 1);
+										window.location.href = moduleData.linkUrl + (moduleData.linkUrl.includes('?') ? '&' : '?') + 'adlk=' + app.datas.adlk + '&pixelId=' + moduleData.pixelId + '&affiliate=' + moduleData.affiliate ;
+									}else{
+										window.location.href = "shop/index.html" ; 
+									}
+								},
+								complete: function(xhr, textStatus) {
+									tools.hideLoading();
+								}
+							});
+						}
+					}
+				},
+				init : function(){
+					app.methods.initadlk();
+				}
+			}
+			$$(function() {
+				app.init();
+			});
+		</script>
+	</head>
+	<body onload="setStart()" onbeforeunload="setEnd()">
+	</body>
+</html>
+
+
+
+<script>
+	var data = {
+	"100000": { "010001": "北區", "010002": "打鼓领", "010003": "粉嶺", "010004": "古洞", "010005": "坪輋", "010006": "沙头角", "010007": "上水", "010008": "文锦渡" }, 
+    "100100": { "100000": "北區" }, 
+	"110000": { "020001": "長洲" }, 
+	"110100": { "110000": "長洲區" }, 
+	"120000": { "030001": "大埔", "030002": "太和" }, 
+    "120100": { "120000": "大埔區" }, 
+    "130000": { "040001": "昂坪", "040002": "貝澳", "040003": "長沙", "040004": "赤臘角", "040005": "大澳", "040006": "大澳碼頭", "040007": "大嶼山", "040008": "東涌", "040009": "馬灣", "040010": "梅窝", "040011": "梅窝碼頭", "040012": "石壁", "040013": "塘福", "040014": "天壇大佛", "040015": "香港廸士尼", "040016": "香港國際機場", "040017": "愉景灣", "040018": "竹篙灣" }, 
+    "130100": { "130000": "大嶼山區" }, 
+    "140000": { "050001": "北角", "050002": "柴灣", "050003": "炮台山", "050004": "筲箕灣", "050005": "太古", "050006": "太古城", "050007": "天後", "050008": "西灣河", "050009": "小西灣", "050010": "杏花村", "050011": "鰂魚涌" }, 
+    "140100": { "140000": "東區" }, 
+    "150000": { "060001": "觀塘", "060002": "九龍灣", "060003": "藍田", "060004": "牛頭角", "060005": "順利", "060006": "秀茂坪", "060007": "油塘" },
+    "150100": { "150000": "觀塘區" }, 
+    "160000": { "070001": "彩虹", "070002": "慈雲山", "070003": "橫頭磡", "070004": "黃大仙", "070005": "樂富", "070006": "牛池灣", "070007": "新蒲崗", "070008": "鑽石山" }, 
+    "160100": { "160000": "黃大仙區" }, 
+    "170000": { "080001": "何文田", "080002": "紅磡", "080003": "黃埔", "080004": "九龍城", "080005": "九龍塘", "080006": "馬頭圍", "080007": "啟德", "080008": "土瓜灣" }, 
+    "170100": { "170000": "九龍城區" }, 
+    "180000": { "090001": "葵芳", "090002": "葵興", "090003": "葵涌", "090004": "葵涌貨櫃碼頭", "090005": "荔景", "090006": "青衣", "090007": "青衣嘉民領達中心" }, 
+    "180100": { "180000": "葵青區" }, 
+    "190000": { "100001": "薄扶林", "100002": "赤柱", "100003": "舂坎角", "100004": "大潭", "100005": "華富", "100006": "黃竹坑", "100007": "淺水灣", "100008": "深水灣", "100009": "石澳", "100010": "香港仔", "100011": "鴨脷洲" }, 
+    "190100": { "190000": "南區" }, 
+    "200000": { "110001": "南丫島" }, 
+    "200100": { "200000": "南丫島區" }, 
+    "210000": { "120001": "坪洲" }, 
+    "210100": { "210000": "坪洲區" }, 
+    "220000": { "130001": "大窩口", "130002": "荃灣", "130003": "深井", "130004": "汀九" }, 
+    "220100": { "220000": "荃灣區" }, 
+    "230000": { "140001": "大圍", "140002": "禾輋", "140003": "火炭", "140004": "九肚山", "140005": "馬鞍山", "140006": "馬料水", "140007": "沙田", "140008": "石門", "140009": "小瀝源" }, 
+    "230100": { "230000": "沙田區" }, 
+    "240000": { "150001": "昂船洲", "150002": "長沙灣", "150003": "荔枝角", "150004": "美孚", "150005": "南昌", "150006": "深水埗", "150007": "石硤尾" }, 
+    "240100": { "240000": "深水埗區" }, 
+    "250000": { "160001": "大欖", "160002": "大欖涌", "160003": "藍地", "160004": "龍鼓灘", "160005": "掃管笏", "160006": "屯門", "160007": "屯門內河碼頭", "160008": "小欖", "160009": "新墟" }, 
+    "250100": { "250000": "屯門區" }, 
+    "260000": { "170001": "大坑", "170002": "跑馬地", "170003": "銅鑼灣", "170004": "灣仔", "170005": "香港會議展覽中心" }, 
+    "260100": { "260000": "灣仔區" }, 
+    "270000": { "180001": "寶琳", "180002": "調景嶺", "180003": "將軍澳", "180004": "康城", "180005": "坑口", "180006": "清水灣", "180007": "西貢" }, 
+    "270100": { "270000": "西貢區" }, 
+    "280000": { "190001": "大角咀", "190002": "尖沙咀", "190003": "柯士甸", "190004": "太子", "190005": "旺角", "190006": "油麻地", "190007": "佐敦" }, 
+    "280100": { "280000": "油尖旺區" }, 
+    "290000": { "200001": "八鄉", "200002": "大棠", "200003": "洪水橋", "200004": "錦上路", "200005": "錦田", "200006": "林村", "200007": "流浮山", "200008": "落馬洲", "200009": "米埔", "200010": "牛潭尾", "200011": "屏山", "200012": "石崗", "200013": "天水圍", "200014": "廈村", "200015": "新田", "200016": "元朗" }, 
+    "290100": { "290000": "元朗區" }, 
+    "300000": { "210001": "半山", "210002": "堅尼地城", "210003": "金鐘", "210004": "山頂", "210005": "山頂盧吉道", "210006": "上環", "210007": "西環", "210008": "西營盤", "210009": "中環"}, 
+    "300100": { "300000": "中西區" }
+	}
+
+	var arr = []
+	for(var i=100000;i<310000;i+=10000){
+		let obj = {
+			"provinceName":"",
+			"code": "",
+			"cityName": []
+        }
+		for(var k in data){
+			if(k==i+100+""){
+				obj.provinceName = data[k][i]
+				obj.code = i
+			}
+		}
+		for(var k in data){
+			if(k==i+""){
+				for( var y in data[k]){
+					obj.cityName.push(data[k][y])
+				}
+			}
+		}
+		arr.push(obj)
+
+	}
+	console.log(arr)
+
+
+
+</script>

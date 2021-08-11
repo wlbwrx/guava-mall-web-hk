@@ -1,0 +1,22 @@
+<script>
+    var u = navigator.userAgent;
+    var isWeixin = u.toLowerCase().indexOf('micromessenger') !== -1; // 微信内
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+                // 微信内
+    if(isWeixin) {
+        alert('请在浏览器上打开')
+    } else {
+        //android端
+        if (isAndroid) {
+            window.location.href ="https://play.google.com/store/apps/details?id=io.dcloud.UNI7A85DF0";    
+        }
+        //ios端
+        if (isIOS) {
+            //ios的scheme协议
+            window.location.href = "https://apps.apple.com/cn/app/%E9%98%BF%E5%99%97%E7%89%B9%E8%B3%A3-%E4%BD%8E%E8%87%B31%E6%8A%98%E6%9C%8D%E9%A3%BE%E7%BE%8E%E5%A6%9D%E9%9E%8B%E5%8C%85%E9%85%8D%E9%A3%BE/id1481554817";
+                
+        }
+    }
+</script>

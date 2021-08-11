@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="【阿噗購物】訂單中心-購物，從阿噗開始" />
+		<meta property="og:description"   content="熱門推薦、女裝、男裝、鞋包配飾、美妝護膚、家居生活、童裝童趣等" />
+		<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+		<title>阿噗購物</title>
+		<meta name="description" content="熱門推薦、女裝、男裝、鞋包配飾、美妝護膚、家居生活、童裝童趣等!">
+		
+		<!-- 安卓平台 chrome -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg">
+		<!-- ios平台 safari -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+		<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+		<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+
+		<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+		
+		<meta name="renderer" content="webkit">
+		<!-- <meta name="shoppingCart"> -->
+		<!-- <meta name="customerService"> -->
+		<!-- <meta name="nav"> -->
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+		<link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/css/mdui.min.css">
+		<!-- <link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css"> -->
+		<link rel="stylesheet" href="../css/common.css?v=20210125">
+		<style>
+			body.mdui-bottom-nav-fixed{padding-bottom: 50px;}
+			.mdui-menu-left{position: static;display: block;height: calc(100vh - 90px);padding: 0;}
+			.mdui-menu-left .navBox{height: 100%;}
+		</style>
+		<script>
+			var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+		</script>
+	</head>
+	<body class="mdui-bottom-nav-fixed mdui-appbar-with-toolbar mdui-loaded mdui-theme-primary-red" onload="setStart()" onbeforeunload="setEnd()">
+		<div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+            <div class="mdui-toolbar-title">
+				<!-- <div class="top-left-options">
+					<a class="text-icon-options" href="javascript:void(0)" style="opacity: 0;"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-close2.png"></a>
+				</div>
+				<div class="mdui-center mdui-valign menu-tab"><span class="active">普品</span><span class="spNav">輕奢</span>
+				</div>
+				<div class="top-right-options"></div> -->
+				<div class="search_box" onclick="tools.openSearch()">
+					<div class="search_box_bg">
+						<img src="../image/icon/search.png" alt="" srcset="">
+					</div>
+				</div>
+            </div>
+		</div>
+		
+		<div class="mdui-container-fluid mdui-menu-left">
+            <div class="navBox"></div>
+		</div>
+
+		<div class="mdui-bottom-nav mdui-row mdui-color-grey-50">
+			<div class="mdui-col-2-6">
+				<a href="../shop/index.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-home-0.png" />
+					<span>首頁</span>
+				</a>
+			</div>
+			<div class="mdui-col-2-6">
+				<a href="../shop/menu.html" class="text-icon-options active">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-classification-1.png" />
+					<span>分類</span>
+				</a>
+			</div>
+			<div class="mdui-col-2-6">
+				<a href="../product/indexCart.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-cart-0.png" />
+					<span>購物車</span>
+					<label class="text-icon-num shop_cart_num"></label>
+				</a>
+			</div>
+			<div class="mdui-col-2-6">
+				<a href="../user/order.html" class="text-icon-options">
+					<img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-me-0.png" />
+					<span>查貨</span>
+				</a>
+			</div>
+		</div>
+	</body>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/clipboard/dist/clipboard.min.js"></script>
+	<!-- <script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.min.js"></script> -->
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/moment.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/art-template/lib/template-web.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script src="../js/common.js?v=2020110500"></script>
+	<script>
+		commonConfig.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + commonConfig.getGATracking());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag("config",commonConfig.getGATracking());
+		if(commonConfig.getGATracking() != 'UA-117174835-7'){
+			gtag("config",'UA-117174835-7');
+		}
+	</script>
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+	</script>
+	<!-- End Facebook Pixel Code -->
+	<script>
+		var $$ = mdui.JQ;
+		var app = {
+			initMenu: function() {
+				// leftNav.initNavList();
+				leftNav.initNavList(function(){
+					// 展開二級
+					$$('.navBox .levelA:not(.spNav) > li').off().on('click',function(){
+						$$('.navBox .levelA:not(.spNav) > li').removeClass('active')
+						$$(this).addClass('active')
+					})
+					$$('.navBox .levelA.spNav > li').off().on('click',function(){
+						$$('.navBox .levelA.spNav > li').removeClass('active')
+						$$(this).addClass('active')
+					})
+					app.initLevelB()
+					
+					// 切换
+					// $$('.mdui-toolbar-title .menu-tab span').off().on('click', function(){
+					// 	var state = $$(this).hasClass('spNav');
+					// 	if(state){
+					// 		cacheSessionStorage.setCache('menu-left-tab-state' , 1);
+					// 		$$('.navBox ul:not(.spNav)').hide()
+					// 		$$('.navBox ul.spNav').show()
+					// 		$$('.menu-tab span:not(.spNav)').removeClass('active')
+					// 		$$('.menu-tab span.spNav').addClass('active')
+					// 	}else{
+					// 		cacheSessionStorage.setCache('menu-left-tab-state' , 0);
+					// 		$$('.navBox ul:not(.spNav)').show()
+					// 		$$('.navBox ul.spNav').hide()
+					// 		$$('.menu-tab span:not(.spNav)').addClass('active')
+					// 		$$('.menu-tab span.spNav').removeClass('active')
+					// 	}
+					//  app.initLevelB(state ? '.spNav' : ':not(.spNav)')
+
+					// 切换初始化
+					var tabState = cacheSessionStorage.getCache('menu-left-tab-state')
+					if(tabState != undefined && tabState != null){
+						if(tabState == 0){
+							$$('.mdui-toolbar-title .menu-tab span:not(.spNav)').trigger('click')
+						}else if(tabState == 1){
+							$$('.mdui-toolbar-title .menu-tab span.spNav').trigger('click')
+						}
+					}else{
+						$$('.mdui-toolbar-title .menu-tab span:not(.spNav)').trigger('click')
+					}
+				});
+			},
+			initLevelB: function(select_name){
+				// 初始化二級
+				var nav_list = $$('.navBox .levelA' + (select_name || ''))
+				if(nav_list.children('li.active').length == 0){
+					// 默認選擇第2個
+					var f_menu = nav_list.children('li').eq(1).find('a');
+					if(f_menu && f_menu.attr('index') == undefined){
+						// 鏈接
+						$$('.levelB' + (select_name || '')).html('<div>請選擇左側類目</div>');
+					}else{
+						// 按鈕
+						f_menu.trigger('click')
+					}
+				}
+			},
+			// 解決安卓低版本facebook瀏覽器會遮住底部的問題
+			androidFbbrower: function(){
+					// 新增
+					if(tools.getPlatform() == 'Android' && tools.getBrowerForm() == 'FB'){
+						$$('.mdui-bottom-nav').css({
+							'padding-bottom': '50px'
+						})
+						$$('.mdui-menu-left').css({
+							'height': 'calc(100vh - 50px)'
+						})
+					}
+				},
+			initShoppingCart: function() {
+				var shoppingCartDom = $$('.shop_cart_num'),
+					shoppingcartNum = tools.getShopCartProductsNum();
+				if(shoppingcartNum == 0){
+					shoppingCartDom.hide();
+				}else{
+					shoppingCartDom.html(shoppingcartNum).show();
+				}
+			},
+			init: function() {
+				var browserRule = /^.*((iPhone)|(iPad)|(Safari))+.*$/;
+				if (browserRule.test(navigator.userAgent)) {
+					window.onpageshow = function(event) {
+						if (event.persisted) {
+							app.initShoppingCart();
+						}
+					};
+				}
+				tools.initScopeInfo();
+				app.initShoppingCart();
+				app.initMenu();
+				app.androidFbbrower()
+				
+			}
+		};
+		$$(function() {
+			app.init();
+		});
+	</script>
+
+</html>

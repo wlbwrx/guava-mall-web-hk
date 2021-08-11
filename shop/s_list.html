@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="【阿噗購物】列表頁-購物，從阿噗開始" />
+		<meta property="og:description"   content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。" />
+		<meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+		<title>阿噗購物</title>
+		<meta name="description" content="阿噗特賣，您的穿搭生活頻道。主營：女裝、男裝、鞋包配飾、美妝護膚、家居生活。滿HK$200享8折價 / 支持貨到付款 / 官方自營 / 100%正品保障 / 7天無憂退換貨。!">
+
+		<!-- 安卓平台 chrome -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg">
+		<!-- ios平台 safari -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+		<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+		<link rel="apple-touch-icon-precomposed" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg">
+
+		<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+
+		<meta name="google-site-verification" content="a3WEnwgZ_FcabGTmMSO6g50wtWQa_wFAS0PjnZ9rwN0" />
+		<meta name="google-site-verification" content="P2fm2-zmVc_izaSI_NJQCYdguWpqbjTbBQFd_jD0NwI" />
+
+		<link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/css/mdui.min.css">
+		<link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css">
+		<link rel="stylesheet" href="../css/common.css?v=20210125">
+		<style>
+			body .mdui-appbar-fixed{z-index:2001}
+			.mdui-appbar-with-toolbar{padding-top: 81px;}
+			.mdui-overlay{background:rgba(0,0,0,.5)}
+			/* .mdui-appbar-scroll-toolbar-hide.mdui-headroom-unpinned-toolbar{-webkit-transform: translate3d(0,-81px,0)!important;transform: translate3d(0,-81px,0)!important;} */
+
+			.top-left-options a.text-icon-options{margin-right: 0!important;color: #363636;}
+            .top-right-options span{padding: 0 4px 0 12px; display: inline-block;}
+
+			.module-31{background: #f4f4f4;color: #000;padding:8px 2.4% 0;box-sizing: border-box;display: flex;justify-content: space-between;flex-wrap: wrap;}
+			.module-31 .module-31-card{width: 48.8%; margin-bottom: 8px ;box-shadow: none;box-sizing: border-box; text-decoration: none; border-radius: 0px;background: #FFFFFF;border-radius: 6px;}
+			.module-31 .module-31-card:nth-last-child(1){margin-bottom: 0;}
+			.module-31 .module-31-card:nth-last-child(2){margin-bottom: 0;}
+			.module-31 .module-31-card > a{text-decoration: none;}
+			.module-31 .module-31-card .mdui-card-media{padding-bottom: 100%;}
+			.module-31 .module-31-card .mdui-card-media > img{position: absolute; width: 100%; height: 100%; top: 0; left: 0;border-radius: 0px !important;}
+			.module-31 .module-31-content{padding: 8px; color: #000;}
+			.module-31 .module-31-content .module-31-title{height: 36px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;width: 100%;font-size: 13px;line-height: 18px;}
+			.module-31 .module-31-content .module-31-price{font-size: 0;line-height: normal;padding: 8px 0;}
+			.module-31 .module-31-content .module-31-price > span:last-child{font-size: 12px;color: #777777;line-height: 12px;display: inline-block;}
+			.module-31 .module-31-content .module-31-discountprice{font-size: 22px;color: #B4272D; line-height: 22px;margin-right: 8px;}
+			.module-31 .module-31-content .module-31-discountprice:before{content: '8折價HK$';margin-right: 1px;font-size: 12px;line-height: 12px;}
+			.module-31 .module-31-content .module-31-originalprice{text-decoration: line-through}
+			.module-31 .module-31-content .module-31-originalprice:before{content: 'HK$S';}
+			.module-31 .module-31-content .module-31-btn{display: flex;align-items: baseline;justify-content: space-between;}
+			.module-31 .module-31-content .module-31-btn button{background: #B4272D;border-radius: 3px;width: 88px;height: 26px;border: none;box-shadow: none;font-size: 12px;color: #FFFFFF;line-height: 12px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+			.module-31 .module-31-content .module-31-btn span{font-size: 13px;color: #777777;text-align: right;line-height: 13px;}
+			.module-31 .module-31-content .module-31-tag{height: 16px;overflow: hidden;font-size: 0;margin: 5px 0;}
+			.module-31 .module-31-content .module-31-tag span{display: inline-block;padding: 0 7px;border: none; border-radius: 8px;font-size: 12px;color: #E56214;line-height: 16px;height: 16px;background: #FCE9D5;box-sizing: border-box;margin-right: 6px;}
+			.module-31 .module-31-content .module-31-tag span:last-child{margin-right: 0;}
+			.module-31 .module-31-more{background: #FFF;color: #7B7B7B;padding: 0;border: none!important}
+			.module-31 .module-31-more a{position: relative;color: #7b7b7b;display: block;padding-bottom: 100%;border: 1px solid #f4f4f4;}
+			.module-31 .module-31-more a .textBox{position: absolute;left: 50%;margin-left: -25px;top: 50%;margin-top: -28px;text-align: center;}
+			.module-31 .module-31-more a span{display: inline-block;}
+			.module-31 .module-31-more a span.circle{border: 1px solid #7B7B7B; border-radius: 50%; padding: 3px;margin-top: 12px;}
+
+			.mdui-toolbar-tab{font-size: 14px; line-height: 40px;color: #979797; height: 40px; padding: 0 15px;display: flex;background: #fff;}
+			.mdui-toolbar-tab i{font-style: normal;}
+			.mdui-toolbar-tab div{flex: 1; display: flex; flex-wrap: nowrap; }
+			.mdui-toolbar-tab div span{margin-right: 32px;}
+			.mdui-toolbar-tab span.active{font-style: normal;color: #000;}
+			.tab_hide{display: none;}
+
+			.mdui-number{font-size: 12px; text-align: center; padding: 16px 0 46px 0;color: #bcbcbc;}
+		</style>
+		<script>
+			var montiorTime={start:0,end:0};function setStart(){montiorTime.start=(new Date).getTime()}function setEnd(){montiorTime.end=(new Date).getTime(),cacheSessionStorage.setCache("montiorTime",{aimsFromUrl:location.href,params:[montiorTime]})}
+		</script>
+	</head>
+	<body class="mdui-appbar-with-toolbar" onload="setStart()" onbeforeunload="setEnd()">
+		<div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+            <div class="mdui-toolbar-title">
+                <div class="top-left-options">
+                    <a class="text-icon-options" href="javascript:void(0)" onclick="tools.goBack();"><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/icon-back.png"></a>
+                </div>
+                <div class="top-center-options">
+                    <div class="search_box">
+                        <div class="search_box_bg">
+							<img src="../image/icon/search.png" alt="" srcset="">
+						</div>
+						<form action="#" onsubmit="return false;">
+							<input type="search" class="search_input" maxlength="20" placeholder="輸入你想要的···">
+						</form>
+                    </div>
+                </div>
+                <div class="top-right-options">
+                    <span onclick="window.location.href='../shop/index.html'">取消</span>
+                </div>
+			</div>
+            <div class="mdui-toolbar-tab">
+				<i>排序方式：</i>
+				<div>
+					<span onclick="app.methods.changeType(0, 0)" class="active">綜合排序</span>
+					<span onclick="app.methods.changeType(-1, 1)" style="display: none;">銷量</span>
+					<span onclick="app.methods.changeType(2, 2)">價格低到高<i class="mdui-icon material-icons">&#xe316;</i></span>
+					<span onclick="app.methods.changeType(-2, 3)" class="tab_hide">價格高到低<i class="mdui-icon material-icons">&#xe313;</i></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="mdui-container-fluid mdui-page-container"></div>
+
+		<div class="mdui-empty" style="display: none;text-align: center;">
+			<img style="width: 24%; display: block; margin: 0px auto; margin-top: 30%;" src="https://d3o2c7bn83e5x8.cloudfront.net/image/no-order.png" />
+			<div style="display: block; margin-top: 18px; color: #7B7B7B;">
+				<span style="display: block;">非常抱歉</span>
+				<span style="display: block;">沒有找到相關寶貝</span>
+			</div>
+		</div>
+
+		<div class="mdui-number" style="display: none;">
+			<!-- 新增到底提示 -->
+			<div class="footer-note-new" id='footer-note-new' style="display:none;">
+				<div class="footer-note-new-div">
+					<span>(๑¯∀¯๑)已經到底了喔</span>
+				</div>
+			</div>
+		</div>
+
+        <div class="associate_box" style="display: none;"></div>
+
+		<!-- <div class="mdui-valign mdui-text-center mdui-page-bottom">
+			<span class="mdui-page-bottom-text">香港芭樂科技有限公司版權所有<a href="../other/index.html">了解我們</a></span>
+		</div> -->
+	</body>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/clipboard/dist/clipboard.min.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/echo.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/art-template/lib/template-web.js"></script>
+	<script src="https://d3o2c7bn83e5x8.cloudfront.net/js/templateImport.js?v=20180526"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script src="../js/common.js?v=20200108"></script>
+	<script>
+		commonConfig.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + commonConfig.getGATracking());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag("config",commonConfig.getGATracking());
+		if(commonConfig.getGATracking() != 'UA-117174835-7'){
+			gtag("config",'UA-117174835-7');
+		}
+	</script>
+	<script>
+		!function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+	</script>
+	<script id="listHtml" type="text/html">
+		<div class="mdui-row module-31">
+			<% for (var i = 0; i < list.length; i++) { %>
+				<div class="mdui-card module-31-card">
+					<a href="../product/index.html?id=<%=list[i].productId%>">
+						<% if(list[i].isNew){ %>
+							<div class="mdui-card-media isNew">
+						<% }else{ %>
+							<div class="mdui-card-media">
+						<% } %>
+							<img src="../image/placeholder.png" data-echo="<%=list[i].productImageUrl%>" type="product" data-id="<%=list[i].productId%>"/>
+						</div>
+						<div class="mdui-card-content module-31-content">
+							<div class="module-31-title"><%=list[i].title%><%=list[i].description%></div>
+							<div class="module-31-tag">
+								<% if(list[i].flag && list[i].flag != ''){ %>
+									<% for (var j = 0; j < list[i].flag.length; j++) { %>
+										<span><%= list[i].flag[j] %></span>
+									<% } %>
+								<% } %>
+							</div>
+							<div class="module-31-bottom">
+								<div class="module-31-price">
+									<span class="module-31-discountprice"><%= list[i].minPrice %></span>
+									<span class="module-31-originalprice"><%= list[i].originalPrice %></span>
+								</div>
+								<div class="module-31-btn">
+									<button>限時出清</button>
+									<span><%=$imports.buyCount(list[i].productId)%>件已出</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			<% } %>
+		</div>
+	</script>
+    <script>
+        var app = {
+			data: {
+				key: unescape(tools.getURLParam('key').trim()) || '',
+				type: 0,
+				page: 0, // 页数
+				should_clear: true, //清空列表重新加載
+				more_list: true,
+				load_state: false,
+			},
+			methods: {
+				initList: function(){
+					if(app.data.key == ''){
+						tools.goBack()
+						return
+					}
+					// 規則校驗 中英數字空格
+					if(!tools.testSearch(app.data.key)){
+						mdui.snackbar({message: '不可以輸入特殊符號哦...',position: 'top'});
+						// tools.goBack()
+						return
+					}
+					// 寫緩存
+					var history = cacheLocalstorage.getCache('search_history') || []
+					var sameIndex = null
+					history.map(function(e, i){
+						if(e.keyword == app.data.key){
+							sameIndex = i
+						}
+					})
+					if(sameIndex != null){
+						history.splice(sameIndex, 1)
+					}
+					history.unshift({
+						keyword: app.data.key
+					})
+					if(history.length > 20){
+						history.length = 20
+					}
+					cacheLocalstorage.setCache('search_history', history)
+					// 渲染
+					$$('.search_input').val() == '' && $$('.search_input').val(app.data.key).trigger('focus')
+					if(!app.data.more_list){return}
+					if(app.data.should_clear){
+						$$('.mdui-page-container').html('');
+					}
+					$$.ajax({
+						beforeSend : function(){
+							tools.loading(2001);
+							app.data.load_state = true
+						},
+						url : commonConfig.websitePrefix() + '/search/product/list',
+						data: {
+							keyword: app.data.key,
+							sortType: app.data.type,
+							page: app.data.page,
+							size: 20,
+						},
+						success: function (data) {
+							if(data.body.content.length < 20){
+								// 到底了
+								app.data.more_list = false
+								// $$('.mdui-number').html('- 搜索到'+data.body.totalElements+'件商品，已全部加載完畢 -')
+								if($$('.mdui-page-container').css('display') != "none"){
+									$$('.mdui-number').show()
+								}
+							}else{
+								$$('.mdui-number').html('').hide()
+							}
+							data.body.content.map(function(_e){
+								if(typeof _e.flag == 'string' &&_e.flag && _e.flag != ''){
+									_e.flag = _e.flag.split(',');
+								}
+							});
+							var _domHtml = template('listHtml' , {'list' : data.body.content}) ;
+							$$('.mdui-page-container').append('<div class="pro_box">' + _domHtml + '</div>');
+							echo.init({offset: 667,throttle: 0});
+							if(data.body.totalElements == 0){
+								$$('.mdui-empty').show()
+								$$('.mdui-number').html('').hide()
+							}
+						},
+						complete : function(){
+							tools.hideLoading();
+							app.data.load_state = false
+						}
+					});
+				},
+				changeType: function(type, index){
+					if($$('.mdui-toolbar-tab div > span').eq(index).hasClass('active')){
+						if(index == 2){
+							$$('.mdui-toolbar-tab div > span').eq(2).addClass('tab_hide')
+							$$('.mdui-toolbar-tab div > span').eq(3).removeClass('tab_hide').addClass('active').siblings().removeClass('active')
+							app.data.type = -2
+						}else if(index == 3){
+							$$('.mdui-toolbar-tab div > span').eq(3).addClass('tab_hide')
+							$$('.mdui-toolbar-tab div > span').eq(2).removeClass('tab_hide').addClass('active').siblings().removeClass('active')
+							app.data.type = 2
+						}else{
+							return
+						}
+					}else{
+						app.data.type = type
+						$$('.mdui-toolbar-tab div > span').eq(index).addClass('active').siblings().removeClass('active')
+					}
+					app.data.page = 0
+					app.data.more_list = true
+					app.data.should_clear = true
+					app.methods.initList()
+				},
+			},
+			events : {
+				mduiTabNavport : function(){
+					$$('.mdui-tab-flex .arrow-down').off().on('click' , function(){
+						var navDom = $$('.mdui-tab-flex .mdui-tab-navport');
+						if(navDom.css('display') == 'none'){
+							$$.showOverlay(2000);
+							navDom.show();
+							$$('.mdui-tab-mes').show();
+
+							$$(this).html('<i class="mdui-icon material-icons">expand_less</i>');
+
+							$$('.mdui-overlay.mdui-overlay-show').off().on('click' , function(){
+								$$('.mdui-tab-flex .arrow-down').trigger('click');
+							});
+						}else{
+							navDom.hide();
+							$$('.mdui-tab-mes').hide();
+
+							$$.hideOverlay();
+							$$(this).html('<i class="mdui-icon material-icons">expand_more</i>');
+						}
+					});
+				},
+				initDefaultEvents : function(){
+					window.onscroll = function(){
+						// 下拉分页
+						if(app.data.more_list){
+							var top = document.documentElement.scrollTop || document.body.scrollTop;
+							var height = document.body.clientHeight;
+							if(height - top <= 667 + document.documentElement.clientHeight && !app.data.load_state){
+								// 加载下一页
+								app.data.page++;
+								app.data.should_clear = false;
+								app.methods.initList();
+							}
+						}
+					}
+				},
+			},
+			init: function() {
+				tools.initScopeInfo();
+                tools.focusSearch();
+				app.methods.initList();
+				app.events.initDefaultEvents();
+			}
+		};
+		$$(function() {
+			app.init();
+		});
+    </script>
+</html>

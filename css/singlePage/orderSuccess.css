@@ -1,0 +1,340 @@
+body{
+    font-size:0.14rem;
+    background:#F4F4F4;
+}
+#orderSuccess{
+    max-width:750px;
+    margin:0 auto;
+}
+.gradle-img{
+    width:100%;
+    height:0.5rem;
+    position:fixed;
+    display:flex;
+    display:-webkit-flex;
+    color:#fff;
+    z-index:200;
+}
+.gradle-img-in{
+    width:100%;
+    max-width:750px;
+    display:flex;
+    display:-webkit-flex;
+    background:#373737;
+}
+.gradle-img-l{
+    width:0.5rem;
+}
+.gradle-img-l img{
+    display:block;
+    width:100%;
+}
+.gradle-img-r{
+    width:3.25rem;
+    line-height: 0.5rem;
+    text-align:right;
+    color:#fff;
+    font-size:0.18rem;
+    padding-right:0.25rem;
+    position:relative;
+}
+.gradle-img-r:before{
+    content:'';
+    position:absolute;
+    width:0.075rem;
+    height:0.14rem;
+    background:url('../../image/icon/icon-next-new.png') no-repeat;
+    background-size:cover;
+    right: 0.12rem;
+    top: 0.18rem;
+}
+.orderInfo{
+    padding:0.5rem 3% 0.16rem;
+    background:#22AB39;
+}
+.success-info{
+    display:flex;
+    display:-webkit-flex;
+    margin-top:0.16rem;
+}
+.success-info .success-info-l{
+    width:0.6rem;
+}
+.success-info .success-info-l img{
+    display:block;
+    width:100%;
+}
+.success-info .success-info-r{
+    color:#fff;
+    margin-left:0.1rem;
+}
+.success-info .success-info-r h4{
+    font-size:0.22rem;
+    font-weight:bold;margin-top:0.05rem;
+}
+.success-info .success-info-r p{
+    font-size:0.14rem;
+    margin-top:0.02rem;
+}
+.success-info .success-info-r p span{
+    text-decoration:underline;
+}
+.order-all-info{
+    background:#fff;
+    padding:0.14rem 0.12rem;
+    color:#222222;
+    margin-top:0.2rem;
+    border-radius:0.1rem;
+}
+.order-all-info-h{
+    position:relative;
+
+}
+.order-all-info-h h4{
+    font-size:0.16rem;
+}
+.order-all-info-h h4 span{
+    display:inline-block;
+    font-size:0.12rem;
+    color:#ED1B2E;
+    border:1px solid #ED1B2E;
+    border-radius:5px;
+    padding:0 5px;
+    position: relative;
+    top:-1px; 
+    font-weight:normal;
+}
+.order-all-info-h p{
+    color:#777777;
+    font-size:0.12rem;
+    margin-top:0.02rem;
+}
+.order-all-info-h .kefu{
+    position:absolute;
+    right:0.1rem;top:0.02rem;
+    font-size:0.12rem;
+    text-align:center;
+    color:#777;
+}
+.order-all-info-h .kefu a:link,.order-all-info-h .kefu a:visited{
+    color:#777;
+    text-decoration:none;
+}
+.order-all-info-h .kefu img{
+    display:block;
+    width:0.2rem;
+    margin:0 auto;
+}
+.order-line{
+    width:100%;border-top:1px dashed #ededed;
+    margin:0.1rem 0;
+}
+.order-all-info-c{
+    padding:0.08rem 0.1rem;
+    background:#FFFCEE;
+    border:1px solid #ECE2C8;
+    border-radius:0.08rem;
+    color:#BAA269;
+    font-size:0.14rem;
+    line-height: 0.2rem;
+}
+.order-all-info-imglist{
+    width:100%;
+    overflow-x: auto;
+    overflow-y: hidden;margin-top:0.12rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+.order-all-info-imglist a{
+    width:0.8rem;
+    height:0.8rem;
+    display:inline-block;
+    border-radius:0.06rem;margin-right:0.05rem;
+    position:relative;
+}
+.order-all-info-imglist a img{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:0.06rem;
+}
+.order-all-info-imglist a span{
+    position:absolute;
+    padding:1px 0.07rem;font-size:0.12rem;
+    right:0.01rem;
+    bottom:0.04rem;
+    color:#fff;
+    border-radius:50px;
+    display:block;
+    background:rgba(0,0,0,0.5);
+    transform:scale(0.8);
+    -webkit-transform:scale(0.8);
+}
+.order-all-info-panel p{
+    font-size:0.14rem;
+    color:#777777;
+    margin-top:0.08rem;
+}
+.order-all-info-panel p:first-child{
+    margin-top:0;
+}
+.order-all-info-panel p i{
+    font-style:normal;
+    float:right;
+}
+.order-all-info-result-price p{
+    font-size:0.16rem;
+    color:#222222;
+    font-weight:bold;
+}
+.order-all-info-result-price p i{
+    font-style:normal;
+    float:right;
+}
+.order-chat{
+    padding:0.15rem 3%;
+    background:#fff;
+}
+.order-chat p{
+    font-size:0.14rem;
+    color:#222;margin-bottom:0.1rem;
+}
+.order-chat table{
+    width: 100%;
+    border: 1px solid #EDEDED;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    border-radius: 4px;
+}
+.order-chat table tr{
+    border-bottom:1px solid #ededed;
+    height:0.4rem;
+}
+.order-chat table tr:first-child{
+    background:#FBFBFB;
+    color:#777;
+    width:1rem;
+}
+.order-chat table tr:last-child{
+    border-bottom:0;
+}
+.order-chat table tr td{
+    border-right:1px solid #ededed;
+}
+.order-chat table tr td:last-child{
+    border-right:0;
+}
+.order-chat table tr td span{
+    display: inline-block;
+    font-size: 0.12rem;
+    color: #ED1B2E;
+    border: 1px solid #ED1B2E;
+    border-radius: 5px;
+    padding: 1px 5px;
+}
+.order-h{
+    margin-top:0.1rem;
+    width:94%;
+    padding:0 3%;
+    color:#222;
+    font-size:0.18rem;
+    font-weight:bold;
+}
+.guess-like-pro{
+    padding:0.1rem 3%;
+    float:left;
+}
+.guess-like-pro-li{
+    width:49%;
+    background:#fff;
+    border-radius:0.1rem;
+    font-size:0.13rem;
+    margin-right:2%;
+    float:left;
+    margin-bottom:0.1rem;
+}
+.guess-like-pro-li:nth-child(2n){
+    margin-right:0;
+}
+.guess-like-pro-li img{
+    width:100%;
+    display:block;
+    border-radius:0.1rem 0.1rem 0 0;
+}
+.like-text-info{
+    padding:0.1rem 0.08rem;
+}
+.like-text-info .like-title{
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    line-height: 0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.like-logo{
+    margin-top:0.1rem;
+}
+.like-logo i{
+    display:inline-block;
+    padding:3px 0.07rem;
+    border-radius:50px;
+    color:#F9670F;
+    background:#FEEFE7;
+    font-size:0.12rem;
+    margin-right:0.05rem;
+    font-style:normal;
+}
+.like-price{
+    margin-top:0.05rem;
+    color:#ED1B2E;
+    font-size:0.12rem;
+}
+.like-price i{
+    font-style:normal;
+    font-size:0.22rem;
+}
+.like-price s{
+    color:#777777;
+    margin-left:0.05rem;
+}
+.like-default{
+    margin-top:0.05rem;
+    line-height: .26rem;
+}
+.like-default button{
+    background: #ED1B2E;
+    border-radius: 0.05rem;
+    width: .88rem;
+    height: .26rem;
+    line-height: .26rem;
+    text-align:center;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 0.12rem;
+    color: #FFFFFF;
+}
+.like-default span{
+    color:#777777;
+    font-size:0.12rem;
+    float:right;
+}
+#tipsFixed{
+    position: fixed;
+    bottom: 10%;
+    width:100%;
+    z-index:1;
+    text-align:center;
+}
+#tipsFixed span{
+    display:inline-block;
+    background: rgba(0,0,0);
+    color: #fff;
+    padding: 0.1rem 0.15rem;
+    border-radius: 0.06rem;
+    border-radius: 0.06rem;
+    margin:0 auto;font-size:0.14rem;
+}

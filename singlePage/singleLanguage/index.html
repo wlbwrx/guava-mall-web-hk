@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta property="og:image"         content="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon.jpg" />
+    <meta name="description" content="91up">
+    <!-- <link rel="icon" sizes="192x192" href="https://d3o2c7bn83e5x8.cloudfront.net/image/shareIcon-mini.jpg"> -->
+    <link rel="shortcut icon" href="https://d3o2c7bn83e5x8.cloudfront.net/image/favicon.ico" type="image/x-icon" />
+    <title></title>
+    <!-- 双核浏览器 优先使用 webkit打开 -->
+    <meta name="renderer" content="webkit">
+    <!-- 开发单页面专用start -->
+        <!-- <script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/mdui/js/mdui.min.js"></script> -->
+        <script src="https://d3o2c7bn83e5x8.cloudfront.net/js/jquery-2.1.0.js"></script>
+        <!-- vue框架 -->
+        <!-- 开发环境 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- 生产环境 -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+        <!-- 公共js -->
+        <script src="https://cdn.bootcss.com/qs/6.7.0/qs.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src='../../js/singlePage/common.js?v=20210508'></script>
+        <script src='../../js/singlePage/worldAddress.js?v=20210508'></script>
+        <!-- 公共css -->
+        <link rel="stylesheet" href="../../css/singlePage/common.css">
+        <link rel="stylesheet" href="../../css/singlePage/animate.css">
+    <!-- 开发单页面专用end -->
+    <script src="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/js/swiper.min.js"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+    <link rel="stylesheet" href="https://d3o2c7bn83e5x8.cloudfront.net/dist/Swiper/css/swiper.min.css">
+    <!-- 视频video.js -->
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js@7.11.8/dist/video.js"></script>
+
+    <link rel="stylesheet" href="../../css/singlePage/singlePage.css?v=20210508">
+    <style>
+        .singleFlex .supply-mes ul:last-child{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="apuSinglePage" id="apuSinglePage">
+        <!-- banner 区域 -->
+        <div class="singleBanner">
+            <div class="swiper-container">
+				<div class="swiper-wrapper">
+                    <div class="swiper-slide" v-if='singlePageProductVideos.length > 0' v-for='singleVideo in singlePageProductVideos'>
+                        <div class="video-banner">
+                            <img :src="posterImg" alt="" v-show="isplayNow">
+                            <!-- <button class=""></button> -->
+                            <video
+                                id="my-player"
+                                class="video-js"
+                                controls
+                                preload="auto"
+                                webkit-playsinline="" playsinline="" x5-playsinline="" x-webkit-airplay="allow"
+                                :poster="posterImg"
+                            >
+                                <source :src="videoUrl"></source>
+                            </video>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" v-for="(item, index) in singleBanner" :key="index">
+                        <img :src="item" alt="" onerror="this.src='../../image/placeholder.png';">
+                    </div>
+                </div>
+				<div class="swiper-pagination"></div>
+			</div>
+        </div>
+        <!-- ---------- -->
+        <!-- 倒计时价格区域 -->
+        <div class="singlePrice">
+            <div class="singlePriceLeft" ref="singlePriceLeft">
+                {{symbol}}<span>{{averagePrice}}</span><s class="defalut-length">{{symbol}}{{originalPrice}}</s>
+            </div>
+            <div class="singlePriceRight">
+                <div class="spr-top">
+                    <i class='ico icon-fire'> <img src="../../image/icon-fire.png" alt=""> </i>
+                    Hot selling {{hotProduct}} items
+                </div>
+                <!-- 倒计时先行注释 -->
+                <!-- <div class="spr-bottom" id="spr-time-down">
+                    
+                </div> -->
+            </div>
+        </div>
+        <!--  -->
+        <!-- 商品名称区域 -->
+        <div class="singleArticle singleInfo">
+            <div class="singleInfoTitle">
+                {{product.title}}
+            </div>
+            <!-- <div class="singleInfoSaw">
+                <span>Favorable:<i>{{praisePesert}}%</i> </span>
+                <span>Freight:<i>$0</i> </span>
+                <span>Popular:<i>{{popularValue}}</i> </span>
+            </div> -->
+        </div>
+        <!-- ----------- -->
+        <!-- 下单步骤 -->
+        <div class="singleArticle singleFlex" style='padding:0.16rem 3% 0.12rem;'>
+            <!-- <div class="supply-mes">
+				<ul>
+					<li><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/supply-1.png"></li>
+					<li></li>
+					<li><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/supply-2.png"></li>
+					<li></li>
+					<li><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/supply-3.png"></li>
+					<li></li>
+					<li><img src="https://d3o2c7bn83e5x8.cloudfront.net/image/icon/supply-4.png"></li>
+				</ul>
+				<ul>
+					<li style="text-align:left;"><span>place the order</span></li>
+                    <li></li>
+					<li><span>The factory stock</span></li>
+                    <li></li>
+					<li><span>International transport</span></li>
+                    <li></li>
+					<li style="text-align:right;"><span>Direct user</span></li>
+				</ul>
+            </div> -->
+            <!-- <div class="line-dashed"></div> -->
+            <p class="arrival" style="margin-top:0;">
+                <span><img src="../../image/arrival.png"> {{ country == "Malaysia" ?  "Worldwide Free Shipping from Hong Kong" :  "Free Shipping From HongKong"}} </span>
+                <span style='margin-top:0.04rem;'>{{logisticsDeliveryTime}}</span>
+            </p>
+        </div>
+        <!-- ------- -->
+        <!-- 官方声明 -->
+        <div class="singleArticle singleNote" @click="oSt('open')">
+            <ul class="mdui-list">
+				<li class="mdui-list-item" style="position:relative;">
+					<div class="mdui-list-item-content custom-info">
+						<div class="custom-info-details">
+							<!-- <span>支持7-11&全家取貨</span> -->
+                            <span>Free Shipping</span>
+                            <br>
+                            <span>Cash on Delivery & Credit Card</span> <br>
+                            <!-- <span>Free Return within 7 Days</span> -->
+                            <!-- <span>Return Freight Compensation</span> -->
+                        </div>
+					</div>
+					<i class="icon icon-right rightJt"> <img src="../../image/icon-next.png" alt=""> </i>
+				</li>
+			</ul>
+        </div>
+        <!-- --------- -->
+        <!-- 判断是否过线 置顶 -->
+        <div id="tabPro-line"></div>
+        <!-- 商品详情 / 咨询与售后 -->
+        <div :class="['singleArticle', 'tabPro', { 'pofixed': tabTop }]" id="tabPro">
+            <div class='tabPro-in'>
+                <div class="tabProAnote">
+                    <span :class='{active: skushow}' @click="productTab(true)">Product Details</span>
+                    <span :class='{active: !skushow}' @click="productTab(false)">After-sales</span>
+                </div>
+            </div>
+        </div>
+        <!-- 当置顶时占位用 -->
+        <div :class="{'tabPlaceholder': tabTop}"></div>
+        <!-- ------------- -->
+        <!-- 商品详情 -->
+        <!-- <div class="singleArticle proNumber" style="padding: 0.12rem 3%;" v-show="skushow">
+            <div class="proNumber-hd">
+                Product Parameters
+            </div>
+            <div class="mdui-pannel-content product-param" v-html="productDetail.productParams">
+
+            </div>
+        </div> -->
+        <!-- 商品详情信息 -->
+        <div class='product-detail' v-show="skushow" v-html="productDetail.productDetails">
+            <!-- 这里展示商品详情 -->
+        </div>
+        <!-- ----------- -->
+        <div class="singleArticle proPrince" v-show="!skushow">
+            <div class="proPrince-p">
+                <h5>About Shipping Fees</h5>
+                <p>We promise to free shipping, no shipping fees will be charged during the ordering process, please rest assured to purchase.</p>
+            </div>
+            <div class="proPrince-p">
+                <h5>Shipping Time</h5>
+                <p>Delivered Within 10-15 Days after purchased.</p>
+                <p>Please refer to the delivery time of the logistics company for the specific delivery time.</p>
+            </div>
+            <!-- <div class="proPrince-p">
+                <h5>物流公司</h5>
+                <p>您訂購的商品，將由新竹物流负责配送到您的預留收件地址，請在包裹預計到達日留意配送相關配送簡訊&電話喔。</p>
+            </div> -->
+            <!-- <div class="proPrince-p">
+                <h5>Free Return within 7 Days</h5>
+                <p>You can apply for a return or exchange online within 7 days from the day of receipt of the package. More than 7 days,we will no longer accept return applications.</p>
+                <p>Please note: the returned goods must be in a brand new condition and packaged intact. It can not be returned or exchanged for a try-on or trial.</p>
+                <p>Beauty products are personal consumables and cannot be returned or exchanged once they are opened or used.。</p>
+                <p>*As long as you contact customer service on Facebook Page within 7 days and provide replacement information, it means that the application is accepted successfully.</p>
+            </div> -->
+            <div class="proPrince-p">
+                <h5>Privacy Protection</h5>
+                <p>
+                    The personal-related information you reserve will be used as a voucher for order delivery and will not be used for other purposes. We will ensure that your information will not be leaked.
+                </p>
+            </div>
+        </div>
+        <!-- 左右滑動 -->
+
+        <!--  -->
+        <!-- --------- -->
+        <div id='tab-hide-line'></div>
+        <!-- 标题 -->
+        <div class='detail-h'>
+            Order Information
+        </div>
+        <div id='info-hide-line'></div>
+        <!--  訂單信息 --->
+        <div :class="['singleArticle-A', 'orderInfo', {'orderInfoFixed': orderInfoFix}]" id="orderInfo">
+            <div class="orderInfo-in">  
+                <div class="orderInfo-left">
+                    <img :src="orderInfoDetail.productImgUrl" onerror="this.src='../../image/placeholder.png';" alt="">
+                </div>
+                <div class="orderInfo-right">
+                    <div class="orderInfo-right-top" v-if="planNumber == 0">
+                        Average price from {{symbol}}<span>{{averagePrice}}</span><s class='defalut-length' style="color:#777;">{{symbol}}{{originalPrice}}</s>
+                    </div>
+                    <div class="orderInfo-right-top" v-if="planNumber > 0">
+                        {{symbol}}<span>{{orderInfoDetail.choosePrice}}</span>
+                    </div>
+                    <div class="orderInfo-right-center" v-if="planNumber > 0">
+                        Number of purchases: {{planNumber}}  {{planNumber > 1 ?　"items" : "item"}}
+                        <i class='order-right-has'>
+                            {{allProDuct}}<span>/{{planNumber}}</span>
+                        </i>
+                    </div>
+                    <div class="orderInfo-right-bottom">
+                        <span v-if="planNumber == 0 || allProDuct == 0"> Please Choose: </span><span v-if="planNumber == 0"> Plan </span> <span v-if="allProDuct == 0">Format</span>
+                        <span v-for="itemSpe in speciList">
+                            <span v-if="itemSpe.allNumber > 0">{{itemSpe.productName}} </span>
+                            <span v-for="(item, index) in itemSpe.skulist" v-if="item.skuNumber > 0">
+
+                                <i v-if="index != 0"> 、</i>{{item.skutype}}<i v-if="item.skuNumber == 1">x{{ item.skuNumber }}</i> <i v-if="item.skuNumber > 1" style="color:#007AFF;">x{{ item.skuNumber }}</i>
+                            </span>
+                            <span v-if="itemSpe.allNumber > 0">；</span>
+                        </span>
+                        <!-- 單個選擇 -->
+                        <span v-for="(itemSpe, index) in newhas" v-if="itemSpe.skuNumber > 0">
+                            <i v-if="index != 0">、</i>  {{itemSpe.value}}
+
+                            <i v-if="itemSpe.skuNumber == 1">x{{ itemSpe.skuNumber }}</i> <i v-if="itemSpe.skuNumber > 1" style="color:#007AFF;">x{{ itemSpe.skuNumber }}</i>
+
+                        </span>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <!-- 訂單信息占位 -->
+        <div :class="{'orderInfoPlacelder': orderInfoFix}"></div>
+        <!-- ----------- -->
+        <div class="singleArticle-A" style='padding-bottom:0;'>
+            <div class="detail-h-i">
+                Please Choose Number
+            </div>
+            <div class='singleArticle-type-ul'>
+                <li v-for="(proplanItem, index) in productPlan" :class='["singleArticle-type-li", {"active": proplanItem.isSelect}]'  :key="index" @click="planChoose(proplanItem, index)">
+                    <span class='type-l'>
+                        {{proplanItem.proNumber}} {{proplanItem.proNumber >　1 ?　"Items"　: 　"Item"　}} for {{symbol}}{{proplanItem.allProPrice}}
+                    </span>
+                    <span class='type-r'>
+                        average price {{symbol}}{{proplanItem.avangePriPrice}}
+                    </span>
+                    <span class="single-logo" v-if="averagePrice === proplanItem.avangePriPrice "><i class="icon-fire"><img src="../../image/icon-fire.png" alt=""></i>Best Prices</span>
+                </li>
+            </div>
+            <div class="detail-h-i">
+                Please Choose Format<i class='detail-h-i-text' style="display:block;margin:7px 0 7px;">*Optional multiple pieces of different format</i>
+            </div>
+            <div class="singleArticle-type-ol">
+                <!-- 有多件 -->
+                <div class="type-ol-li" v-if="speciList.length > 0" v-for="(speciItem, index) in speciList">
+                    <div :class="['ol-li-hd', {'ol-li-hd-grey': speciItem.allInventory <= 0 }]" @click="speciaChoose(speciItem, index)">
+                        <img :src="speciItem.productImgUrl" alt="">
+                        <span class='single-sku-name'>
+                            {{speciItem.productName}}
+                            <i v-if="speciItem.allNumber > 0"> ({{speciItem.allNumber}})</i>
+                            <!-- {{speciItem.allInventory}} -->
+                            <i v-if="speciItem.allInventory <= 0" style='font-size:0.14rem;'>(Sold out)</i>
+                        </span>
+                        <div v-if="speciItem.allInventory > 0">
+                            <i class="tipsSelect" v-if="!speciItem.speciSelect">open</i>
+                            <i class="tipsSelect" v-if="speciItem.speciSelect">close</i>
+                            <span :class='["dowm-icon",{"isShow": speciItem.speciSelect}]'></span>
+                        </div>
+                    </div>
+                    <div class="ol-li-bd"  v-if="speciItem.speciSelect">
+                        <div v-for='(item, index) in speciItem.skulist' :class="['ol-bd-sku', {'invenNumber': !item.invenNumber}]" :key="index">
+                            <span class='ol-bd-sku-des'>
+                                {{item.skutype}}
+                                <!-- (庫存：{{item.inventory}}) -->
+                            </span>
+                            <span class='sku-number'>
+                                <span class='span-add' @click="skuNumberChange('add', item ,speciItem.idIndex, index, item.inventory)">＋</span>
+                                <div class="sku-number-in" v-if="item.skuNumber > 0">
+                                    <em @click="skuNumberChange('minus', item, speciItem.idIndex, index)">－</em>
+                                    <span><input type="text" :value="item.skuNumber" disabled="disabled"></span>
+                                    <em @click="skuNumberChange('add', item, speciItem.idIndex, index)">＋</em>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 只有一件 -->
+                <div class="ol-li-bd oncelist" v-if="onespeList.length > 0">
+                    <div class="ol-li-bd">
+                        <div class="ol-bd-sku" v-for='(item, index) in onespeList' :key="item.id">
+                            <img :src="item.urlImg" alt="">
+                            <span class='ol-bd-sku-des'>
+                                {{item.value}}
+                            </span>
+                            <span class='sku-number'>
+                                <span class="span-add" @click="skuNumberOnceChange('add', item, index)">＋</span>
+                                <div class="sku-number-in" v-if="item.skuNumber > 0">
+                                    <em @click="skuNumberOnceChange('minus', item, index)">－</em>
+                                    <span><input type="text" :value="item.skuNumber" disabled="disabled"></span>
+                                    <em @click="skuNumberOnceChange('add', item, index)">＋</em>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- -->
+        <!-- 收件人地址 -->
+        <!-- 标题 -->
+        <div class='detail-h'>
+            Shipping Address
+        </div>
+        <div class="singleArticle-A recive-info">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" placeholder="The recipient's name" v-model="reciveUserInfo.userName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tele</td>
+                        <td><span>{{phoneArea}}</span><input type="text" placeholder="Real contact number" v-model="reciveUserInfo.userPhone" style="width: 85%;margin-left: 2%;"></td>
+                    </tr>
+                    <tr>
+                        <td>ADD</td>
+                        <td>
+                            <div class='single-address-select'>
+                                <div class="select-address" id="">
+                                    {{singleArea.singleProvinces.substring(0,8)}}
+                                    <select name="" @change="selectPrince(singleArea.singleProvinces)" v-model="singleArea.singleProvinces">
+                                        <option value="City" disabled>City</option>
+                                        <option v-for="(item, index) in singleAreaArray" :value="item.provinceName" :key="item.code">
+                                            {{item.provinceName}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="select-address" id="select-city">
+                                    {{singleArea.singleCity.substring(0,8)}}
+                                    <select name="" v-model="singleArea.singleCity">
+                                        <option value="Area" disabled>Area</option>
+                                        <option v-for="(itemIn, index) in newCity" :value="itemIn" :key="index">
+                                            {{itemIn}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="single-address-textarea">
+                                <input class="textarea" placeholder="Detailed address" v-model="reciveUserInfo.userAddress">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- ---------- -->
+        <!-- 管理室代收 -->
+        <!-- <div class="singleArticle-A">
+            <div class="management-room">
+                <div class="management-room-left">
+                    <h3>商品需要管理室待收嗎？</h3>
+                    <p>如需管理室代收，請打開右側開關</p>
+                </div>
+                <div class="management-room-right">
+                    <div :class="['mana-radio', { 'add': addIfneed }]" @click="toggleManagement()">
+                        <span v-if="addIfneed">需要</span>
+                        <span v-if="!addIfneed">不要</span>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- --------- -->
+        <!-- 選擇付款方式 -->
+        <div class='detail-h'>
+            Please Choose Payment Method
+        </div>
+        <div class="singleArticle-A">
+            <div class="pay-type">
+                <div :class="['pay-type-on', {'disabled': orderInfoDetail.choosePrice >= 5000}]">
+                    <input type="radio" id="radio1" name="patype" value="1" v-model="payStyle" :disabled="orderInfoDetail.choosePrice >= 5000">
+                    <label for="radio1">Cash on Delivery</label>
+                </div>
+                <div class="pay-type-on">
+                    <input type="radio" id="radio2" name="patype" value="3" v-model="payStyle">
+                    <label for="radio2">Credit Card
+                        <img src="https://d3o2c7bn83e5x8.cloudfront.net/image/visa.png" alt="">
+                        <img src="https://d3o2c7bn83e5x8.cloudfront.net/image/MasterCard.png" alt="">
+                        <img src="https://d3o2c7bn83e5x8.cloudfront.net/image/American-Express.png" alt="">
+                        <img src="https://d3o2c7bn83e5x8.cloudfront.net/image/discover.png" alt="">
+                        <!-- <br>
+                        <span>使用信用卡付款，随机立减，最高可减NT$99</span> -->
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- ----------- -->
+        <!-- 明细表 -->
+        <div class='detail-h'>
+            Order Details
+        </div>
+        <div class="singleArticle-A price-details">
+            <div class="price-details-in">
+                <li>
+                    <span>{{planNumber}} {{planNumber > 1 ? 'Items' : 'Item'}}, in total</span>
+                    <i>{{symbol}}{{orderInfoDetail.choosePrice}}</i>
+                </li>
+                <li>
+                    <span>Shipping fees</span>
+                    <i>{{symbol}}0</i>
+                </li>
+                <div class='fg-line'></div>
+                <li>
+                    <span v-if="payStyle == 1 || payStyle == ''">Total Amount</span>
+                    <span v-if="payStyle == 3">Total Amount</span>
+                    <i>{{symbol}}<strong style="font-size:0.22rem;">{{orderInfoDetail.choosePrice}}</strong></i>
+                </li>
+            </div>
+        </div>
+        <!-- =------------ -->
+        <!-- 结算按钮 -->
+        <div class='single-end' style="width:100%;">
+            <button v-if="proStatus == 10" @click="orderSettlement">CHECKOUT</button>
+            <button v-if="proStatus != 10" class="grey">SOLD OUT</button>
+        </div>
+        <!-- 固定訂購按鈕 -->
+        <div class="fixed-dg" v-if="buyNowFix">
+            <div class="fixed-dg-in">
+                <div class="fixed-dg-in-r" style="margin:0 auto;">
+                    <button v-if="proStatus == 10" @click="buyNow">Shop Now</button>
+                    <button v-if="proStatus != 10" class="grey">SOULD OUT</button>
+                </div>
+            </div>
+        </div>
+        <!-- 返回頂部按鈕 置頂按鈕暫時不要 -->
+        <!-- <div class="fixed-top" v-if="returnTop" @click="returnTopfuc">
+            <img src="../image/icon/icon-to-top.png" alt="">
+            <span>回頂部</span>
+        </div> -->
+        <!-- ----------- -->
+        <!-- 官方声明 -->
+        <div class="full-black offcialStament" v-if="offcialStament"  @click="oSt('close')"></div>
+        <div :class="['offcialStamentIn', 'animate__animated', {'animate__fadeInUpBig': offcialStament, 'animate__fadeOutDownBig offcialStamentFadeOut': !offcialStament} ]">
+            <h4>Official Statement <span class='single-close-icon' @click="oSt('close')"> <img src="../../image/icon/icon-close2.png" alt=""> </span> </h4>
+            <div class="offcialContent">
+                <div class="offcialContent-p">
+                    <h5>Free Shipping</h5>
+                    <p></p>
+                </div>
+                <div class="offcialContent-p">
+                    <h5>Support Cash on Delivery & Credit Card</h5>
+                    <p style='margin-bottom:0.1rem;'>You can choose using Credit Card from below types to pay the order .</p>
+                    <div class="pay-img-list">
+                        <img src="../../image/visa.png" alt="">
+                        <img src="../../image/MasterCard.png" alt="">
+                        <img src="../../image/American-Express.png" alt="">
+                        <img src="../../image/discover.png" alt="">
+                    </div>
+                    <p>Using Credit Card Payment may get random discount.</p>
+                    <p>If you don't have a credit card or have security concerns about our platform, you can choose cash on delivery.</p>
+                    <p>When the order is delivering, you will be notified of the payable amount of the relevant package through a text message. Please pay attention to the relevant text message on the expected arrival date.</p>
+                    <p>The logistics company will call you in advance and you can prepare the cash to be paid in advance to ensure that you can receive the purchased goods smoothly.</p>
+                </div>
+                <!-- <div class="offcialContent-p" style="padding-bottom: 0.4rem;">
+                    <h5>Free Return within 7 Days & Return Freight Compensation</h5>
+                    <p>自收到商品之日起7日內，顧客可在線申請退換貨。超過7日，不受理退換貨申請。</p>
+                    <p style="color:#ED1B2E;">以上時限為猶豫期，而非試穿/試用期，所以您退回的商品必須是全新的狀態，且完整包裝。</p>
+                    <p>美妝產品為私人消耗產品，一經拆分或使用，將不可退換貨</p>
+                    <p style="color:#ED1B2E;">*註：只要在7日內聯系客服，並提供退換貨所需資料，即代表手裡申請成功</p>
+                    <p>*註：退換貨的商品需要用戶主動寄回，因我們的商品問題產生的退換貨，官方補償NT$60寄回運費</p>
+                </div> -->
+                <div class="offcialContent-footer">
+                    <button class="offcialContent-btn" @click="oSt('close')">I ACCEPT</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ------- -->
+        <!-- 信用卡付款 -->
+        <div class="full-black paypal" v-show="paypalShow">
+            <div class="paypal-in">
+                <h4>Bank card number <span class='single-close-icon' @click="paySt('close')"> <img src="../../image/icon/icon-close2.png" alt=""> </span> </h4>
+                <div class='bankInfo' id="bankInfo">
+                    <!-- <div id="card-element"></div>
+                    <div id="card-errors" role="alert"></div>
+                    <div class="submitBtn">
+                        <button>確認支付</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- 提示層 -->
+        <div id="tipsFixed" class="animate__animated animate__bounceIn" v-if="tipsIf">
+            <span> {{tipsHtml}} </span>
+        </div>
+        <!-- 加載loading -->
+        <div id='loadingJs' v-if='loadingShow'>
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="orderDown">In the order...</div>
+        </div>
+    </div>
+    <!-- 谷歌監測 -->
+    <script>
+        singleInfo.addUtJsAsync('https://www.googletagmanager.com/gtag/js?id=' + singleInfo.getGATracking());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag("config", singleInfo.getGATracking());
+        if (singleInfo.getGATracking() != 'UA-117174835-1') {
+            gtag("config", 'UA-117174835-1');
+        }
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(e,n,t,o,c,a,f){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),c.push=c,c.loaded=!0,c.version="2.0",c.queue=[],(a=n.createElement(t)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init",commonConfig.getFbPiexId()),fbq("track","PageView");
+    </script>
+    <script>
+        var qsqs = Qs
+        var app = new Vue({
+            el: '#apuSinglePage',
+            data: {
+                message: '91Up',
+                skushow:true,
+                loadingShow: false,
+                productId: singleInfo.getURLParam('id'),
+                barcode: singleInfo.getURLParam('barcode'),
+                country: singleInfo.getURLParam('country'),
+                symbol: '$', // 货币符号
+                currencyDes: '', // 货币缩写
+                product:{
+                    title:''
+                },
+                offcialStament: false, // 官方聲明
+                tipsHtml:'', // 提示信息
+                tipsIf:false, // 提示信息
+                // returnTop: false, // 返回顶部按钮 暫時不要
+                averagePrice: 0, // 均价
+                originalPrice: 0, //划线价
+                // 爆款熱銷
+                hotProduct: parseInt(singleInfo.buyCountPro(singleInfo.getURLParam('id'))), // 爆款热销
+                popularValue: parseInt((singleInfo.buyCountPro(singleInfo.getURLParam('id')))*1.8), //人气值
+                logisticsDeliveryTime: singleInfo.logisticsDeliveryTime(10, 15, 'EN'), //預計到達時間
+                praisePesert: Math.floor(Math.random() * (99 - 95 + 1) ) + 95 , // 好评
+                singleBanner:null, // banner
+                singleBannerShow: false,
+                posterImg: '../../image/placeholder.png',
+                singlePageProductVideos: [], //视频
+                videoUrl: '', // 视频地址
+                isPlay: false,
+                productDetail: '', //商品詳情
+                reciveUserInfo: {
+                    userName: localStorage.getItem('reciveUserInfo') != undefined ? JSON.parse(localStorage.getItem('reciveUserInfo')).consignee : '',
+                    userPhone: localStorage.getItem('reciveUserInfo') != undefined ? JSON.parse(localStorage.getItem('reciveUserInfo')).tel : '',
+                    userAddress: localStorage.getItem('reciveUserInfo') != undefined ? JSON.parse(localStorage.getItem('reciveUserInfo')).userAddress : ''
+                },
+                singleArea: {
+                    singleProvinces: localStorage.getItem('reciveUserInfo') != undefined ? JSON.parse(localStorage.getItem('reciveUserInfo')).singleProvinces : 'City',
+                    singleCity: localStorage.getItem('reciveUserInfo') != undefined ? JSON.parse(localStorage.getItem('reciveUserInfo')).singleCity : 'Area',
+                },
+                singleAreaArray: singleInfo.getURLParam('country'),
+                newCity:[],
+                addIfneed: false, //是否需要管理室代收
+                // 设置上架时间
+                shelfTime:'',
+                // 方案
+                productPlan:[
+
+                ],
+                // 当前方案数量
+                planNumber:0,
+                // skulisy 所有可能的結果
+                productSkus:[],
+                // 規格選擇 有兩种
+                speciList: [
+
+                ],
+                // 規格選擇 只有一種
+                onespeList: [],
+                // 判断加减时在操作哪個大商品
+                newIndex:0,
+                // 商品详情/咨询与售后 置顶
+                tabTop: false,
+                // 当前支付方式
+                payStyle: 1,
+                // 商品信息是否置頂
+                orderInfoFix: false,
+                // 底部订购按钮参数
+                buyNowFix: true,
+                // 信用卡支付
+                paypalShow: false,
+                //订单信息\
+                orderInfoDetail:{
+                    productImgUrl: '',
+                    averagePrice: 0,
+                    choosePrice: 0,
+                    planIdea:''
+                },
+                // 已經選擇的方案id
+                saleStrategyId: '',
+                // 已經選擇的商品信息
+                orderProducts:[],
+                allProDuct:0,
+                // 当前商品状态
+                proStatus: 10,
+                // 判斷是否播放
+                isplayNow: true,
+            },
+            computed:{
+                // 篩選已經選擇好的商品
+                // listProduct: function(){
+                //     let that = this,listHasPro = []
+                //     if(that.speciList.length > 0){
+                //         onespeList
+                //     }
+                // },
+                newhas: function(){
+                    if(this.onespeList.length > 0){
+                       return this.onespeList.filter(item => item.skuNumber>0)
+                    }
+                },
+                // 显示区号
+                phoneArea: function(){
+                    if(this.country == 'Malaysia'){
+                        return '+60'
+                    }else if(this.country == 'Philippines'){
+                        return '+63'
+                    }else if(this.country == 'Singapore'){
+                        return '+65'
+                    }
+                }
+            },
+            methods: {
+                // 
+                // 图片加载显示默认
+                // showDefaultImg (imgDefault){
+                //     imgDefault.src="../image/placeholder.png"
+                //     //不循环执行
+		        //     img.onerror = null;
+                // }
+                handleScroll: function(){
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+                    // console.log(scrollTop)
+                    // 判斷置顶按钮显示 暫時不要
+                    // let bodyHeight = document.body.clientHeight
+                    // console.log(scrollTop)
+                    // scrollTop >= 500 ? this.returnTop = true : this.returnTop = false
+                    // 商品详情/咨询与售后 置顶
+                    let tabPro = document.getElementById('tabPro-line').offsetTop
+                    scrollTop >= tabPro ? this.tabTop = true : this.tabTop = false
+                    // 判断是否已经tab 置顶范围
+                    let tabHideLine = document.getElementById('tab-hide-line').offsetTop - 80
+                    if(scrollTop >= tabPro){
+                        this.tabTop = true
+                        if(scrollTop >= tabHideLine){
+                            this.tabTop = false
+                        }else{
+                            this.tabTop = true
+                        }
+                    }else{
+                        this.tabTop = false
+                    }
+                    // 判断订单信息是否置顶
+                    let orderInfoTop = document.getElementById('info-hide-line').offsetTop
+                    if(scrollTop >= orderInfoTop){
+                        this.orderInfoFix = true
+                        this.buyNowFix = false
+                    }else{
+                        this.orderInfoFix =false
+                        this.buyNowFix = true
+                    }
+                },
+                // 手機號檢驗
+                phoneIs: function(phoneNumber){
+                    let that = this,phoneReg
+                    if(that.country == "Malaysia"){
+                        phoneReg = /^01[02346789][0-9]{7}$/ 
+                    }else if(that.country == "Singapore"){
+                        phoneReg = /^[89][0-9]{7}$/
+                    }else if(that.country == 'Philippines'){
+                        phoneReg = /^09[0-9]{9}$/
+                    }
+                    if(!phoneReg.test(phoneNumber)){
+                        that.singleTips('Incorrect format of mobile phone number')
+                        return false;
+                    }else{
+                        return true;
+                    }
+                },
+                productTab: function(skuShowClick){
+                    this.skushow = skuShowClick
+                    // HuadongSwiper.slideTo(0, 1000, false)
+                },
+                // 加載支付js
+                loadingJs: function(url, callback){
+                    let script = document.createElement('script');
+                    script.type = "text/javascript";
+                    if (typeof (callback) != "undefined") {
+                        if (script.readyState) {
+                            script.onreadystatechange = function () {
+                                if (script.readyState == "loaded" || script.readyState == "complete") {
+                                    script.onreadystatechange = null;
+                                    callback();
+                                }
+                            }
+                        } else {
+                            script.onload = function () {
+                                callback();
+                            }
+                        }
+                    }
+                    script.src = url;
+                    document.body.appendChild(script);
+                },
+                // 提示
+                singleTips: function(title){
+                    let that = this
+                    that.tipsIf = true
+                    that.tipsHtml = title
+                    setTimeout(() => {
+                        that.tipsIf = false
+                    }, 1500)
+                },
+                // 官方聲明彈框操作
+                oSt: function (style){
+                    style == 'open' ? this.offcialStament = true : this.offcialStament = false
+                },
+                // 信用卡
+                paySt: function (style){
+                    style == 'open' ? this.paypalShow = true : this.paypalShow = false
+                },
+                // 切換管理室待收狀態
+                toggleManagement: function(){
+                    this.addIfneed == false ?  this.addIfneed = true : this.addIfneed = false
+                },
+                selectPrince: function(value){
+                    // 选择省市显示相应的区
+                    const that = this;
+                    that.singleAreaArray.forEach(function (item, index){
+                        if(item.provinceName == value){
+                            that.newCity = item.cityName
+                            that.singleArea.singleCity = that.newCity[0]
+                        }
+                    })
+                },
+                // emptyskunumber
+                emptySkuNumber: function(){
+                    let that = this
+                    let newallProDuct = 0
+                    // 選擇方案時清空已經選擇的 規格
+                    if(that.speciList.length > 0){
+                        that.speciList.map((item, index) => {
+                            // if(index == 0){
+                            //     item.speciSelect = true
+                            // }else{
+                            //     item.speciSelect = false
+                            // }
+                            item.skulist.map((itemi, index) => {
+                                itemi.skuNumber = 0
+                                item.allNumber = 0
+                                newallProDuct += itemi.skuNumber
+                            })
+                        })
+                    }
+                    if(that.onespeList.length > 0){
+                        that.onespeList.forEach((item, index) => {
+                            item.skuNumber = 0
+                            newallProDuct += item.skuNumber
+                        })
+                    }
+                    that.allProDuct = newallProDuct
+                    // console.log(that.allProDuct)
+                },
+                // 方案選擇
+                planChoose: function(proplanItem,index){
+                    const that = this
+                    that.productPlan.forEach(item => {
+                        if(item.isSelect !== that.productPlan[index].isSelect){
+                            item.isSelect = false
+                        }
+                    })
+                    proplanItem.isSelect = !proplanItem.isSelect
+                    // 设置当前选择方案
+                    if(proplanItem.isSelect){
+                        that.planNumber = proplanItem.proNumber
+                        that.orderInfoDetail.choosePrice = proplanItem.allProPrice
+                        that.saleStrategyId = proplanItem.id
+                    }else{
+                        that.planNumber=0
+                    }
+                    if(that.orderInfoDetail.choosePrice >= 5000){
+                        that.payStyle = 3
+                    }
+                    // 清空所有已選規格
+                    that.emptySkuNumber()
+                },
+                // 規格選擇
+                speciaChoose: function(speciItem, index){
+                    const that = this;
+                    // 庫存為0時 禁止點擊展開
+                    if(speciItem.allInventory <= 0){
+                        return
+                    }
+                    that.speciList.forEach(item => {
+                        if(item.speciSelect !== that.speciList[index].speciSelect){
+                            item.speciSelect= false
+                        }
+                    })
+                    speciItem.speciSelect = !speciItem.speciSelect
+                },
+                // 計算已經選好的產品數量（多個）
+                moreNumber: function(){
+                    let that = this,moreNumber = 0
+                    that.speciList.forEach((item, index) => {
+                        item.skulist.forEach((itemi, index) =>{
+                            moreNumber += itemi.skuNumber
+                        })
+                    })
+                    return moreNumber+1
+                },
+                // 列出已經選好的規格產品
+                orderProductsF:function(){
+                    let that = this,newhasChoose =[]
+                    if(that.speciList.length > 0){
+                        that.speciList.forEach((item, index) => {
+                            item.skulist.forEach((itemi, index) =>{
+                                // moreNumber += itemi.skuNumber
+                                if(itemi.skuNumber > 0){
+                                    newhasChoose.push({
+                                        "productId": item.productId,
+                                        "productSkuId": itemi.orderId,
+                                        "quantity": itemi.skuNumber,
+                                        "productImageUrl": itemi.urlImg
+                                    })
+                                }
+                            })
+                        })
+                    }
+                    if(that.onespeList.length > 0){
+                        that.onespeList.forEach((item, index) => {
+                            if(item.skuNumber > 0){
+                                newhasChoose.push({
+                                    "productId": item.productId,
+                                    "productSkuId": item.orderId,
+                                    "quantity": item.skuNumber,
+                                    "productImageUrl": item.urlImg
+                                })
+                            }
+                        })
+                    }
+                    return newhasChoose
+                },
+                onceNumber: function(){
+                    let that = this,moreNumber = 0
+                    that.onespeList.forEach((item, index) => {
+                        moreNumber += item.skuNumber
+                    })
+                    return moreNumber+1
+                },
+                // 判断是哪个产品下面的sku
+                ifSkuid: function(proId){
+                    let that = this
+                    that.speciList.map(function(item, index){
+                        if(item.productId == proId){
+                            that.newIndex = index
+                        }
+                    })
+                },
+                // 多個加减数量
+                skuNumberChange: function(type, item, idIndex, index, inventory){
+                    let that = this,thatIndex = index;
+                    if(inventory <= 0){
+                        that.singleTips('Sold out')
+                        return false
+                    }
+                    // 判斷是否選擇方案
+                    if(that.planNumber <= 0){
+                        that.singleTips('Please choose a plan first')
+                        return false
+                    }
+                    // 設置圖片
+                    that.orderInfoDetail.productImgUrl = item.urlImg
+
+                    let nowChangeNumber = that.speciList[idIndex].skulist[index].skuNumber
+                    if(type == 'minus'){
+                        if(nowChangeNumber <= 0){
+                            that.singleTips("It can't be reduced")
+                        }else{
+                            nowChangeNumber --
+                        }
+                    }else if(type == 'add'){
+                        // console.log(that.moreNumber())  Five 
+                        that.moreNumber() > that.planNumber ? that.singleTips(that.planNumber + "pieces are already full"　) : nowChangeNumber ++
+                    }
+                    // console.log(that.speciList[that.newIndex])
+                    that.speciList[idIndex].skulist[index].skuNumber = nowChangeNumber
+
+                    let newNumber = 0
+                    that.speciList[idIndex].skulist.map((item, index) => {
+                        newNumber += item.skuNumber
+                    })
+                    //
+                    that.speciList[idIndex].allNumber = newNumber
+                    let allProDuct = 0
+                    that.speciList.map((item) => {
+                        // 總商品
+                        allProDuct += item.allNumber
+                    })
+                    that.allProDuct = allProDuct
+                },
+                // 單個加減數量
+                skuNumberOnceChange: function(type, item, index){
+                    let that = this
+                    // 判斷是否選擇方案
+
+                    if(that.planNumber <= 0){
+                        that.singleTips('Please choose a plan first')
+                        return false
+                    }
+                    // 設置圖片
+                    that.orderInfoDetail.productImgUrl = item.urlImg
+                    let changeOnceNumber = that.onespeList[index].skuNumber
+                    if(type == 'minus'){
+                        if(changeOnceNumber <= 0){
+                            that.singleTips("It can't be reduced")
+                        }else{
+                            changeOnceNumber --
+                        }
+                    }else if(type == 'add'){
+                        // console.log(that.onceNumber())
+                        that.onceNumber() > that.planNumber ? that.singleTips( that.planNumber + "pieces are already full") : changeOnceNumber ++
+                    }
+                    that.onespeList[index].skuNumber = changeOnceNumber
+                    let allProDuct = 0
+                    that.onespeList.map((item) => {
+                        // 總商品
+                        allProDuct += item.skuNumber
+                    })
+                    that.allProDuct = allProDuct
+                },
+                // 重新设置提交订单的商品的信息
+                submitInfoPro: function(){
+
+                },
+                // 返回頂部
+                // returnTopfuc: function(){
+                //     window.scrollTo({
+                //         top: 0,
+                //         behavior: "smooth"
+                //     });
+                // },
+                // 立即订购
+                buyNow: function(){
+                    this.setHeader()
+                    let orderInfoTop = document.getElementById('info-hide-line').offsetTop
+                    window.scrollTo({
+                        top: orderInfoTop,
+                        behavior: "smooth"
+                    });
+                },
+                // 下單設置header 暫時不用
+                setHeader: function(){
+                    singleInfo.singleGetData(singleInfo.websitePrefix() + '/api/single/page/order/idempotent/token').then(res =>{
+                        return res.data.body.token_idempotent
+
+                    }).catch(error => {
+                        return ''
+                    })
+                },
+                // 结算下单
+                orderSettlement: function(){
+                    let that = this
+                    if(that.planNumber <= 0){
+                        that.singleTips('Please choose a plan first')
+                        return false
+                    }
+                    // alert((that.onceNumber()-1))
+
+                    if(that.speciList.length > 0){
+                        if( that.moreNumber() <= 1){
+                            that.singleTips( 'Please select commodity specifications')
+                            return false
+                        }
+                        if((that.moreNumber()-1) < that.planNumber){
+                            that.singleTips( "We're "+ (that.planNumber - that.moreNumber() + 1) +"pieces short of " + that.planNumber)
+                            return false
+                        }
+                    }
+                    if(that.onespeList.length > 0){
+                        if( that.onceNumber() <= 1){
+                            that.singleTips( 'Please select commodity specifications')
+                            return false
+                        }
+                        if((that.onceNumber()-1) < that.planNumber){
+                            that.singleTips( "We're "+  (that.planNumber - that.onceNumber() + 1) +"pieces short of " + that.planNumber)
+                            return false
+                        }
+                    }
+                    
+                    if(that.reciveUserInfo.userName.replace(/^\s*|\s*$/g,'').length == 0){
+                        that.singleTips("Please fill in the recipient's name")
+                        return false
+                    }
+                    if(that.reciveUserInfo.userPhone.replace(/\s+/g, "") == ''){
+                        that.singleTips('Please fill in your contact number')
+                        return false
+                    }
+                    if(!that.phoneIs(that.reciveUserInfo.userPhone.replace(/\s+/g, ""))){
+                        return false
+                    }
+                    if(that.singleArea.singleProvinces == 'City' || that.singleArea.singleProvinces == ''){
+                        that.singleTips('City')
+                        return false
+                    }
+                    if(that.singleArea.singleCity == 'Area' || that.singleArea.singleCity == ''){
+                        that.singleTips('Area')
+                        return false
+                    }
+                    if(that.reciveUserInfo.userAddress.trim() == '' || that.reciveUserInfo.userAddress.trim() == undefined){
+                        that.singleTips('Please select the full shipping address')
+                        return false
+                    }
+                    if(that.payStyle == ''){
+                        that.singleTips('Please Choose Payment Method')
+                        return false
+                    }
+                    // 顯示loading
+                    that.loadingShow = true
+                    // 驗證完畢請求 下訂單接口
+                    let paramData = {
+                        'saleStrategyId': that.saleStrategyId, // 購買方案id
+                        'paymentType': parseInt(that.payStyle), //支付方式
+                        'orderProducts': that.orderProductsF(), // 購買的商品信息
+                        'affiliate': singleInfo.getURLParam('affiliate') + '-EN' || 'EN', //綁定像素
+                        'pixelId':singleInfo.getURLParam('pixelId') || '',
+                        'adlk':singleInfo.getURLParam('adlk') || '',
+                        'orderAddress': {
+                            // 地址參數
+                            'consignee': that.reciveUserInfo.userName.replace(/^\s*|\s*$/g,'') , // 名字
+                            'tel' : that.reciveUserInfo.userPhone.replace(/\s+/g, "") ,
+                            // facebook : app.datas.address.facebook ,
+                            'country': "香港",
+                            'province' : "香港",
+                            'city' : that.singleArea.singleProvinces ,
+                            'district' :  that.singleArea.singleCity ,
+                            'detail' : that.reciveUserInfo.userAddress.trim(),
+                            // 宅配
+                            'type': 1
+                        }
+                    }
+                    let orderProduct = []
+                    that.orderProductsF().map((item) => {
+                        orderProduct.push({
+                            'eventAims': item.productId,
+                            'count': item.quantity,
+                            'eventName': 'SUBMIT',
+                            'aimsCategory': 'PRODUCT'
+                        })
+                    })
+                    singleInfo.singlePostData(singleInfo.websitePrefix() + '/api/single/page/order/submit', paramData ,{'Content-Type': 'application/json;charset=UTF-8','token_idempotent': 'ap-123564'}).then( res => {
+                        let resultData = res.data
+                        // 隱藏loading
+                        that.loadingShow = false
+                        // 儲存收件人信息
+                        localStorage.setItem('reciveUserInfo',JSON.stringify({
+                            'consignee': that.reciveUserInfo.userName.replace(/^\s*|\s*$/g,''), // 收件人
+                            'tel' : that.reciveUserInfo.userPhone.replace(/\s+/g, ""), //電話
+                            'singleProvinces': that.singleArea.singleProvinces,
+                            'singleCity': that.singleArea.singleCity,
+                            'userAddress': that.reciveUserInfo.userAddress.trim(),
+                            'address':that.singleArea.singleProvinces + that.singleArea.singleCity + that.reciveUserInfo.userAddress.trim()
+                        }))
+                        if(that.payStyle == 1){
+
+                            // 貨到付款
+                            if(res.data.statusCode == 'OK'){
+                                that.singleTips('Place an order successfully')
+                                localStorage.setItem('orderSuccess', JSON.stringify(res.data.body))
+                                let _gaContentTds = [],_num_items = 0,_gaContents =[]
+                                resultData.body.orderProducts.forEach((item, index) => {
+                                    _gaContentTds.push( parseInt(item.productId))
+                                    _num_items += item.quantity
+                                    _gaContents.push({
+                                        id: item.productId,
+                                        name: item.productTitle + '(' + item.productSkuName + ')',
+                                        quantity: item.quantity,
+                                        item_price: item.discountPrice || item.originalPrice,
+                                        price: item.discountPrice || item.originalPrice
+                                    })
+                                })
+                                var _fbgaparams = {
+                                    value: resultData.discountTotalPrice || resultData.originalTotalPrice, // 費用
+                                    currency: that.currencyDes,
+                                    content_ids: _gaContentTds,
+                                    content_type: 'product',
+                                    content_name: 'user cart',
+                                    content_category: 'product details > initiate checkout',
+                                    num_items: _num_items,
+                                    contents: _gaContents
+                                };
+                                cacheSessionStorage.setCache('_fbgaparams', _fbgaparams);
+                                cacheSessionStorage.setCache("_realgaparams", { "items": _gaContents })
+                                setTimeout(() => {
+                                    window.location.href = '/singlePage/singleLanguage/orderSuccess.html?code='+ res.data.body.code  + '&country=' + that.country
+                                },500)
+                            }
+                            // 貨到付款監測 暫時不要
+                            // singleInfo.addMonitorData(orderProduct);
+                        }else if(that.payStyle == 3){
+                            that.loadingJs("https://js.stripe.com/v3/", function(){
+                                that.paypalShow = true
+                                document.getElementById('bankInfo').innerHTML = `<form id="payment-form">
+                                                                                    <div class="form-row">
+                                                                                    <div id="card-element"></div>
+                                                                                    <div id="card-errors" role="alert"></div>
+                                                                                    </div>
+                                                                                    <div class="submitBtn"><button class="sure">Confirm the payment</button></div>
+                                                                                </form>`;
+                                let stripe = Stripe(res.data.body.stripeDateKey);
+                                let elements = stripe.elements();
+                                // 信用卡支付监测
+								// singleInfo.addMonitor({
+								// 	'eventAims': 'STRIPE',
+								// 	'eventName': 'CLICK',
+								// 	'aimsCategory': 'EVENT',
+								// });
+                                let style = {
+                                    base: {
+                                        color: '#32325d',
+                                        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                                        fontSmoothing: 'antialiased',
+                                        fontSize: '16px',
+                                        '::placeholder': {color: '#aab7c4'}
+                                    },
+                                    invalid: {
+                                        color: '#fa755a',
+                                        iconColor: '#fa755a'
+                                    }
+                                };
+                                let card = elements.create('card', {style: style});
+                                card.mount('#card-element');
+                                card.addEventListener('ready', function(event) {
+                                    // 彈出填寫信用卡信息頁面
+                                    that.paypalShow = true
+                                    // 隐藏loading
+                                    // console.log('隐藏loading')
+                                    // 隱藏loading
+                                    that.loadingShow = false
+                                })
+                                // console.log(card.mount('#card-element'))
+                                card.addEventListener('change', function(event) {
+                                    let displayError = document.getElementById('card-errors');
+                                    if (event.error) {
+                                        displayError.textContent = event.error.message;
+                                    } else {
+                                        displayError.textContent = '';
+                                    }
+                                });
+                                card.on('focus', function(){
+                                    setTimeout(function(){
+                                        if(document.body.scrollTop != document.body.clientHeight){
+                                            document.body.scrollTop = document.body.clientHeight;
+                                        }
+                                    },100)
+                                })
+                                card.on('blur', function(){
+                                    setTimeout(function(){
+                                        if(document.body.scrollTop != document.body.clientHeight){
+                                            document.body.scrollTop = document.body.clientHeight;
+                                        }
+                                    },100)
+                                })
+                                // 提交支付
+                                let form = document.getElementById('payment-form');
+                                // 在線支付
+                                form.addEventListener('submit', function(event) {
+                                    event.preventDefault();
+                                    // tools.loading(10000);
+                                    // 顯示loading
+                                    that.loadingShow = true
+                                    //TODO 发起支付需要監測检测
+                                    // console.log(resultData.body.orderProducts)
+                                    let _gaContentTds = [],_num_items = 0,_gaContents =[]
+                                    resultData.body.orderProducts.forEach((item, index) => {
+                                        _gaContentTds.push( parseInt(item.productId))
+                                        _num_items += item.quantity
+                                        _gaContents.push({
+                                            id: item.productId,
+                                            name: item.productTitle + '(' + item.productSkuName + ')',
+                                            quantity: item.quantity,
+                                            item_price: item.discountPrice || item.originalPrice,
+                                            price: item.discountPrice || item.originalPrice
+                                        })
+                                    })
+                                    var _fbgaparams = {
+                                        value: resultData.discountTotalPrice || resultData.originalTotalPrice, // 費用
+                                        currency: that.currencyDes,
+                                        content_ids: _gaContentTds,
+                                        content_type: 'product',
+                                        content_name: 'user cart',
+                                        content_category: 'product details > initiate checkout',
+                                        num_items: _num_items,
+                                        contents: _gaContents
+                                    };
+                                    cacheSessionStorage.setCache('_fbgaparams', _fbgaparams);
+                                    cacheSessionStorage.setCache("_realgaparams", { "items": _gaContents })
+                                    // //////////////////////////////////////
+                                    stripe.createToken(card).then(function(result) {
+                                        // console.log(result)
+                                        if (result.error) {
+                                            // $$('#tip-info').hide()
+                                            // tools.hideLoading();
+                                            // 隱藏loading
+                                            that.loadingShow = false
+                                            var errorElement = document.getElementById('card-errors');
+                                            errorElement.textContent = result.error.message;
+                                            card.focus()
+                                        } else {
+                                            // 顯示loading
+                                            that.loadingShow = true
+                                            // $$('#tip-info').show()
+                                            singleInfo.singlePostData(singleInfo.websitePrefix() + '/api/order/stripe/checkout', qsqs.stringify({
+                                                    'stripeToken': result.token.id,
+                                                    'orderId': res.data.body.id, //訂單號
+                                                })
+                                                ,{
+                                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                                    'token_idempotent': 'ap-123564'
+                                                }).then(res =>{
+                                                if(res.data.statusCode == "OK"){
+                                                    // 隱藏loading
+                                                    that.loadingShow = false
+                                                    that.singleTips('Pay for success')
+                                                    localStorage.setItem('orderSuccess', JSON.stringify(resultData.body))
+                                                    // 儲存收件人信息
+                                                    // 充值選擇支付方式狀態
+                                                    that.payStyle = 1
+                                                    setTimeout(() => {
+                                                        window.location.href = '/singlePage/singleLanguage/orderSuccess.html?code='+ res.data.body.code + '&country=' + that.country
+                                                    },500)
+                                                }
+                                            }).catch(error => {
+                                                // 隱藏loading
+                                                that.loadingShow = false
+                                                let errorElement = document.getElementById('card-errors');
+                                                errorElement.textContent = 'Payment failed! Please try again...';
+                                            })
+                                        }
+                                    });
+                                });
+                            })
+
+                        }
+                    }).catch( error => {
+                        // 隱藏loading
+                        that.loadingShow = false
+                        setTimeout(function(){
+                            // that.singleTips(error.response.data.body.message)
+                            that.singleTips('Place the order failed')
+                        },500)
+                    })
+                },
+                //
+                ifIdProduct: function(productId, skuId){
+                    // 所有的productSkus列表
+                    let orAinven = {}
+                    that.productSkus.map((item, index) => {
+                        if(item.productAttributeValue1 == productId && item.productAttributeValue2){
+                            orAinven.orderId = item.id
+                            orAinven.inventory = item.inventory
+                        }
+                    })
+                    return orAinven
+                }
+            },
+            beforeCreate: function (){
+                let that = this
+                
+            },
+            created: function(){
+                let that = this
+                // 赋值地址信息
+                if(that.country == "Malaysia"){
+                    that.singleAreaArray = Malaysia
+                    that.symbol = 'RM'
+                    that.currencyDes = 'MYR'
+                }else if(that.country == "Philippines"){
+                    that.singleAreaArray = Philippines
+                    that.symbol = '₱'
+                    that.currencyDes = 'PHP'
+                }else if(that.country == "Singapore"){
+                    that.singleAreaArray = Singapore
+                    that.symbol = 'S$'
+                    that.currencyDes = 'SGD'
+                }
+                let dataUrl = '';
+                // 、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+                if(that.barcode){
+                    dataUrl = axios.get(singleInfo.websitePrefix() + '/api/single/page/product/bysku/info?barcode='+ that.barcode) 
+                }else if(that.productId){
+                    dataUrl = axios.get(singleInfo.websitePrefix() + '/api/single/page/product/info/'+ that.productId) // 42292 42291 42290 42237
+                }
+                // axios.get(singleInfo.websitePrefix() + '/single/page/product/info/'+ that.productId) // 42292 42291 42290 42237
+                dataUrl.then(function (response) {
+                    const productInfo = response.data.body
+                    // console.log(productInfo);
+                    // 設置banner
+                    that.singleBanner = productInfo.product.productCarouselImages
+                    // 當前商品狀態
+                    that.proStatus = productInfo.product.status
+                    // that.hotProduct = productInfo.product.originalPrice
+                    // 均价
+                    that.averagePrice = productInfo.product.saleStrategyMinPrice || productInfo.product.minPrice
+                    // 划线价
+                    that.originalPrice = productInfo.product.originalPrice || productInfo.product.maxPrice
+                    // 设置上架时间
+                    that.shelfTime = productInfo.product.saleStrategies[0].publish_date
+                    // 封面图片
+                    that.posterImg = productInfo.product.productImageUrl
+                    // 设置视频的封面以及视频地址
+                    // 人氣值和爆款熱銷
+                    // buyCountPro
+
+                    // 视频
+                    if(productInfo.product.singlePageProductVideos.length > 0){
+                        that.singlePageProductVideos = productInfo.product.singlePageProductVideos
+                        // 视频地址
+                        that.videoUrl = productInfo.product.singlePageProductVideos[0].videoUrl
+                        productInfo.product.singlePageProductVideos[0].videoImageUrl != undefined ? that.posterImg = productInfo.product.singlePageProductVideos[0].videoImageUrl : productInfo.product.productImageUrl
+                        //
+                        setTimeout(() => {
+                            document.querySelector('.vjs-big-play-button').style.display = "block"
+                        },1000)
+                    }
+                    that.productSkus = productInfo.product.productSkus
+                    // console.log(that.productSkus)
+                    // 總的商品信息
+                    that.product = {
+                        title: productInfo.product.title,
+                        categories: productInfo.categories[0],
+                        minPrice: productInfo.product.minPrice,
+                        currency: that.currencyDes
+                    }
+                    // 商品詳情
+                    that.productDetail = productInfo.productDetail
+                    // 設置訂單信息主圖
+                    that.orderInfoDetail.productImgUrl = productInfo.product.productImageUrl
+                    // console.log(productInfo.product.productImageUrl)
+                    // 重新生成方案数组
+                    let productPlanA = []
+                    productInfo.product.saleStrategies.map((item, index) =>{
+                        that.productPlan.push({
+                            "id":item.id,
+                            "proNumber": item.quantity,
+                            "allProPrice" : item.total_price,
+                            "avangePriPrice" : item.price,
+                            "proDiscount": item.discount,
+                            "bigDiscount": false,
+                            "isSelect": false
+                        })
+                    })
+                    // console.log(that.productPlan)
+                    // 重新生成規格新數組
+                    let newSpecial = [], cmList = [], cmList2 = []
+                    // productInfo.productAttributes
+                    // 判断数组中是否存在图片
+                    // console.log(productInfo.product.productAttributes)
+                    if(productInfo.product.productAttributes.length > 1){
+                        // 商品屬性有多个的情况
+                        productInfo.product.productAttributes.map((item, index) => {
+                            if(item.productAttributeValues[0].productAttributeImageUrl){
+                                // item.productAttributeValues.skulist =
+                                newSpecial = item.productAttributeValues
+                            }else{
+                                cmList = item.productAttributeValues
+                            }
+                        })
+                        function ifIdProduct(productId, skuId){
+                            // 所有的productSkus列表
+                            let orAinven = {
+                                "orderId": "",
+                                "inventory": 0,
+                                "urlImg": '',
+                                "invenNumber": false
+                            }
+                            that.productSkus.forEach((item, index) => {
+                                if(item.productAttributeValueId1 == productId  && item.productAttributeValueId2 == skuId){
+                                    orAinven.orderId = item.id
+                                    orAinven.inventory = item.inventory
+                                    orAinven.urlImg = item.productImageUrl
+                                    orAinven.invenNumber = item.inventory > 0 ? true : false
+                                }else if(item.productAttributeValueId1 == skuId  && item.productAttributeValueId2 == productId){
+                                    orAinven.orderId = item.id
+                                    orAinven.inventory = item.inventory
+                                    orAinven.urlImg = item.productImageUrl
+                                    orAinven.invenNumber = item.inventory > 0 ? true : false
+                                }
+                            })
+                            return orAinven
+                        }
+                        // /////////
+                        for(var i =0;i<newSpecial.length;i++){
+                            let newArray = [], allInventory = 0;
+                            cmList.map((item, index) => {
+                                // console.log(ifIdProduct(newSpecial[i].id, item.id))
+                                allInventory += ifIdProduct(newSpecial[i].id, item.id).inventory
+                                newArray.push({
+                                    'skuId': item.id,
+                                    'skutype': item.value,
+                                    'skuNumber': 0,
+                                    'orderId': ifIdProduct(newSpecial[i].id, item.id).orderId, // 下單時產品id
+                                    'inventory': ifIdProduct(newSpecial[i].id, item.id).inventory, // 庫存
+                                    'urlImg': ifIdProduct(newSpecial[i].id, item.id).urlImg, //图片地址
+                                    'invenNumber': ifIdProduct(newSpecial[i].id, item.id).invenNumber
+                                })
+                            })
+                            that.speciList.push({
+                                'idIndex': i,
+                                'productId': newSpecial[i].productId ,
+                                'productName' : newSpecial[i].value,
+                                'productImgUrl':  newSpecial[i].productAttributeImageUrl,
+                                'speciSelect': false,
+                                'allNumber' : 0,
+                                'allInventory': allInventory,
+                                'skulist': newArray
+                            })
+                        }
+                        // console.log(that.speciList)
+                        // ///////////////////////////////
+                    }else{
+                        // 商品屬性有1个的情况
+                        productInfo.product.productAttributes.map((item, index) => {
+                            newSpecial = item.productAttributeValues
+                        })
+                        /////////-------------------
+                            function ifIdProduct(skuId){
+                                // 所有的productSkus列表
+                                let orAinven = {
+                                    "orderId": "",
+                                    "inventory": 0,
+                                    "urlImg": ''
+                                }
+
+                                that.productSkus.map((item, index) => {
+                                    if(item.productAttributeValueId1 == skuId){
+                                        orAinven.orderId = item.id
+                                        orAinven.inventory = item.inventory
+                                        orAinven.urlImg = item.productImageUrl
+                                        orAinven.invenNumber = item.inventory > 0 ? true : false
+                                    }
+                                })
+                                // console.log(orAinven)
+                                return orAinven
+                            }
+                        /////////-------------------
+                        newSpecial.map((item) => {
+                            item.skuNumber = 0
+                            item.orderId = ifIdProduct(item.id).orderId, // 下單時產品id
+                            item.inventory = ifIdProduct(item.id).inventory, // 庫存
+                            item.urlImg =  ifIdProduct(item.id).urlImg, //图片地址
+                            item.invenNumber =  ifIdProduct(item.id).invenNumber
+                            cmList2.push(item)
+                        })
+                        that.onespeList = cmList2
+                    }
+                    // console.log(that.product)
+                    // 监测[落地页]
+                    let _fbgaparams = {
+                        content_name:that.product.title,
+                        content_category: that.product.categories,
+                        content_ids: [ parseInt(that.productId) || parseInt(that.productSkus[0].productId) || ''],
+                        content_type: 'product',
+                        value: that.product.minPrice,
+                        currency: that.currencyDes
+                    };
+                    try {
+                        fbq('track', 'ViewContent', _fbgaparams);
+                        gtag('event', 'ViewContent', _fbgaparams);
+                        gtag('event', 'view_item_list', {
+                            "items": [{
+                                "id": [parseInt(that.productId) || parseInt(that.productSkus[0].productId) || ''],
+                                "name": that.product.title,
+                                "quantity": 1,
+                                "price": that.product.minPrice
+                            }]
+                        })
+                    } catch (e) {
+                        console.log(e);
+                    }
+                })
+                .catch(function (error) {
+                    // that.singleTips(error.response.data.body.message)
+                    that.singleTips('Load failed')
+                    window.location.href="/singlePage/singleLanguage/404.html"
+                });
+            },
+            mounted: function (){
+                // 数据加载完成 挂载完成以后触发
+                this.$nextTick(function (){
+                    let that = this
+                    // 省市
+                    // console.log(this.singleAreaArray)
+                    // 滚动页面定位到锚点问题
+                    window.addEventListener('scroll', this.handleScroll)
+                    // console.log(that.$refs.videoUrl)
+                    // window.addEventListener("popstate", function(e) {
+                    //     alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+                    // }, false);
+                    // facebook 和google 检测
+                    // 加載商品檢測 暫時不要
+                    // singleInfo.addMonitor({
+                    //     'eventAims': that.productId,
+                    //     'eventName': 'VIEW',
+                    //     'aimsCategory': 'PRODUCT'
+                    // });
+                    
+
+                })
+            },
+            beforeUpdate: function(){
+                let that =this
+                // console.log(that.$refs.videoUrl)
+                // setTimeout(()=> {
+                //     console.log(that.$refs.videoUrl)
+                // })
+            },
+            updated: function(){
+                let that = this
+                // that.$refs.videoUrl.src = that.videoUrl
+                // console.log(that.$refs.videoUrl.src)
+                if(that.singlePageProductVideos.length > 0){
+                    var videoPlayer = videojs("my-player", {}, function(){
+                    // Player (this) is initialized and ready.
+                        let video_that = this
+                        let oneTime = true;
+                        video_that.on('timeupdate', function() {
+                            that.isPlay = true
+                            if (document.getElementsByClassName('vjs-remaining-time-display')[0].innerHTML != '0:00' && oneTime) { //判断视频真正开始播放 和 重新播放
+                                oneTime =false
+                    　　　　}
+                    　　})
+                        video_that.on('play', function() {
+                            that.isPlay = true
+                            // 隱藏主圖
+                            that.isplayNow = false
+                            document.querySelector('.vjs-big-play-button').style.display = "none"
+                        })
+                        video_that.on('ended', function() {
+                            // 隱藏主圖
+                            that.isplayNow = true
+                        })
+                        // this.on('pause', function() {
+                        // 	app.data.isPlay = false
+                        // })
+                    });
+                }
+                if(that.singleBannerShow == false){
+                    // 禁止更新的時候載入第二次
+                    that.singleBannerShow = true;
+                    let newAutoplay = {
+                        delay: 3000,
+                        stopOnLastSlide: false,
+                        disableOnInteraction: false,
+                    }
+                    let newLoop = that.singlePageProductVideos.length > 0 ? false : true
+                    // 首页轮播图加载
+                    new Swiper('.singleBanner .swiper-container', {
+                        loop: newLoop,
+                        autoplay: that.singlePageProductVideos.length > 0 ? false : newAutoplay,
+                        pagination: {
+                            el: '.singleBanner .swiper-pagination',
+                            type: 'fraction'
+                        },
+                        // preventLinksPropagation: false, //阻止事件冒泡
+                        on: {
+                            slideChangeTransitionStart: function(){
+                                if(that.singlePageProductVideos.length > 0){
+                                    if(that.isPlay){
+                                        if(this.realIndex == 0){
+                                            videoPlayer.play()
+                                        }else{
+                                            videoPlayer.pause()
+                                        }
+                                    }
+                                }
+                            },
+                        }
+                    });
+                }
+                
+                // 视频播放
+                // 倒计时触发 先注释
+                // singleInfo.countDownFunc()
+                // if(that.proStatus == 10){
+                //     singleInfo.countTimeFuncNew(that.shelfTime)
+                // }else{
+                //     singleInfo.countTimeFuncNew("ap")
+                // }
+            }
+        })
+    </script>
+</body>
+</html>
